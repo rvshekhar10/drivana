@@ -98,7 +98,7 @@ export default function RootLayout({
         name: "DRIVANA - Self Drive Car Rental",
         alternateName: "Drivana",
         url: "https://drivana.in",
-        logo: "https://drivana.in/IMG_8609.PNG",
+        logo: "https://drivana.in/drivana-logo-patna.png",
         image: "https://drivana.in/og-image.png",
         description:
           "Premium self-drive car rental service in Patna, Bihar. Rent well-maintained cars without a driver at affordable prices. Book via WhatsApp.",
@@ -225,8 +225,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/IMG_8609.PNG" type="image/png" />
-        <link rel="apple-touch-icon" href="/IMG_8609.PNG" />
+        <link rel="icon" href="/drivana-logo-patna.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/drivana-logo-patna.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#D4AF37" />
         <meta name="geo.region" content="IN-BR" />

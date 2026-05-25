@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Image
-              src="/IMG_8609.PNG"
+              src="/drivana-logo-patna.png"
               alt="DRIVANA Logo"
               width={140}
               height={40}

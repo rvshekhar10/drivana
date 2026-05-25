@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2" aria-label="DRIVANA Home">
             <Image
-              src="/IMG_8609.PNG"
+              src="/drivana-logo-patna.png"
               alt="DRIVANA Logo"
               width={140}
               height={40}

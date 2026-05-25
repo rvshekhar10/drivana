@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What is the security deposit amount?",
     answer:
-      "The security deposit starts from ₹5,000 and varies depending on the vehicle type. It is refundable upon safe return of the vehicle in clean condition. Note: Any damage repairs or extra cleaning charges will be deducted from the deposit. We provide only clean, well-maintained vehicles — please return them in the same condition. Payment can be made via UPI, bank transfer, or cash.",
+      "The security deposit starts from ₹5,000 and varies depending on the vehicle type. It is refundable upon safe return of the vehicle in clean condition. Note: Any damage repairs or extra cleaning charges will be deducted from the deposit. We provide only clean, well-maintained vehicles - please return them in the same condition. Payment can be made via UPI, bank transfer, or cash.",
   },
   {
     question: "Is there a km limit per day?",
