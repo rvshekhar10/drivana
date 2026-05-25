@@ -1,0 +1,21 @@
+{
+  "name": "DRIVANA - Self Drive Car Rental Patna",
+  "short_name": "DRIVANA",
+  "description": "Premium self-drive car rental service in Patna, Bihar. Book via WhatsApp.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "/IMG_8609.PNG",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/IMG_8609.PNG",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
