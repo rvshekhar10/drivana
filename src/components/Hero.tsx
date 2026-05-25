@@ -57,7 +57,7 @@ export default function Hero() {
         >
           Premium self-drive cars starting at just{" "}
           <strong className="text-white">₹1,399/day</strong>. No driver needed,
-          no hassle — just you, the road, and complete freedom. Book instantly
+          no hassle - just you, the road, and complete freedom. Book instantly
           via WhatsApp.
         </motion.p>
 
@@ -75,7 +75,7 @@ export default function Hero() {
             <Star size={14} className="text-gold fill-gold" />
             <Star size={14} className="text-gold fill-gold" />
           </span>
-          <span>Trusted by 150+ happy customers in Patna</span>
+          <span>Rated 4.4 ★ by customers in Patna</span>
         </motion.div>
 
         <motion.div
@@ -106,7 +106,7 @@ export default function Hero() {
           className="mt-14 grid grid-cols-3 gap-4 max-w-md mx-auto"
         >
           <div className="text-center">
-            <p className="text-2xl sm:text-3xl font-bold text-gold">150+</p>
+            <p className="text-2xl sm:text-3xl font-bold text-gold">10+</p>
             <p className="text-xs text-white/40 mt-1">Happy Customers</p>
           </div>
           <div className="text-center">
@@ -114,8 +114,8 @@ export default function Hero() {
             <p className="text-xs text-white/40 mt-1">Cars Available</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl sm:text-3xl font-bold text-gold">24/7</p>
-            <p className="text-xs text-white/40 mt-1">Support</p>
+            <p className="text-2xl sm:text-3xl font-bold text-gold">4.4</p>
+            <p className="text-xs text-white/40 mt-1">Rating</p>
           </div>
         </motion.div>
       </div>

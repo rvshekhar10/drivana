@@ -60,7 +60,7 @@ export default function Testimonials() {
             Trusted by Patna&apos;s Drivers
           </h2>
           <p className="text-white/50 mt-4 max-w-lg mx-auto text-sm sm:text-base">
-            Don&apos;t just take our word for it — hear from our happy customers
+            Don&apos;t just take our word for it - hear from our happy customers
             across Patna.
           </p>
         </motion.div>

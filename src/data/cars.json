@@ -141,7 +141,7 @@
       "rear_camera": "No",
       "keyless_entry": "No"
     },
-    "description": "The Maruti Alto is India's most trusted and fuel-efficient hatchback. Perfect for budget-conscious renters who need a reliable car for city driving in Patna. Extremely easy to drive, park, and maneuver in busy Patna traffic. The lowest rental price in our fleet — ideal for students and daily commuters.",
+    "description": "The Maruti Alto is India's most trusted and fuel-efficient hatchback. Perfect for budget-conscious renters who need a reliable car for city driving in Patna. Extremely easy to drive, park, and maneuver in busy Patna traffic. The lowest rental price in our fleet - ideal for students and daily commuters.",
     "ideal_for": ["Budget rentals", "City driving", "Students", "Daily commute", "Learning drivers"],
     "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"]
   },
@@ -189,7 +189,7 @@
       "rear_camera": "No",
       "keyless_entry": "No"
     },
-    "description": "Our second Maruti Alto — same reliable, fuel-efficient performance. A great backup option when our first Alto is booked. Perfect for budget-friendly self-drive rentals in Patna with the lowest daily rate in the city.",
+    "description": "Our second Maruti Alto - same reliable, fuel-efficient performance. A great backup option when our first Alto is booked. Perfect for budget-friendly self-drive rentals in Patna with the lowest daily rate in the city.",
     "ideal_for": ["Budget rentals", "City driving", "Students", "Daily commute", "Learning drivers"],
     "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"]
   },
@@ -238,7 +238,7 @@
       "rear_camera": "No",
       "keyless_entry": "Yes"
     },
-    "description": "The Ford Freestyle is a rugged crossover with SUV-like ground clearance and hatchback agility. Built for Indian roads, it handles potholes and rough patches with ease. A great choice for outstation trips from Patna where road conditions can vary. Discontinued model — rare and well-maintained.",
+    "description": "The Ford Freestyle is a rugged crossover with SUV-like ground clearance and hatchback agility. Built for Indian roads, it handles potholes and rough patches with ease. A great choice for outstation trips from Patna where road conditions can vary. Discontinued model - rare and well-maintained.",
     "ideal_for": ["Outstation trips", "Rough roads", "Weekend getaways", "Small families"],
     "nearby_destinations": ["Rajgir (102 km)", "Bodh Gaya (115 km)", "Varanasi (250 km)", "Ranchi (325 km)", "Deoghar (280 km)"]
   }

@@ -202,7 +202,7 @@ export default function Footer() {
               DRIVANA is Patna&apos;s leading self-drive car rental service
               offering well-maintained cars without a driver. Whether you need a
               car for a weekend trip to Rajgir, Nalanda, or Bodh Gaya, a wedding
-              event, airport pickup, or daily commute — we have the perfect
+              event, airport pickup, or daily commute - we have the perfect
               vehicle for you. Our fleet includes popular models like Nissan
               Magnite, Tata Tiago, Maruti Alto, and Ford Freestyle available from
               our Bhoothnath Road pickup location. We serve all major areas in

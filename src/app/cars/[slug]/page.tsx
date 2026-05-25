@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `car rental near me patna`,
     ],
     openGraph: {
-      title: `${car.name} on Rent in Patna — ₹${car.price_per_day}/day | DRIVANA`,
+      title: `${car.name} on Rent in Patna - ₹${car.price_per_day}/day | DRIVANA`,
       description,
       url: `https://drivana.in/cars/${car.slug}`,
       images: [{ url: car.image_url, width: 800, height: 500, alt: `${car.name} ${car.model} on rent in Patna` }],
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${car.name} on Rent — ₹${car.price_per_day}/day | DRIVANA Patna`,
+      title: `${car.name} on Rent - ₹${car.price_per_day}/day | DRIVANA Patna`,
       description,
       images: [car.image_url],
     },

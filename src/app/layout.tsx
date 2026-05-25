@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://drivana.in"),
   title: {
     default:
-      "DRIVANA | Self-Drive Car Rental in Patna, Bihar — Book via WhatsApp",
+      "DRIVANA | Self-Drive Car Rental in Patna, Bihar - Book via WhatsApp",
     template: "%s | DRIVANA - Self Drive Car Rental Patna",
   },
   description:
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://drivana.in",
     siteName: "DRIVANA",
-    title: "DRIVANA | Self-Drive Car Rental in Patna — Book via WhatsApp",
+    title: "DRIVANA | Self-Drive Car Rental in Patna - Book via WhatsApp",
     description:
       "Rent self-drive cars in Patna starting ₹1,399/day. Nissan Magnite, Tata Tiago, Alto & more. No driver needed. Book instantly on WhatsApp.",
     images: [
@@ -138,16 +138,16 @@ export default function RootLayout({
             "Saturday",
             "Sunday",
           ],
-          opens: "06:00",
-          closes: "22:00",
+          opens: "09:00",
+          closes: "21:00",
         },
         priceRange: "₹1399 - ₹2198 per day",
         currenciesAccepted: "INR",
         paymentAccepted: "Cash, UPI, Bank Transfer",
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.8",
-          reviewCount: "150",
+          ratingValue: "4.4",
+          reviewCount: "10",
           bestRating: "5",
           worstRating: "1",
         },

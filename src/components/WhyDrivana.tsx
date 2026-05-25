@@ -26,8 +26,8 @@ const features = [
   },
   {
     icon: Headphones,
-    title: "24/7 Support",
-    description: "Roadside assistance and customer support available round the clock.",
+    title: "Dedicated Support",
+    description: "Roadside assistance and customer support available 7 days a week, 9 AM to 9 PM.",
   },
   {
     icon: MapPin,
@@ -58,7 +58,7 @@ export default function WhyDrivana() {
             The Drivana Difference
           </h2>
           <p className="text-white/50 mt-4 max-w-lg mx-auto text-sm sm:text-base">
-            We&apos;re not just a rental service — we&apos;re your trusted travel partner in Patna.
+            We&apos;re not just a rental service - we&apos;re your trusted travel partner in Patna.
           </p>
         </motion.div>
 

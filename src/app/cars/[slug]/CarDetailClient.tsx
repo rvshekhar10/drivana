@@ -568,7 +568,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
         {/* SEO Content Block */}
         <section className="mt-16 pt-8 border-t border-white/[0.06]">
           <h2 className="text-lg font-semibold text-white/70 mb-3">
-            Rent {car.name} in Patna — Self Drive Without Driver
+            Rent {car.name} in Patna - Self Drive Without Driver
           </h2>
           <p className="text-xs text-white/30 leading-relaxed max-w-4xl">
             Looking to rent a {car.name} in Patna without a driver? DRIVANA

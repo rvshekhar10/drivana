@@ -16,7 +16,7 @@ const steps = [
     step: "02",
     title: "Quick Verification",
     description:
-      "Share your driving license and Aadhaar card. No lengthy paperwork — just a quick photo verification.",
+      "Share your driving license and Aadhaar card. No lengthy paperwork - just a quick photo verification.",
   },
   {
     icon: CarFront,

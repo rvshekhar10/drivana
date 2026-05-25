@@ -1,4 +1,4 @@
-# Car Media — Folder Structure
+# Car Media - Folder Structure
 
 Each car gets its own folder. This scales cleanly to 100+ cars across multiple cities.
 

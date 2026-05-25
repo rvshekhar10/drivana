@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "What is the minimum rental duration?",
     answer:
-      "The minimum rental duration is 24 hours. We also offer attractive weekly and monthly packages at discounted rates — perfect for extended trips or temporary needs.",
+      "The minimum rental duration is 24 hours. We also offer attractive weekly and monthly packages at discounted rates - perfect for extended trips or temporary needs.",
   },
   {
     question: "Is fuel included in the rental price?",
@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What is the security deposit amount?",
     answer:
-      "The security deposit varies by car model, typically ranging from ₹5,000 to ₹15,000. It is fully refundable upon safe return of the vehicle. Payment can be made via UPI, bank transfer, or cash.",
+      "The security deposit varies by car model, typically ranging from ₹3,000 to ₹5,000. It is fully refundable upon safe return of the vehicle. Payment can be made via UPI, bank transfer, or cash.",
   },
   {
     question: "Is there a km limit per day?",
@@ -48,7 +48,7 @@ const faqs = [
   {
     question: "What is the cancellation policy?",
     answer:
-      "Free cancellation up to 24 hours before the pickup time. Cancellations within 24 hours may attract a nominal fee. We understand plans change — reach out to us on WhatsApp and we'll work it out.",
+      "Free cancellation up to 24 hours before the pickup time. Cancellations within 24 hours may attract a nominal fee. We understand plans change - reach out to us on WhatsApp and we'll work it out.",
   },
 ];
 
