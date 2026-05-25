@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "What documents do I need to rent a self-drive car in Patna?",
     answer:
-      "You need a valid driving license, Aadhaar card (or any government-issued ID proof), and a refundable security deposit. The verification process is quick and can be done via WhatsApp itself.",
+      "You need a valid driving license, Aadhaar card (or any government-issued ID proof), and a security deposit starting from ₹5,000. The verification process is quick and can be done via WhatsApp itself.",
   },
   {
     question: "What is the minimum rental duration?",
@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What is the security deposit amount?",
     answer:
-      "The security deposit varies by car model, typically ranging from ₹3,000 to ₹5,000. It is fully refundable upon safe return of the vehicle. Payment can be made via UPI, bank transfer, or cash.",
+      "The security deposit starts from ₹5,000 and varies depending on the vehicle type. It is refundable upon safe return of the vehicle in clean condition. Note: Any damage repairs or extra cleaning charges will be deducted from the deposit. We provide only clean, well-maintained vehicles — please return them in the same condition. Payment can be made via UPI, bank transfer, or cash.",
   },
   {
     question: "Is there a km limit per day?",

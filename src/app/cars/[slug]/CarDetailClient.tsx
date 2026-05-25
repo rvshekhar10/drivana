@@ -395,16 +395,21 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                 </div>
 
                 {/* Deposit */}
-                <div className="flex items-center justify-between p-3 rounded-xl border border-white/[0.06] mb-5">
-                  <div className="flex items-center gap-2">
-                    <Shield size={14} className="text-white/40" />
-                    <span className="text-sm text-white/60">
-                      Security Deposit
+                <div className="p-3 rounded-xl border border-white/[0.06] mb-5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Shield size={14} className="text-white/40" />
+                      <span className="text-sm text-white/60">
+                        Security Deposit
+                      </span>
+                    </div>
+                    <span className="text-sm font-semibold text-white">
+                      ₹{car.deposit.toLocaleString()} onwards
                     </span>
                   </div>
-                  <span className="text-sm font-semibold text-white">
-                    ₹{car.deposit.toLocaleString()}
-                  </span>
+                  <p className="text-xs text-white/30 mt-2 leading-relaxed">
+                    Damage repairs & cleaning charges (if any) will be deducted. We provide only clean vehicles.
+                  </p>
                 </div>
 
                 {/* CTA Buttons */}
@@ -424,7 +429,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                 </a>
 
                 <p className="text-xs text-white/30 text-center mt-4">
-                  Pay at pickup • No advance payment required
+                  Pay at pickup • Deposit starting ₹5,000 • Clean car guaranteed
                 </p>
               </motion.div>
 
@@ -478,19 +483,19 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                   <li className="flex items-center gap-3">
                     <CheckCircle2 size={14} className="text-gold shrink-0" />
                     <span className="text-sm text-white/60">
-                      No hidden charges
+                      Transparent pricing, no hidden charges
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle2 size={14} className="text-gold shrink-0" />
                     <span className="text-sm text-white/60">
-                      24/7 roadside assistance
+                      Clean cars guaranteed every time
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle2 size={14} className="text-gold shrink-0" />
                     <span className="text-sm text-white/60">
-                      Sanitized & well-maintained
+                      Security deposit from ₹5,000
                     </span>
                   </li>
                   <li className="flex items-center gap-3">

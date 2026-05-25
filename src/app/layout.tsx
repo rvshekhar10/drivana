@@ -174,7 +174,7 @@ export default function RootLayout({
             name: "What documents do I need to rent a self-drive car in Patna?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "You need a valid driving license, Aadhaar card (or any government ID), and a security deposit. The process is quick and hassle-free.",
+              text: "You need a valid driving license, Aadhaar card (or any government ID), and a security deposit starting from ₹5,000. The process is quick and hassle-free.",
             },
           },
           {

@@ -105,7 +105,7 @@ export default function CarCard({ car, index }: CarCardProps) {
               )}
             </div>
             <p className="text-white/30 text-xs mt-1">
-              Deposit: ₹{car.deposit.toLocaleString()} (refundable)
+              Deposit: ₹{car.deposit.toLocaleString()} onwards
             </p>
           </div>
 
