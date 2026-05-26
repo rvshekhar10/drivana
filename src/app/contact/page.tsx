@@ -5,7 +5,7 @@ import CTABanner from "@/components/CTABanner";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export const metadata: Metadata = {
-  title: "Contact Us | DRIVANA Self-Drive Car Rental Patna — WhatsApp & Call",
+  title: "Contact Us | DRIVANA Self-Drive Car Rental Patna - WhatsApp & Call",
   description:
     "Contact DRIVANA for self-drive car rental in Patna. WhatsApp +91 82526 58488, email hello@drivana.in. Located at Bhoothnath Road, Patna. Open 9 AM - 9 PM, 7 days a week.",
   keywords: [
@@ -95,7 +95,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg text-white/70 mb-10">
-            Have a question or ready to book? Reach out to us — we respond fast
+            Have a question or ready to book? Reach out to us - we respond fast
             on WhatsApp.
           </p>
 
@@ -234,7 +234,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-white font-medium">Business Hours</p>
                       <p className="text-white/70">
-                        9:00 AM — 9:00 PM, 7 days a week
+                        9:00 AM - 9:00 PM, 7 days a week
                       </p>
                     </div>
                   </div>

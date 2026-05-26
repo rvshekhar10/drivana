@@ -55,7 +55,7 @@ export default function RefundPage() {
           </h1>
           <p className="text-white/70 mb-10">
             We believe in transparency. Here&apos;s exactly how refunds work at
-            DRIVANA — no surprises, no hidden deductions.
+            DRIVANA - no surprises, no hidden deductions.
           </p>
 
           {/* Security Deposit Refund */}
@@ -113,7 +113,7 @@ export default function RefundPage() {
             </li>
             <li>
               <strong className="text-white">Interior damage:</strong> Stains,
-              burns, or tears — cleaning or repair cost.
+              burns, or tears - cleaning or repair cost.
             </li>
             <li>
               <strong className="text-white">Excessive cleaning required:</strong>{" "}
@@ -150,7 +150,7 @@ export default function RefundPage() {
                 <tr className="border-b border-white/10">
                   <td className="py-3 pr-4">24+ hours before pickup</td>
                   <td className="py-3">
-                    <span className="text-green-400">Full refund</span> — no
+                    <span className="text-green-400">Full refund</span> - no
                     cancellation fee
                   </td>
                 </tr>
@@ -163,7 +163,7 @@ export default function RefundPage() {
                 <tr className="border-b border-white/10">
                   <td className="py-3 pr-4">Less than 12 hours / No-show</td>
                   <td className="py-3">
-                    Full day&apos;s rental charged — no refund on rental amount
+                    Full day&apos;s rental charged - no refund on rental amount
                   </td>
                 </tr>
               </tbody>

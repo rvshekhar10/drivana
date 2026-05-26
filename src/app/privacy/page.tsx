@@ -5,7 +5,7 @@ import CTABanner from "@/components/CTABanner";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | DRIVANA — Self-Drive Car Rental Patna",
+  title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
   description:
     "DRIVANA's privacy policy explains how we collect, use, and protect your personal data including driving license, Aadhaar, and contact information for self-drive car rental verification in Patna.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "drivana personal data",
   ],
   openGraph: {
-    title: "Privacy Policy | DRIVANA — Self-Drive Car Rental Patna",
+    title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
     description:
       "How DRIVANA collects, uses, and protects your personal data for self-drive car rental verification.",
     url: "https://drivana.in/privacy",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy | DRIVANA — Self-Drive Car Rental Patna",
+    title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
     description:
       "How DRIVANA handles your personal data. No data sold to third parties.",
     images: ["/og-image.png"],
@@ -67,23 +67,23 @@ export default function PrivacyPage() {
           </p>
           <ul className="list-disc list-inside text-white/70 space-y-2 mb-8 ml-2">
             <li>
-              <strong className="text-white">Full Name</strong> — to identify
+              <strong className="text-white">Full Name</strong> - to identify
               you and create your rental record.
             </li>
             <li>
-              <strong className="text-white">Phone Number</strong> — for
+              <strong className="text-white">Phone Number</strong> - for
               communication regarding your booking via WhatsApp and calls.
             </li>
             <li>
-              <strong className="text-white">Driving License</strong> — to
+              <strong className="text-white">Driving License</strong> - to
               verify that you hold a valid license to drive the rented vehicle.
             </li>
             <li>
               <strong className="text-white">Aadhaar Card / Government ID</strong>{" "}
-              — for identity verification as required for vehicle handover.
+              - for identity verification as required for vehicle handover.
             </li>
             <li>
-              <strong className="text-white">Pickup/Drop Location</strong> — to
+              <strong className="text-white">Pickup/Drop Location</strong> - to
               arrange delivery and return of the vehicle.
             </li>
           </ul>
@@ -116,7 +116,7 @@ export default function PrivacyPage() {
             DRIVANA primarily communicates via WhatsApp for bookings,
             confirmations, and support. By initiating a conversation with us on
             WhatsApp, you consent to receiving messages related to your rental.
-            We do not use automated bots — all conversations are handled by our
+            We do not use automated bots - all conversations are handled by our
             team.
           </p>
 

@@ -44,7 +44,7 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <div className="flex items-center justify-between h-18 sm:h-20">
-          {/* Logo — bigger and more prominent */}
+          {/* Logo - bigger and more prominent */}
           <a href="/" className="flex items-center gap-2" aria-label="DRIVANA Home">
             <Image
               src="/drivana-logo-patna.png"

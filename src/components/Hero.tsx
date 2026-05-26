@@ -20,7 +20,7 @@ export default function Hero() {
         quality={85}
       />
 
-      {/* Overlay — lighter so image is more visible */}
+      {/* Overlay - lighter so image is more visible */}
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Gradient overlays for depth */}
@@ -36,7 +36,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Cars Available Now — Book Today
+            Cars Available Now - Book Today
           </span>
         </motion.div>
 
@@ -58,10 +58,10 @@ export default function Hero() {
           className="mt-5 text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed"
         >
           No driver needed. Pick up from <strong className="text-white">Bhoothnath Road, Patna</strong>.
-          Drive anywhere — Rajgir, Bodh Gaya, Varanasi & more.
+          Drive anywhere - Rajgir, Bodh Gaya, Varanasi & more.
         </motion.p>
 
-        {/* Trust strip — Indian consumers need reassurance */}
+        {/* Trust strip - Indian consumers need reassurance */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* CTA Buttons — bigger, bolder, more urgency */}
+        {/* CTA Buttons - bigger, bolder, more urgency */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Social proof counter — reframed for credibility */}
+        {/* Social proof counter - reframed for credibility */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

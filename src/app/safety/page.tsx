@@ -100,7 +100,7 @@ export default function SafetyPage() {
                   schedules.
                 </li>
                 <li>
-                  Cars are sanitized and deep-cleaned between every rental —
+                  Cars are sanitized and deep-cleaned between every rental -
                   seats, steering, dashboard, and door handles.
                 </li>
                 <li>
@@ -158,7 +158,7 @@ export default function SafetyPage() {
             <ul className="list-disc list-inside text-white/70 space-y-2 ml-2 mb-3">
               <li>
                 <strong className="text-white">Within Patna city limits:</strong>{" "}
-                Our team reaches you physically for any mechanical issue — flat
+                Our team reaches you physically for any mechanical issue - flat
                 tyre, battery dead, engine trouble.
               </li>
               <li>
@@ -184,8 +184,8 @@ export default function SafetyPage() {
             </h2>
             <div className="bg-white/5 border border-white/10 rounded-lg p-6">
               <p className="text-white/70 mb-4">
-                If you face any emergency during your rental — breakdown,
-                accident, or safety concern — contact us immediately:
+                If you face any emergency during your rental - breakdown,
+                accident, or safety concern - contact us immediately:
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -234,7 +234,7 @@ export default function SafetyPage() {
               Vehicle Inspection Protocol
             </h2>
             <p className="text-white/70 mb-3">
-              Every rental includes a thorough inspection — before and after:
+              Every rental includes a thorough inspection - before and after:
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="border-l-4 border-gold pl-4 py-2">
@@ -272,14 +272,14 @@ export default function SafetyPage() {
                 off.
               </li>
               <li>
-                Keep our emergency number saved — call us first if anything feels
+                Keep our emergency number saved - call us first if anything feels
                 off with the car.
               </li>
               <li>
                 Avoid driving in waterlogged areas during monsoon season.
               </li>
               <li>
-                If you&apos;re new to Patna, use Google Maps — some roads can be
+                If you&apos;re new to Patna, use Google Maps - some roads can be
                 narrow and busy.
               </li>
               <li>
