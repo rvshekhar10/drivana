@@ -84,7 +84,7 @@ export default function FleetClient() {
             className="mt-4 text-white/60 text-base sm:text-lg max-w-lg mx-auto"
           >
             {carsData.length} cars available from ₹1,399/day. All pickup from
-            Bhoothnath Road, Patna.
+            Bhootnath Road, Patna.
           </motion.p>
         </div>
       </section>
@@ -383,7 +383,7 @@ export default function FleetClient() {
             Tiago (2025 model hatchback, 1199cc), Maruti Alto (budget-friendly,
             796cc), and Ford Freestyle (crossover, 1498cc). All cars are
             available for daily, weekly, and monthly rentals with 15% off on
-            weekly and 20% off on monthly bookings. Pickup from Bhoothnath Road,
+            weekly and 20% off on monthly bookings. Pickup from Bhootnath Road,
             Patna with free doorstep delivery within city limits. Whether
             you&apos;re visiting from Delhi, Mumbai, or Bangalore - we have the
             perfect self-drive car for your Patna trip.

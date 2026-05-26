@@ -89,10 +89,10 @@ export default async function CarDetailPage({ params }: Props) {
         name: "DRIVANA",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Bhoothnath Road",
+          streetAddress: "Bhootnath Road",
           addressLocality: "Patna",
           addressRegion: "Bihar",
-          postalCode: "800001",
+          postalCode: "800026",
           addressCountry: "IN",
         },
       },

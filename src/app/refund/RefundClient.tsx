@@ -405,7 +405,7 @@ export default function RefundClient() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="https://wa.me/918252658488?text=Hi!%20I%20have%20a%20question%20about%20a%20deduction%20from%20my%20deposit."
+                href="https://wa.me/919205548488?text=Hi!%20I%20have%20a%20question%20about%20a%20deduction%20from%20my%20deposit."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 text-green-400 font-medium px-5 py-3 rounded-xl text-sm transition-all"
@@ -414,11 +414,11 @@ export default function RefundClient() {
                 Raise on WhatsApp
               </a>
               <a
-                href="mailto:hello@drivana.in?subject=Deposit%20Deduction%20Query"
+                href="mailto:drivanaofficial@gmail.com?subject=Deposit%20Deduction%20Query"
                 className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 font-medium px-5 py-3 rounded-xl text-sm transition-all"
               >
                 <ArrowRight size={14} />
-                Email: hello@drivana.in
+                Email: drivanaofficial@gmail.com
               </a>
             </div>
           </motion.div>

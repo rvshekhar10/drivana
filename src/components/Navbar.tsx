@@ -6,7 +6,7 @@ import { MessageCircle, Menu, X, Phone, ChevronDown, Car, Shield, HelpCircle, Ma
 import Image from "next/image";
 import Link from "next/link";
 
-const WHATSAPP_NUMBER = "918252658488";
+const WHATSAPP_NUMBER = "919205548488";
 
 const navLinks = [
   {
@@ -166,11 +166,11 @@ export default function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:+918252658488"
+              href="tel:+917079138350"
               className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
             >
               <Phone size={14} className="text-gold" />
-              <span>82526 58488</span>
+              <span>70791 38350</span>
             </a>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
@@ -292,11 +292,11 @@ export default function Navbar() {
                   Book on WhatsApp
                 </a>
                 <a
-                  href="tel:+918252658488"
+                  href="tel:+917079138350"
                   className="flex items-center justify-center gap-2 border border-white/20 text-white/80 font-medium py-3.5 rounded-xl text-sm transition-all w-full hover:border-gold/50"
                 >
                   <Phone size={16} className="text-gold" />
-                  Call +91 82526 58488
+                  Call +91 70791 38350
                 </a>
               </div>
 
@@ -304,7 +304,7 @@ export default function Navbar() {
               <div className="mt-8 flex items-center gap-2 px-4">
                 <MapPin size={14} className="text-gold/50" />
                 <span className="text-white/30 text-xs">
-                  Bhoothnath Road, Patna • 9 AM – 9 PM
+                  Bhootnath Road, Patna • 9 AM – 9 PM
                 </span>
               </div>
             </motion.div>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | DRIVANA - Self Drive Car Rental Patna",
   },
   description:
-    "Rent self-drive cars in Patna starting ₹1,399/day. Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle. No driver needed. Doorstep delivery at Bhoothnath Road. 15% off weekly, 20% off monthly. Book instantly on WhatsApp +91 82526 58488.",
+    "Rent self-drive cars in Patna starting ₹1,399/day. Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle. No driver needed. Doorstep delivery at Bhootnath Road. 15% off weekly, 20% off monthly. Book instantly on WhatsApp +91 70791 38350.",
   keywords: [
     "self drive car rental patna",
     "car rental patna",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Self-Drive Car Rental in Patna | ₹1,399/day - DRIVANA",
     description:
-      "Rent self-drive cars in Patna. No driver needed. Book on WhatsApp +91 82526 58488.",
+      "Rent self-drive cars in Patna. No driver needed. Book on WhatsApp +91 70791 38350.",
     images: ["/drivana-hero-image.avif"],
   },
   alternates: {
@@ -130,14 +130,14 @@ export default function RootLayout({
         ],
         description:
           "DRIVANA is Patna's premium self-drive car rental platform. Rent well-maintained Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle without a driver. Starting ₹1,399/day with doorstep delivery. Book via WhatsApp.",
-        telephone: "+91-8252658488",
-        email: "hello@drivana.in",
+        telephone: "+91-7079138350",
+        email: "drivanaofficial@gmail.com",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Bhoothnath Road",
+          streetAddress: "162, MIG - Bhootnath Road, Near Global Public School",
           addressLocality: "Patna",
           addressRegion: "Bihar",
-          postalCode: "800001",
+          postalCode: "800026",
           addressCountry: "IN",
         },
         geo: {

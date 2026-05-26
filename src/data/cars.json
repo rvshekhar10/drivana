@@ -24,7 +24,7 @@
     "deposit": 5000,
     "rating": 4.5,
     "review_count": 8,
-    "pickup_location": "Bhoothnath Road, Patna",
+    "pickup_location": "Bhootnath Road, Patna",
     "category": "SUV",
     "specs": {
       "brand": "Nissan",
@@ -84,7 +84,7 @@
     "deposit": 5000,
     "rating": 5.0,
     "review_count": 2,
-    "pickup_location": "Bhoothnath Road, Patna",
+    "pickup_location": "Bhootnath Road, Patna",
     "category": "Hatchback",
     "specs": {
       "brand": "Tata",
@@ -143,7 +143,7 @@
     "deposit": 3000,
     "rating": 5.0,
     "review_count": 0,
-    "pickup_location": "Bhoothnath Road, Patna",
+    "pickup_location": "Bhootnath Road, Patna",
     "category": "Hatchback",
     "specs": {
       "brand": "Maruti Suzuki",
@@ -201,7 +201,7 @@
     "deposit": 3000,
     "rating": 5.0,
     "review_count": 0,
-    "pickup_location": "Bhoothnath Road, Patna",
+    "pickup_location": "Bhootnath Road, Patna",
     "category": "Hatchback",
     "specs": {
       "brand": "Maruti Suzuki",
@@ -261,7 +261,7 @@
     "deposit": 5000,
     "rating": 5.0,
     "review_count": 0,
-    "pickup_location": "Bhoothnath Road, Patna",
+    "pickup_location": "Bhootnath Road, Patna",
     "category": "Crossover",
     "specs": {
       "brand": "Ford",

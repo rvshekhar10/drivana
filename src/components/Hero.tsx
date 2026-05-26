@@ -57,7 +57,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mt-5 text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed"
         >
-          No driver needed. Pick up from <strong className="text-white">Bhoothnath Road, Patna</strong>.
+          No driver needed. Pick up from <strong className="text-white">Bhootnath Road, Patna</strong>.
           Drive anywhere - Rajgir, Bodh Gaya, Varanasi & more.
         </motion.p>
 
@@ -100,7 +100,7 @@ export default function Hero() {
             View Cars & Prices
           </a>
           <a
-            href="https://wa.me/918252658488?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna."
+            href="https://wa.me/919205548488?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold px-10 py-4 rounded-full text-base transition-all duration-200 hover:scale-105 shadow-[0_4px_20px_rgba(37,211,102,0.3)]"

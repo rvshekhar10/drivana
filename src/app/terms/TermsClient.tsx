@@ -312,7 +312,7 @@ export default function TermsClient() {
             Have questions about any of these terms?
           </p>
           <a
-            href="https://wa.me/918252658488?text=Hi!%20I%20have%20a%20question%20about%20your%20rental%20terms."
+            href="https://wa.me/919205548488?text=Hi!%20I%20have%20a%20question%20about%20your%20rental%20terms."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 text-white/80 hover:text-gold font-medium px-6 py-3 rounded-full text-sm transition-all duration-200"

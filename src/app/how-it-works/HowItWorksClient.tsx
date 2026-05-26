@@ -30,7 +30,7 @@ const steps = [
     title: "Message Us on WhatsApp",
     subtitle: "Takes 2 minutes",
     description:
-      "Send a message to +91 82526 58488 with your preferred car, rental dates, and pickup location. We respond within minutes - no app downloads, no sign-ups.",
+      "Send a message to +91 70791 38350 with your preferred car, rental dates, and pickup location. We respond within minutes - no app downloads, no sign-ups.",
     details: [
       "Choose your car: Magnite, Tiago, Alto, or Freestyle",
       "Tell us your dates and times",
@@ -64,7 +64,7 @@ const steps = [
     title: "Get Your Car",
     subtitle: "Same day possible",
     description:
-      "Pick up from Bhoothnath Road, Patna - or we deliver to your doorstep for free within city limits. We walk you through the car and hand over the keys.",
+      "Pick up from Bhootnath Road, Patna - or we deliver to your doorstep for free within city limits. We walk you through the car and hand over the keys.",
     details: [
       "Free doorstep delivery within Patna city",
       "Car walkthrough & existing damage documentation",
@@ -377,7 +377,7 @@ export default function HowItWorksClient() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://wa.me/918252658488?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.%20Please%20share%20availability."
+              href="https://wa.me/919205548488?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.%20Please%20share%20availability."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-200 hover:scale-105 shadow-[0_4px_20px_rgba(37,211,102,0.3)]"

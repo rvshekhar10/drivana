@@ -4,7 +4,7 @@ import ContactClient from "./ContactClient";
 export const metadata: Metadata = {
   title: "Contact Us | DRIVANA Self-Drive Car Rental Patna - WhatsApp & Call",
   description:
-    "Contact DRIVANA for self-drive car rental in Patna. WhatsApp +91 82526 58488, email hello@drivana.in. Located at Bhoothnath Road, Patna. Open 9 AM - 9 PM, 7 days a week.",
+    "Contact DRIVANA for self-drive car rental in Patna. WhatsApp +91 92055 48488, call +91 70791 38350, email drivanaofficial@gmail.com. Located at Bhootnath Road, Patna. Open 9 AM - 9 PM, 7 days a week.",
   keywords: [
     "drivana contact",
     "drivana phone number",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | DRIVANA Self-Drive Car Rental Patna",
     description:
-      "Reach DRIVANA on WhatsApp, call, or email. Bhoothnath Road, Patna. Open 9 AM - 9 PM daily.",
+      "Reach DRIVANA on WhatsApp, call, or email. Bhootnath Road, Patna. Open 9 AM - 9 PM daily.",
     url: "https://drivana.in/contact",
     type: "website",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Us | DRIVANA Self-Drive Car Rental Patna",
     description:
-      "WhatsApp +91 82526 58488 | Bhoothnath Road, Patna | Open 9 AM - 9 PM daily.",
+      "WhatsApp +91 92055 48488 | Bhootnath Road, Patna | Open 9 AM - 9 PM daily.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -51,14 +51,14 @@ export default function ContactPage() {
     mainEntity: {
       "@type": "AutoRental",
       name: "DRIVANA - Self Drive Car Rental",
-      telephone: "+91-8252658488",
-      email: "hello@drivana.in",
+      telephone: "+91-7079138350",
+      email: "drivanaofficial@gmail.com",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Bhoothnath Road",
+        streetAddress: "162, MIG - Bhootnath Road, Near Global Public School",
         addressLocality: "Patna",
         addressRegion: "Bihar",
-        postalCode: "800001",
+        postalCode: "800026",
         addressCountry: "IN",
       },
       openingHoursSpecification: {

@@ -108,7 +108,7 @@ export default function Destinations() {
           className="text-center text-xs text-white/30 mt-8"
         >
           <MapPin size={12} className="inline mr-1" />
-          All trips start from Bhoothnath Road, Patna. Inform us about
+          All trips start from Bhootnath Road, Patna. Inform us about
           outstation plans while booking.
         </motion.p>
       </div>

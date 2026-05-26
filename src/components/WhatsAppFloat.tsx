@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "918252658488";
+const WHATSAPP_NUMBER = "919205548488";
 
 export default function WhatsAppFloat() {
   return (

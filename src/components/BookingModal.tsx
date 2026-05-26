@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle, Calendar, User, Phone } from "lucide-react";
 
-const WHATSAPP_NUMBER = "918252658488";
+const WHATSAPP_NUMBER = "919205548488";
 
 interface BookingModalProps {
   isOpen: boolean;

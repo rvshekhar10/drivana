@@ -24,7 +24,7 @@ import CarGallery, { MediaItem } from "@/components/CarGallery";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 
-const WHATSAPP_NUMBER = "918252658488";
+const WHATSAPP_NUMBER = "919205548488";
 
 interface CarSpecs {
   brand: string;
@@ -454,7 +454,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                   Book on WhatsApp
                 </button>
                 <a
-                  href="tel:+918252658488"
+                  href="tel:+917079138350"
                   className="w-full inline-flex items-center justify-center gap-2 border border-white/20 hover:border-gold/50 text-white/80 hover:text-white font-medium py-3 rounded-xl text-sm transition-all duration-200 mt-3"
                 >
                   <Phone size={16} />
@@ -486,7 +486,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Drivana pickup location - Bhoothnath Road, Patna"
+                    title="Drivana pickup location - Bhootnath Road, Patna"
                   />
                 </div>
                 <div className="flex items-start gap-3">
@@ -620,7 +620,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
             WhatsApp for instant confirmation. Available for outstation trips to
             Rajgir, Nalanda, Bodh Gaya, Varanasi, and more. Serving all areas of
             Patna including Boring Road, Kankarbagh, Bailey Road, Patliputra,
-            Danapur, and Bhoothnath Road.
+            Danapur, and Bhootnath Road.
           </p>
         </section>
       </div>

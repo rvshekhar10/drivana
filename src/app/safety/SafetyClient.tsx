@@ -284,13 +284,13 @@ export default function SafetyClient() {
                     Emergency Line
                   </p>
                   <a
-                    href="tel:+918252658488"
+                    href="tel:+917079138350"
                     className="block text-2xl font-bold text-white hover:text-gold transition-colors mb-4"
                   >
-                    82526 58488
+                    70791 38350
                   </a>
                   <a
-                    href="https://wa.me/918252658488?text=EMERGENCY:%20I%20need%20help%20with%20my%20rental%20car"
+                    href="https://wa.me/919205548488?text=EMERGENCY:%20I%20need%20help%20with%20my%20rental%20car"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-5 py-3 rounded-xl text-sm transition-all w-full justify-center"

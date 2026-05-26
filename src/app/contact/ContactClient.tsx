@@ -21,8 +21,8 @@ const contactMethods = [
     icon: MessageCircle,
     title: "WhatsApp",
     subtitle: "Fastest response",
-    value: "+91 82526 58488",
-    href: "https://wa.me/918252658488?text=Hi%20DRIVANA!%20I%20have%20a%20question.",
+    value: "+91 92055 48488",
+    href: "https://wa.me/919205548488?text=Hi%20DRIVANA!%20I%20have%20a%20question.",
     cta: "Message Now",
     color: "from-green-500/20 to-green-500/5",
     borderColor: "border-green-500/30",
@@ -35,8 +35,8 @@ const contactMethods = [
     icon: Phone,
     title: "Call Us",
     subtitle: "Talk to a human",
-    value: "+91 82526 58488",
-    href: "tel:+918252658488",
+    value: "+91 70791 38350",
+    href: "tel:+917079138350",
     cta: "Call Now",
     color: "from-gold/20 to-gold/5",
     borderColor: "border-gold/30",
@@ -49,8 +49,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     subtitle: "For detailed queries",
-    value: "hello@drivana.in",
-    href: "mailto:hello@drivana.in",
+    value: "drivanaofficial@gmail.com",
+    href: "mailto:drivanaofficial@gmail.com",
     cta: "Send Email",
     color: "from-blue-500/20 to-blue-500/5",
     borderColor: "border-blue-500/30",
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     q: "Can I visit your office?",
-    a: "Yes! We're at Bhoothnath Road, Patna. Open 9 AM – 9 PM, 7 days a week.",
+    a: "Yes! We're at Bhootnath Road, Patna. Open 9 AM – 9 PM, 7 days a week.",
   },
   {
     q: "Do you offer doorstep delivery?",
@@ -225,7 +225,7 @@ export default function ContactClient() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="DRIVANA Location - Bhoothnath Road, Patna"
+                title="DRIVANA Location - Bhootnath Road, Patna"
                 className="w-full h-full"
               />
             </div>
@@ -245,9 +245,9 @@ export default function ContactClient() {
                     <div>
                       <p className="text-white font-medium text-sm">Address</p>
                       <p className="text-white/60 text-sm mt-0.5">
-                        Bhoothnath Road, Patna,
+                        Bhootnath Road, Patna,
                         <br />
-                        Bihar 800001, India
+                        Bihar 800026, India
                       </p>
                     </div>
                   </div>
@@ -352,7 +352,7 @@ export default function ContactClient() {
               {/* WhatsApp CTA */}
               <div className="md:w-56 shrink-0 text-center">
                 <a
-                  href="https://wa.me/918252658488?text=Hi%20DRIVANA!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.%0A%0ACar:%20%0ADates:%20%0APickup:%20"
+                  href="https://wa.me/919205548488?text=Hi%20DRIVANA!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.%0A%0ACar:%20%0ADates:%20%0APickup:%20"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-200 hover:scale-105 shadow-[0_4px_20px_rgba(37,211,102,0.3)]"

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 
-const WHATSAPP_NUMBER = "918252658488";
+const WHATSAPP_NUMBER = "919205548488";
 
 export default function CTABanner() {
   return (
@@ -50,7 +50,7 @@ export default function CTABanner() {
             Book on WhatsApp Now
           </a>
           <a
-            href="tel:+918252658488"
+            href="tel:+917079138350"
             className="inline-flex items-center gap-2 border border-white/20 hover:border-gold/50 text-white/80 hover:text-white font-medium px-8 py-4 rounded-full text-sm sm:text-base transition-all duration-200"
           >
             <Phone size={18} />

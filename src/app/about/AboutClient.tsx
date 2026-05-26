@@ -42,7 +42,7 @@ const timeline = [
     year: "The Launch",
     title: "DRIVANA Goes Live",
     description:
-      "We started with a small fleet on Bhoothnath Road. Word spread. Visitors loved the freedom. Locals loved the convenience. The reviews started pouring in.",
+      "We started with a small fleet on Bhootnath Road. Word spread. Visitors loved the freedom. Locals loved the convenience. The reviews started pouring in.",
   },
   {
     year: "Today",
@@ -379,7 +379,7 @@ export default function AboutClient() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="DRIVANA Location - Bhoothnath Road, Patna"
+                title="DRIVANA Location - Bhootnath Road, Patna"
               />
             </div>
 
@@ -389,7 +389,7 @@ export default function AboutClient() {
                 Find Us
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold mt-2 mb-4">
-                Bhoothnath Road, Patna
+                Bhootnath Road, Patna
               </h2>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
                 Our pickup location is centrally located and easily accessible
@@ -401,16 +401,16 @@ export default function AboutClient() {
                 <div className="flex items-center gap-3">
                   <MapPin size={16} className="text-gold" />
                   <span className="text-white/70 text-sm">
-                    Bhoothnath Road, Patna, Bihar 800001
+                    162, MIG - Bhootnath Road, Near Global Public School, Patna, Bihar 800026
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={16} className="text-gold" />
                   <a
-                    href="tel:+918252658488"
+                    href="tel:+917079138350"
                     className="text-white/70 text-sm hover:text-gold transition-colors"
                   >
-                    +91 82526 58488
+                    +91 70791 38350
                   </a>
                 </div>
                 <div className="flex items-center gap-3">

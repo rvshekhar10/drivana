@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Camera, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
-const WHATSAPP_NUMBER = "918252658488";
+const WHATSAPP_NUMBER = "919205548488";
 
 export default function Footer() {
   return (
@@ -164,25 +164,25 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-gold/70 mt-0.5 shrink-0" />
                 <span className="text-sm text-white/40">
-                  Patna, Bihar 800001, India
+                  Patna, Bihar 800026, India
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-gold/70 shrink-0" />
                 <a
-                  href="tel:+918252658488"
+                  href="tel:+917079138350"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
-                  +91 82526 58488
+                  +91 70791 38350
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-gold/70 shrink-0" />
                 <a
-                  href="mailto:hello@drivana.in"
+                  href="mailto:drivanaofficial@gmail.com"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
-                  hello@drivana.in
+                  drivanaofficial@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -213,7 +213,7 @@ export default function Footer() {
               event, airport pickup, or daily commute - we have the perfect
               vehicle for you. Our fleet includes popular models like Nissan
               Magnite, Tata Tiago, Maruti Alto, and Ford Freestyle available from
-              our Bhoothnath Road pickup location. We serve all major areas in
+              our Bhootnath Road pickup location. We serve all major areas in
               Patna including Boring Road, Kankarbagh, Bailey Road, Patliputra
               Colony, Danapur, Phulwari Sharif, and Rajendra Nagar. Prices start
               at just ₹1,399/day with discounts up to 33% off. Book your

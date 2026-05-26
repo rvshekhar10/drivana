@@ -517,24 +517,24 @@ export default function PrivacyClient() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://wa.me/918252658488?text=Hi!%20I%20have%20a%20privacy-related%20question."
+              href="https://wa.me/919205548488?text=Hi!%20I%20have%20a%20privacy-related%20question."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/30 text-green-400 font-medium px-5 py-2.5 rounded-xl text-sm transition-all"
             >
               <MessageCircle size={15} />
-              WhatsApp: +91 82526 58488
+              WhatsApp: +91 92055 48488
             </a>
             <a
-              href="mailto:hello@drivana.in"
+              href="mailto:drivanaofficial@gmail.com"
               className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 font-medium px-5 py-2.5 rounded-xl text-sm transition-all"
             >
               <Mail size={15} />
-              hello@drivana.in
+              drivanaofficial@gmail.com
             </a>
           </div>
           <p className="text-white/30 text-xs mt-4">
-            Address: Bhoothnath Road, Patna, Bihar 800001
+            Address: 162, MIG - Bhootnath Road, Near Global Public School, Patna, Bihar 800026
           </p>
         </motion.div>
       </section>

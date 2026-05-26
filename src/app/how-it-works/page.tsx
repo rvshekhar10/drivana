@@ -54,7 +54,7 @@ export default function HowItWorksPage() {
         "@type": "HowToStep",
         position: 1,
         name: "Send a WhatsApp Message",
-        text: "Message us on WhatsApp at +91 82526 58488 with your preferred car, dates, and pickup location.",
+        text: "Message us on WhatsApp at +91 70791 38350 with your preferred car, dates, and pickup location.",
       },
       {
         "@type": "HowToStep",
@@ -66,7 +66,7 @@ export default function HowItWorksPage() {
         "@type": "HowToStep",
         position: 3,
         name: "Pickup or Delivery",
-        text: "Pick up the car from Bhoothnath Road or get free doorstep delivery within Patna city limits.",
+        text: "Pick up the car from Bhootnath Road or get free doorstep delivery within Patna city limits.",
       },
       {
         "@type": "HowToStep",

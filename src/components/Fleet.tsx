@@ -36,7 +36,7 @@ export default function Fleet() {
           </h2>
           <p className="text-white/50 mt-4 max-w-lg mx-auto text-sm sm:text-base">
             Well-maintained, sanitized cars from ₹1,399/day. Pickup from
-            Bhoothnath Road or free doorstep delivery.
+            Bhootnath Road or free doorstep delivery.
           </p>
         </motion.div>
 
