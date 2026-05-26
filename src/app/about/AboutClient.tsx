@@ -30,13 +30,13 @@ const timeline = [
     year: "The Problem",
     title: "No Self-Drive Options in Patna",
     description:
-      "You land at Patna airport. Open Zoomcar — nothing. Try Revv — unavailable. The only option? Overpriced cabs with drivers you don't need. We lived this frustration.",
+      "You land at Patna airport. Open Zoomcar - nothing. Try Revv - unavailable. The only option? Overpriced cabs with drivers you don't need. We lived this frustration.",
   },
   {
     year: "The Idea",
     title: "What If Patna Had Its Own?",
     description:
-      "What if visitors from Delhi, Mumbai, Bangalore could rent a clean car in Patna — just like they do back home? No app downloads. No surge pricing. Just WhatsApp and keys.",
+      "What if visitors from Delhi, Mumbai, Bangalore could rent a clean car in Patna - just like they do back home? No app downloads. No surge pricing. Just WhatsApp and keys.",
   },
   {
     year: "The Launch",
@@ -48,7 +48,7 @@ const timeline = [
     year: "Today",
     title: "Growing Every Day",
     description:
-      "5 cars, 4.4-star rating, and a growing community of happy drivers. We're just getting started — more cars, more cities, same promise of freedom.",
+      "5 cars, 4.4-star rating, and a growing community of happy drivers. We're just getting started - more cars, more cities, same promise of freedom.",
   },
 ];
 
@@ -64,7 +64,7 @@ const values = [
     icon: Shield,
     title: "Transparent Pricing",
     description:
-      "No hidden charges. KM limits, fuel policy, deposit — everything is upfront before you book. The price you see is the price you pay.",
+      "No hidden charges. KM limits, fuel policy, deposit - everything is upfront before you book. The price you see is the price you pay.",
     gradient: "from-emerald-500/20 to-green-500/5",
   },
   {
@@ -96,7 +96,7 @@ export default function AboutClient() {
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section — Parallax */}
+      {/* Hero Section - Parallax */}
       <section
         ref={heroRef}
         className="relative h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden"
@@ -235,7 +235,7 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Who We Serve — Full-width visual */}
+      {/* Who We Serve - Full-width visual */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gold/[0.03] to-black" />
 
@@ -254,7 +254,7 @@ export default function AboutClient() {
             </h2>
             <p className="text-white/50 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
               If you&apos;re visiting Patna from a metro city and expect the same
-              seamless car rental experience you get back home — we built this
+              seamless car rental experience you get back home - we built this
               for you.
             </p>
           </motion.div>
@@ -264,7 +264,7 @@ export default function AboutClient() {
               {
                 emoji: "✈️",
                 title: "Flying into Patna",
-                desc: "From Delhi, Mumbai, Bangalore — land and drive within an hour.",
+                desc: "From Delhi, Mumbai, Bangalore - land and drive within an hour.",
               },
               {
                 emoji: "👨‍👩‍👧‍👦",
@@ -284,7 +284,7 @@ export default function AboutClient() {
               {
                 emoji: "🏛️",
                 title: "Tourists & Explorers",
-                desc: "Rajgir, Nalanda, Bodh Gaya — explore Bihar at your pace.",
+                desc: "Rajgir, Nalanda, Bodh Gaya - explore Bihar at your pace.",
               },
               {
                 emoji: "🎓",
@@ -311,7 +311,7 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Values — Interactive Cards */}
+      {/* Values - Interactive Cards */}
       <section className="py-20 sm:py-28 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
