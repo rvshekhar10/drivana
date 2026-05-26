@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "DRIVANA Fleet - Self Drive Cars in Patna",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Self-Drive Cars on Rent in Patna - DRIVANA Fleet",
     description:
       "Magnite, Tiago, Alto, Freestyle. Starting ₹1,399/day. Book on WhatsApp.",
-    images: ["/og-image.png"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in/fleet",

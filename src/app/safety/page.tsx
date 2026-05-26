@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Safety & Support - DRIVANA Self Drive Car Rental Patna",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Safety & Support | DRIVANA Self-Drive Car Rental Patna",
     description:
       "Serviced cars, insurance, on-ground breakdown support within Patna. Your safety comes first.",
-    images: ["/og-image.png"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in/safety",

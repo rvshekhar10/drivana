@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Refund Policy - DRIVANA Self Drive Car Rental Patna",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Refund Policy | DRIVANA Self-Drive Car Rental Patna",
     description:
       "Transparent refund process. Security deposit returned within 24-48 hours of vehicle return.",
-    images: ["/og-image.png"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in/refund",

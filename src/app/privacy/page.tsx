@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Privacy Policy - DRIVANA Self Drive Car Rental Patna",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
     description:
       "How DRIVANA handles your personal data. No data sold to third parties.",
-    images: ["/og-image.png"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in/privacy",

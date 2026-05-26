@@ -76,7 +76,7 @@ export const metadata: Metadata = {
       "Rent self-drive cars in Patna from ₹1,399/day. Magnite, Tiago, Alto, Freestyle. No driver. Doorstep delivery. Book on WhatsApp.",
     images: [
       {
-        url: "/drivana-hero-image.avif",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "DRIVANA - Self Drive Car Rental in Patna, Bihar",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     title: "Self-Drive Car Rental in Patna | ₹1,399/day - DRIVANA",
     description:
       "Rent self-drive cars in Patna. No driver needed. Book on WhatsApp +91 70791 38350.",
-    images: ["/drivana-hero-image.avif"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in",
@@ -125,7 +125,7 @@ export default function RootLayout({
           height: 50,
         },
         image: [
-          "https://drivana.in/drivana-hero-image.avif",
+          "https://drivana.in/drivana-og-image.jpg",
           "https://drivana.in/drivana-logo-patna.png",
         ],
         description:

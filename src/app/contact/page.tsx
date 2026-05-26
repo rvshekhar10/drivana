@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Contact DRIVANA - Self Drive Car Rental Patna",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Contact Us | DRIVANA Self-Drive Car Rental Patna",
     description:
       "WhatsApp +91 92055 48488 | Bhootnath Road, Patna | Open 9 AM - 9 PM daily.",
-    images: ["/og-image.png"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in/contact",

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/drivana-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "How DRIVANA Works - Self Drive Car Rental Patna",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "How It Works | Rent a Self-Drive Car in Patna - DRIVANA",
     description:
       "4 simple steps: WhatsApp → Verify → Pickup → Drive. No app needed.",
-    images: ["/og-image.png"],
+    images: ["/drivana-og-image.jpg"],
   },
   alternates: {
     canonical: "https://drivana.in/how-it-works",
