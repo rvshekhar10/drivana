@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Fleet from "@/components/Fleet";
 import HowItWorks from "@/components/HowItWorks";
 import WhyDrivana from "@/components/WhyDrivana";
+import Destinations from "@/components/Destinations";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTABanner from "@/components/CTABanner";
@@ -17,6 +18,7 @@ export default function Home() {
       <Fleet />
       <HowItWorks />
       <WhyDrivana />
+      <Destinations />
       <Testimonials />
       <FAQ />
       <CTABanner />

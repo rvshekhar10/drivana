@@ -30,7 +30,7 @@ const steps = [
     title: "Message Us on WhatsApp",
     subtitle: "Takes 2 minutes",
     description:
-      "Send a message to +91 82526 58488 with your preferred car, rental dates, and pickup location. We respond within minutes — no app downloads, no sign-ups.",
+      "Send a message to +91 82526 58488 with your preferred car, rental dates, and pickup location. We respond within minutes - no app downloads, no sign-ups.",
     details: [
       "Choose your car: Magnite, Tiago, Alto, or Freestyle",
       "Tell us your dates and times",
@@ -47,7 +47,7 @@ const steps = [
     title: "Quick Verification",
     subtitle: "Takes 5 minutes",
     description:
-      "Share photos of your Driving License and Aadhaar Card on WhatsApp. We verify in minutes — no office visits, no paperwork.",
+      "Share photos of your Driving License and Aadhaar Card on WhatsApp. We verify in minutes - no office visits, no paperwork.",
     details: [
       "Valid Indian Driving License (original at pickup)",
       "Aadhaar Card or Government Photo ID",
@@ -64,7 +64,7 @@ const steps = [
     title: "Get Your Car",
     subtitle: "Same day possible",
     description:
-      "Pick up from Bhoothnath Road, Patna — or we deliver to your doorstep for free within city limits. We walk you through the car and hand over the keys.",
+      "Pick up from Bhoothnath Road, Patna - or we deliver to your doorstep for free within city limits. We walk you through the car and hand over the keys.",
     details: [
       "Free doorstep delivery within Patna city",
       "Car walkthrough & existing damage documentation",
@@ -81,7 +81,7 @@ const steps = [
     title: "Drive & Return",
     subtitle: "Freedom is yours",
     description:
-      "Drive anywhere — city, outstation, wherever the road takes you. Return at the agreed time, we inspect, and refund your deposit within 24-48 hours.",
+      "Drive anywhere - city, outstation, wherever the road takes you. Return at the agreed time, we inspect, and refund your deposit within 24-48 hours.",
     details: [
       "Drive within KM limits or pay nominal excess",
       "Return with same fuel level",
@@ -188,7 +188,7 @@ export default function HowItWorksClient() {
         </div>
       </section>
 
-      {/* Steps — Large immersive cards */}
+      {/* Steps - Large immersive cards */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
           {steps.map((step, index) => (
@@ -267,7 +267,7 @@ export default function HowItWorksClient() {
         </div>
       </section>
 
-      {/* What You Need to Know — Grid */}
+      {/* What You Need to Know - Grid */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.02] to-transparent" />
 
@@ -342,10 +342,10 @@ export default function HowItWorksClient() {
             <div className="grid sm:grid-cols-2 gap-4">
               {[
                 "Original Driving License required at pickup (photocopy won't work)",
-                "Fuel is not included — return at the same level you received",
+                "Fuel is not included - return at the same level you received",
                 "Traffic challans during rental are your responsibility",
                 "Inform us before taking the car outside Bihar",
-                "No sub-letting — only verified driver can operate the vehicle",
+                "No sub-letting - only verified driver can operate the vehicle",
                 "On-ground breakdown support available within Patna city limits",
               ].map((note, i) => (
                 <div key={i} className="flex items-start gap-2.5">
@@ -360,7 +360,7 @@ export default function HowItWorksClient() {
         </div>
       </section>
 
-      {/* Final CTA — Start Booking */}
+      {/* Final CTA - Start Booking */}
       <section className="py-16 sm:py-20 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import PrivacyClient from "./PrivacyClient";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | DRIVANA — Self-Drive Car Rental Patna",
+  title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
   description:
     "DRIVANA's privacy policy explains how we collect, use, and protect your personal data including driving license, Aadhaar, and contact information for self-drive car rental verification in Patna.",
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "drivana personal data",
   ],
   openGraph: {
-    title: "Privacy Policy | DRIVANA — Self-Drive Car Rental Patna",
+    title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
     description:
       "How DRIVANA collects, uses, and protects your personal data for self-drive car rental verification.",
     url: "https://drivana.in/privacy",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy | DRIVANA — Self-Drive Car Rental Patna",
+    title: "Privacy Policy | DRIVANA - Self-Drive Car Rental Patna",
     description:
       "How DRIVANA handles your personal data. No data sold to third parties.",
     images: ["/og-image.png"],

@@ -30,7 +30,7 @@ const safetyPillars = [
     title: "Regular Servicing",
     stat: "Every 5,000 km",
     description:
-      "Every vehicle is serviced per manufacturer schedules. Engine oil, brakes, tyres, coolant — all checked and maintained.",
+      "Every vehicle is serviced per manufacturer schedules. Engine oil, brakes, tyres, coolant - all checked and maintained.",
     color: "from-blue-500/20 to-blue-500/5",
     borderColor: "border-blue-500/20",
     iconColor: "text-blue-400",
@@ -40,7 +40,7 @@ const safetyPillars = [
     title: "Deep Sanitization",
     stat: "Before every rental",
     description:
-      "Seats, steering, dashboard, door handles — everything sanitized. You get a car that looks and smells fresh.",
+      "Seats, steering, dashboard, door handles - everything sanitized. You get a car that looks and smells fresh.",
     color: "from-emerald-500/20 to-emerald-500/5",
     borderColor: "border-emerald-500/20",
     iconColor: "text-emerald-400",
@@ -50,7 +50,7 @@ const safetyPillars = [
     title: "Full Insurance",
     stat: "Comprehensive cover",
     description:
-      "All vehicles carry valid comprehensive insurance — third-party liability, theft, fire, and natural disaster coverage.",
+      "All vehicles carry valid comprehensive insurance - third-party liability, theft, fire, and natural disaster coverage.",
     color: "from-gold/20 to-gold/5",
     borderColor: "border-gold/20",
     iconColor: "text-gold",
@@ -96,7 +96,7 @@ const safetyTips = [
   },
   {
     icon: MapPin,
-    tip: "New to Patna? Use Google Maps — some roads can be narrow and busy.",
+    tip: "New to Patna? Use Google Maps - some roads can be narrow and busy.",
   },
   {
     icon: Fuel,
@@ -104,7 +104,7 @@ const safetyTips = [
   },
   {
     icon: Phone,
-    tip: "Save our number — call us first if anything feels off with the car.",
+    tip: "Save our number - call us first if anything feels off with the car.",
   },
   {
     icon: AlertTriangle,
@@ -231,7 +231,7 @@ export default function SafetyClient() {
         </div>
       </section>
 
-      {/* Breakdown Support — Highlighted Section */}
+      {/* Breakdown Support - Highlighted Section */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/[0.02] to-transparent" />
 
@@ -255,7 +255,7 @@ export default function SafetyClient() {
                 <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-6">
                   Unlike app-based services where you&apos;re left talking to a
                   chatbot, DRIVANA provides real, human, on-ground support. Flat
-                  tyre, dead battery, engine trouble — our team physically
+                  tyre, dead battery, engine trouble - our team physically
                   reaches you within Patna city limits.
                 </p>
 
@@ -326,7 +326,7 @@ export default function SafetyClient() {
               Vehicle Inspection Protocol
             </h2>
             <p className="text-white/50 mt-3 max-w-lg mx-auto text-sm">
-              Every rental includes a documented inspection — so there are never
+              Every rental includes a documented inspection - so there are never
               disputes about pre-existing damage.
             </p>
           </motion.div>
@@ -481,7 +481,7 @@ export default function SafetyClient() {
         </div>
       </section>
 
-      {/* Safety Tips — Interactive Grid */}
+      {/* Safety Tips - Interactive Grid */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -537,7 +537,7 @@ export default function SafetyClient() {
             member. If we wouldn&apos;t feel safe putting our parents in it, it
             doesn&apos;t go to you.&rdquo;
           </p>
-          <p className="text-white/40 text-sm mt-4">— Team DRIVANA, Patna</p>
+          <p className="text-white/40 text-sm mt-4">- Team DRIVANA, Patna</p>
         </motion.div>
       </section>
 

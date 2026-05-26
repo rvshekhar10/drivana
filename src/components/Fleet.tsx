@@ -1,10 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import CarCard from "./CarCard";
 import carsData from "@/data/cars.json";
 
 export default function Fleet() {
+  // Show only 3 cars on homepage (deduplicated — skip second Alto)
+  const displayCars = carsData.filter((car) => car.id !== 4).slice(0, 3);
+
   return (
     <section
       id="fleet"
@@ -18,7 +23,7 @@ export default function Fleet() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14 sm:mb-16"
+          className="text-center mb-12 sm:mb-14"
         >
           <span className="text-gold/70 text-xs sm:text-sm font-medium tracking-[0.2em] uppercase">
             Our Fleet
@@ -27,33 +32,40 @@ export default function Fleet() {
             id="fleet-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 tracking-tight"
           >
-            Self-Drive Cars Available in Patna
+            Self-Drive Cars in Patna
           </h2>
           <p className="text-white/50 mt-4 max-w-lg mx-auto text-sm sm:text-base">
-            Well-maintained, sanitized cars ready for your next adventure.
-            Pickup from Bhoothnath Road, Patna. Discounts up to 33% off.
+            Well-maintained, sanitized cars from ₹1,399/day. Pickup from
+            Bhoothnath Road or free doorstep delivery.
           </p>
         </motion.div>
 
-        {/* Car Grid */}
+        {/* Car Grid — 3 featured cars */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {carsData.map((car, index) => (
+          {displayCars.map((car, index) => (
             <CarCard key={car.id} car={car} index={index} />
           ))}
         </div>
 
-        {/* Additional SEO text */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* View All CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center text-xs text-white/30 mt-12 max-w-2xl mx-auto"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-10"
         >
-          All cars are available for daily, weekly, and monthly rentals. Prices
-          are inclusive of basic insurance. Doorstep delivery available across
-          Patna. Contact us on WhatsApp for custom quotes and availability.
-        </motion.p>
+          <Link
+            href="/fleet"
+            className="inline-flex items-center gap-2 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 text-white/80 hover:text-gold font-medium px-8 py-3.5 rounded-full text-sm transition-all duration-200 group"
+          >
+            View All {carsData.length} Cars & Compare Prices
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

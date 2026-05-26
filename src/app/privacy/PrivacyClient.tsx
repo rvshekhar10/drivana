@@ -129,12 +129,12 @@ export default function PrivacyClient() {
             className="mt-4 text-white/50 text-sm sm:text-base max-w-2xl mx-auto"
           >
             We respect your privacy. Here&apos;s exactly what we collect, why, and
-            how we protect it. Written in plain language — no legal maze.
+            how we protect it. Written in plain language - no legal maze.
           </motion.p>
         </div>
       </section>
 
-      {/* Key Promise — Highlighted */}
+      {/* Key Promise - Highlighted */}
       <section className="px-4 sm:px-6 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -160,7 +160,7 @@ export default function PrivacyClient() {
         </motion.div>
       </section>
 
-      {/* Section 1: What We Collect — Table */}
+      {/* Section 1: What We Collect - Table */}
       <section id="collect" className="px-4 sm:px-6 mb-10 scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -235,7 +235,7 @@ export default function PrivacyClient() {
                 "Communicate about your booking via WhatsApp and calls",
                 "Maintain rental records for operational and legal purposes",
                 "Contact you regarding refunds, damage claims, or disputes",
-                "Send promotional offers (only with consent — opt out anytime)",
+                "Send promotional offers (only with consent - opt out anytime)",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <CheckCircle2
@@ -374,7 +374,7 @@ export default function PrivacyClient() {
                 "Documents (DL, Aadhaar photos) are deleted within 30 days of rental completion.",
                 "Basic rental records (name, phone, dates) are retained for operational purposes.",
                 "We use reasonable security measures to protect data from unauthorized access.",
-                "Data is stored on secure devices — not on public cloud servers.",
+                "Data is stored on secure devices - not on public cloud servers.",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <CheckCircle2

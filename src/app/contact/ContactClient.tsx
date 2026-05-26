@@ -127,7 +127,7 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* Contact Methods — Large Cards */}
+      {/* Contact Methods - Large Cards */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-6">
@@ -215,7 +215,7 @@ export default function ContactClient() {
             viewport={{ once: true }}
             className="grid md:grid-cols-5 gap-6 items-stretch"
           >
-            {/* Map — takes 3 columns */}
+            {/* Map - takes 3 columns */}
             <div className="md:col-span-3 rounded-2xl overflow-hidden border border-white/10 min-h-[300px] sm:min-h-[400px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.5!2d85.1376!3d25.6093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBhoothnath+Road%2C+Patna%2C+Bihar!5e0!3m2!1sen!2sin!4v1700000000000"
@@ -230,7 +230,7 @@ export default function ContactClient() {
               />
             </div>
 
-            {/* Info Card — takes 2 columns */}
+            {/* Info Card - takes 2 columns */}
             <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-bold text-gold mb-6">
@@ -259,7 +259,7 @@ export default function ContactClient() {
                     <div>
                       <p className="text-white font-medium text-sm">Hours</p>
                       <p className="text-white/60 text-sm mt-0.5">
-                        9:00 AM — 9:00 PM
+                        9:00 AM - 9:00 PM
                         <br />
                         Open 7 days a week
                       </p>
@@ -416,7 +416,7 @@ export default function ContactClient() {
         >
           <p className="text-white/40 text-sm">
             We respond to every message personally. No automated replies, no
-            chatbots — just real people who care about your experience in Patna.
+            chatbots - just real people who care about your experience in Patna.
           </p>
         </motion.div>
       </section>

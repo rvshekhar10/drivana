@@ -385,7 +385,7 @@ export default function FleetClient() {
             available for daily, weekly, and monthly rentals with 15% off on
             weekly and 20% off on monthly bookings. Pickup from Bhoothnath Road,
             Patna with free doorstep delivery within city limits. Whether
-            you&apos;re visiting from Delhi, Mumbai, or Bangalore — we have the
+            you&apos;re visiting from Delhi, Mumbai, or Bangalore - we have the
             perfect self-drive car for your Patna trip.
           </p>
         </div>

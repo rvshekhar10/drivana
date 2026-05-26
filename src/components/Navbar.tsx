@@ -210,7 +210,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu — Full Screen Overlay */}
+      {/* Mobile Menu - Full Screen Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact Us | DRIVANA Self-Drive Car Rental Patna — WhatsApp & Call",
+  title: "Contact Us | DRIVANA Self-Drive Car Rental Patna - WhatsApp & Call",
   description:
     "Contact DRIVANA for self-drive car rental in Patna. WhatsApp +91 82526 58488, email hello@drivana.in. Located at Bhoothnath Road, Patna. Open 9 AM - 9 PM, 7 days a week.",
   keywords: [

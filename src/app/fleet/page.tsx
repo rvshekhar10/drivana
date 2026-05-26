@@ -3,7 +3,7 @@ import FleetClient from "./FleetClient";
 
 export const metadata: Metadata = {
   title:
-    "Self-Drive Cars on Rent in Patna | Fleet & Prices — DRIVANA",
+    "Self-Drive Cars on Rent in Patna | Fleet & Prices - DRIVANA",
   description:
     "Browse DRIVANA's self-drive car fleet in Patna. Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle available from ₹1,399/day. Compare prices, specs & book on WhatsApp.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "hatchback on rent patna",
   ],
   openGraph: {
-    title: "Self-Drive Cars on Rent in Patna | Fleet & Prices — DRIVANA",
+    title: "Self-Drive Cars on Rent in Patna | Fleet & Prices - DRIVANA",
     description:
       "Browse our fleet: Magnite, Tiago, Alto, Freestyle. Starting ₹1,399/day. Compare specs & book instantly.",
     url: "https://drivana.in/fleet",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Self-Drive Cars on Rent in Patna — DRIVANA Fleet",
+    title: "Self-Drive Cars on Rent in Patna - DRIVANA Fleet",
     description:
       "Magnite, Tiago, Alto, Freestyle. Starting ₹1,399/day. Book on WhatsApp.",
     images: ["/og-image.png"],

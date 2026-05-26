@@ -131,7 +131,7 @@ export default function RefundClient() {
             className="mt-4 text-white/50 text-sm sm:text-base max-w-2xl mx-auto"
           >
             No surprises, no hidden deductions. Here&apos;s exactly how refunds
-            work — you&apos;ll know the outcome before it happens.
+            work - you&apos;ll know the outcome before it happens.
           </motion.p>
         </div>
       </section>
@@ -163,7 +163,7 @@ export default function RefundClient() {
         </div>
       </section>
 
-      {/* Refund Timeline — Visual Steps */}
+      {/* Refund Timeline - Visual Steps */}
       <section className="px-4 sm:px-6 mb-16">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -400,7 +400,7 @@ export default function RefundClient() {
             <p className="text-white/60 text-sm mb-5">
               If you disagree with any deduction, reach out within 7 days of the
               refund. We&apos;ll review the inspection photos together and
-              resolve it fairly. We aim for zero disputes — transparency is our
+              resolve it fairly. We aim for zero disputes - transparency is our
               foundation.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -434,13 +434,13 @@ export default function RefundClient() {
           className="max-w-4xl mx-auto rounded-2xl border border-gold/20 bg-gradient-to-br from-gold/5 to-transparent p-6 sm:p-8"
         >
           <h2 className="text-xl font-bold text-gold mb-4">
-            TL;DR — Refund Summary
+            TL;DR - Refund Summary
           </h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               "Deposit refunded in 24–48 hours",
               "No deductions if car returned clean & undamaged",
-              "Pre-existing damage is documented — you won't be blamed",
+              "Pre-existing damage is documented - you won't be blamed",
               "Free cancellation 24+ hours before",
               "Disputes resolved within 7 days",
               "Refund via UPI or bank transfer",

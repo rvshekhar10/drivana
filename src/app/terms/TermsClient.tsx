@@ -202,7 +202,7 @@ export default function TermsClient() {
             className="mt-4 text-white/50 text-sm sm:text-base max-w-2xl mx-auto"
           >
             By renting a vehicle from DRIVANA, you agree to the following terms.
-            We keep things simple and transparent — no legal jargon.
+            We keep things simple and transparent - no legal jargon.
           </motion.p>
         </div>
       </section>
@@ -278,7 +278,7 @@ export default function TermsClient() {
           className="max-w-4xl mx-auto rounded-2xl border border-gold/20 bg-gradient-to-br from-gold/5 to-transparent p-6 sm:p-8"
         >
           <h2 className="text-xl font-bold text-gold mb-4">
-            TL;DR — The Quick Version
+            TL;DR - The Quick Version
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[

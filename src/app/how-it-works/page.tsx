@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import HowItWorksClient from "./HowItWorksClient";
 
 export const metadata: Metadata = {
-  title: "How It Works | Rent a Self-Drive Car in Patna — DRIVANA",
+  title: "How It Works | Rent a Self-Drive Car in Patna - DRIVANA",
   description:
     "Rent a self-drive car in Patna in 4 simple steps. Message us on WhatsApp, verify your documents, pick up or get doorstep delivery, and drive. No app download needed.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "self drive car deposit patna",
   ],
   openGraph: {
-    title: "How It Works | Rent a Self-Drive Car in Patna — DRIVANA",
+    title: "How It Works | Rent a Self-Drive Car in Patna - DRIVANA",
     description:
       "4 simple steps to rent a self-drive car in Patna. WhatsApp booking, quick verification, pickup/delivery, and you're on the road.",
     url: "https://drivana.in/how-it-works",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How It Works | Rent a Self-Drive Car in Patna — DRIVANA",
+    title: "How It Works | Rent a Self-Drive Car in Patna - DRIVANA",
     description:
       "4 simple steps: WhatsApp → Verify → Pickup → Drive. No app needed.",
     images: ["/og-image.png"],
