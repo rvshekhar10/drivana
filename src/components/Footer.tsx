@@ -65,31 +65,39 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#fleet"
+                  href="/about"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
-                  Self Drive Cars in Patna
+                  About Drivana
                 </a>
               </li>
               <li>
                 <a
-                  href="#how-it-works"
+                  href="/how-it-works"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
-                  How to Rent a Car
+                  How It Works
                 </a>
               </li>
               <li>
                 <a
-                  href="#why-us"
+                  href="/safety"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
-                  Why Choose Drivana
+                  Safety & Support
                 </a>
               </li>
               <li>
                 <a
-                  href="#faq"
+                  href="/contact"
+                  className="text-sm text-white/40 hover:text-gold transition-colors"
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#faq"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
                   FAQs
@@ -97,7 +105,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#testimonials"
+                  href="/#testimonials"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
                   Customer Reviews
@@ -114,7 +122,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#fleet"
+                  href="/cars/nissan-magnite-on-rent-patna"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
                   Nissan Magnite on Rent
@@ -122,7 +130,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#fleet"
+                  href="/cars/tata-tiago-on-rent-patna"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
                   Tata Tiago on Rent
@@ -130,7 +138,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#fleet"
+                  href="/cars/maruti-alto-on-rent-patna"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
                   Maruti Alto on Rent
@@ -138,7 +146,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#fleet"
+                  href="/cars/ford-freestyle-on-rent-patna"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
                   Ford Freestyle on Rent
@@ -233,19 +241,19 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="#"
+              href="/privacy"
               className="text-xs text-white/30 hover:text-gold transition-colors"
             >
               Privacy Policy
             </a>
             <a
-              href="#"
+              href="/terms"
               className="text-xs text-white/30 hover:text-gold transition-colors"
             >
               Terms & Conditions
             </a>
             <a
-              href="#"
+              href="/refund"
               className="text-xs text-white/30 hover:text-gold transition-colors"
             >
               Refund Policy
