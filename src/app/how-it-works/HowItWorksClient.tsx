@@ -30,7 +30,7 @@ const steps = [
     title: "Message Us on WhatsApp",
     subtitle: "Takes 2 minutes",
     description:
-      "Send a message to +91 70791 38350 with your preferred car, rental dates, and pickup location. We respond within minutes - no app downloads, no sign-ups.",
+      "Send a message to +91 92055 48488 with your preferred car, rental dates, and pickup location. We respond within minutes - no app downloads, no sign-ups.",
     details: [
       "Choose your car: Magnite, Tiago, Alto, or Freestyle",
       "Tell us your dates and times",
@@ -66,7 +66,7 @@ const steps = [
     description:
       "Pick up from Bhootnath Road, Patna - or we deliver to your doorstep for free within city limits. We walk you through the car and hand over the keys.",
     details: [
-      "Free doorstep delivery within Patna city",
+      "Doorstep delivery within Patna city",
       "Car walkthrough & existing damage documentation",
       "Fuel level noted, odometer reading recorded",
     ],

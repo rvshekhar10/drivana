@@ -66,7 +66,7 @@ export default function HowItWorksPage() {
         "@type": "HowToStep",
         position: 3,
         name: "Pickup or Delivery",
-        text: "Pick up the car from Bhootnath Road or get free doorstep delivery within Patna city limits.",
+        text: "Pick up the car from Bhootnath Road or get doorstep delivery within Patna city limits.",
       },
       {
         "@type": "HowToStep",

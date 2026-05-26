@@ -44,7 +44,7 @@ const features = [
   {
     icon: MapPin,
     title: "Doorstep Delivery",
-    description: "Free delivery within Patna. Airport pickup available.",
+    description: "Doorstep delivery within Patna. Airport pickup available.",
     color: "text-cyan-400",
     bg: "bg-cyan-500/10",
   },

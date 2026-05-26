@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     q: "Do you offer doorstep delivery?",
-    a: "Free delivery within Patna city limits. Just mention your address when booking.",
+    a: "Doorstep delivery within Patna city limits. Just mention your address when booking.",
   },
   {
     q: "What if I need help after hours?",

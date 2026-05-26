@@ -359,7 +359,7 @@ export default function RootLayout({
             name: "Do you provide doorstep delivery in Patna?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes! We offer free doorstep delivery and pickup within Patna city limits including Boring Road, Bailey Road, Kankarbagh, Patliputra, and Danapur.",
+              text: "Yes! We offer doorstep delivery and pickup within Patna city limits including Boring Road, Bailey Road, Kankarbagh, Patliputra, and Danapur.",
             },
           },
           {

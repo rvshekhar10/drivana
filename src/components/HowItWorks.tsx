@@ -27,7 +27,7 @@ const steps = [
     icon: CarFront,
     step: "03",
     title: "Get Your Car",
-    description: "Pickup from Bhootnath Road or free doorstep delivery.",
+    description: "Pickup from Bhootnath Road or doorstep delivery.",
     color: "text-gold",
     bg: "bg-gold/10",
     border: "border-gold/20",

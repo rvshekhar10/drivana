@@ -394,7 +394,7 @@ export default function AboutClient() {
               <p className="text-white/60 text-sm leading-relaxed mb-6">
                 Our pickup location is centrally located and easily accessible
                 from Patna Junction, Patna Airport, and all major areas. We also
-                offer free doorstep delivery within city limits.
+                offer doorstep delivery within city limits.
               </p>
 
               <div className="space-y-3">
