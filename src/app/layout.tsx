@@ -436,7 +436,7 @@ export default function RootLayout({
         <link rel="icon" href="/drivana-logo-patna.png" type="image/png" />
         <link rel="apple-touch-icon" href="/drivana-logo-patna.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#D4AF37" />
+        <meta name="theme-color" content="#ce963d" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

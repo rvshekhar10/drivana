@@ -95,7 +95,7 @@ export default function Hero() {
         >
           <a
             href="#fleet"
-            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-10 py-4 rounded-full text-base transition-all duration-200 hover:scale-105 shadow-[0_4px_30px_rgba(212,175,55,0.4)]"
+            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-10 py-4 rounded-full text-base transition-all duration-200 hover:scale-105 shadow-[0_4px_30px_rgba(206,150,61,0.4)]"
           >
             View Cars & Prices
           </a>

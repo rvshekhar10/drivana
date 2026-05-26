@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#D4AF37",
+  "theme_color": "#ce963d",
   "icons": [
     {
       "src": "/drivana-logo-patna.png",

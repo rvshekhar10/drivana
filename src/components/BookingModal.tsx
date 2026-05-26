@@ -272,7 +272,7 @@ export default function BookingModal({
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold py-4 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold py-4 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(206,150,61,0.3)]"
                 >
                   <MessageCircle size={18} />
                   Send Booking Request via WhatsApp

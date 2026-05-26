@@ -251,7 +251,7 @@ export default function Navbar() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:scale-105 shadow-[0_2px_15px_rgba(212,175,55,0.25)]"
+              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:scale-105 shadow-[0_2px_15px_rgba(206,150,61,0.25)]"
             >
               <MessageCircle size={15} />
               Book Now

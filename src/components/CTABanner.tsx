@@ -44,7 +44,7 @@ export default function CTABanner() {
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold px-8 py-4 rounded-full text-sm sm:text-base transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold px-8 py-4 rounded-full text-sm sm:text-base transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(206,150,61,0.3)]"
           >
             <MessageCircle size={18} />
             Book on WhatsApp Now
