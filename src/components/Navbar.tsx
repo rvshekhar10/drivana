@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Menu, X, Phone, ChevronDown, Car, Shield, HelpCircle, MapPin, Info } from "lucide-react";
+import { MessageCircle, Menu, X, Phone, ChevronDown, Car, Shield, HelpCircle, MapPin, Info, User, LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 
 const WHATSAPP_NUMBER = "919205548488";
 
@@ -52,6 +53,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { user, loading, logout, openLoginModal } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,12 +66,15 @@ export default function Navbar() {
 
   // Close more dropdown when clicking outside
   useEffect(() => {
-    const handleClick = () => setMoreOpen(false);
-    if (moreOpen) {
+    const handleClick = () => {
+      setMoreOpen(false);
+      setUserMenuOpen(false);
+    };
+    if (moreOpen || userMenuOpen) {
       document.addEventListener("click", handleClick);
       return () => document.removeEventListener("click", handleClick);
     }
-  }, [moreOpen]);
+  }, [moreOpen, userMenuOpen]);
 
   return (
     <motion.header
@@ -165,6 +171,75 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
+            {/* Auth: Login or User Menu */}
+            {!loading && (
+              <>
+                {user ? (
+                  <div className="relative">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setUserMenuOpen(!userMenuOpen);
+                      }}
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center">
+                        <User size={16} className="text-gold" />
+                      </div>
+                      <span className="text-white/80 text-sm font-medium max-w-[100px] truncate">
+                        {user.phoneNumber?.replace("+91", "") || "User"}
+                      </span>
+                      <ChevronDown
+                        size={14}
+                        className={`text-white/40 transition-transform duration-200 ${
+                          userMenuOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    <AnimatePresence>
+                      {userMenuOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full right-0 mt-2 w-48 bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                        >
+                          <div className="px-4 py-3 border-b border-white/5">
+                            <p className="text-white/40 text-xs">Logged in as</p>
+                            <p className="text-white text-sm font-medium truncate">
+                              {user.phoneNumber || "User"}
+                            </p>
+                          </div>
+                          <div className="py-1">
+                            <button
+                              onClick={async () => {
+                                await logout();
+                                setUserMenuOpen(false);
+                              }}
+                              className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-red-400 hover:bg-white/5 transition-colors"
+                            >
+                              <LogOut size={14} />
+                              Logout
+                            </button>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <button
+                    onClick={openLoginModal}
+                    className="inline-flex items-center gap-2 text-white/80 hover:text-gold text-sm font-medium transition-colors px-4 py-2 rounded-lg hover:bg-white/5 border border-white/10"
+                  >
+                    <User size={15} />
+                    Login
+                  </button>
+                )}
+              </>
+            )}
+
             <a
               href="tel:+917079138350"
               className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
@@ -282,6 +357,44 @@ export default function Navbar() {
 
               {/* Contact CTAs */}
               <div className="space-y-3">
+                {/* Auth: Login or User Info */}
+                {!loading && (
+                  <>
+                    {user ? (
+                      <div className="flex items-center justify-between px-4 py-3 bg-white/5 rounded-xl mb-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center">
+                            <User size={16} className="text-gold" />
+                          </div>
+                          <span className="text-white/80 text-sm font-medium">
+                            {user.phoneNumber?.replace("+91", "") || "User"}
+                          </span>
+                        </div>
+                        <button
+                          onClick={async () => {
+                            await logout();
+                            setMobileMenuOpen(false);
+                          }}
+                          className="text-red-400 text-xs font-medium hover:text-red-300 transition-colors"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          openLoginModal();
+                        }}
+                        className="flex items-center justify-center gap-2 border border-gold/50 text-gold font-bold py-3.5 rounded-xl text-sm transition-all w-full hover:bg-gold/5"
+                      >
+                        <User size={16} />
+                        Login with Phone
+                      </button>
+                    )}
+                  </>
+                )}
+
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
                   target="_blank"

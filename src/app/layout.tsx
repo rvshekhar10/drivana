@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const inter = Inter({
@@ -418,6 +420,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SJ8BE24QHS"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SJ8BE24QHS');
+          `}
+        </Script>
         <link rel="icon" href="/drivana-logo-patna.png" type="image/png" />
         <link rel="apple-touch-icon" href="/drivana-logo-patna.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -438,7 +453,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Analytics />
       </body>
     </html>
