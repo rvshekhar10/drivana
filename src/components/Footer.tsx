@@ -237,7 +237,15 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 py-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} Drivana. All rights reserved.
+            © {new Date().getFullYear()} Drivana. All rights reserved. Built with ❤️ in India by{" "}
+            <a
+              href="https://purpul.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold/60 hover:text-gold transition-colors"
+            >
+              PURPUL
+            </a>
           </p>
           <div className="flex items-center gap-6">
             <a
