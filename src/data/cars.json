@@ -4,12 +4,14 @@
     "slug": "nissan-magnite-on-rent-patna",
     "name": "Nissan Magnite",
     "model": "2023",
-    "image_url": "/cars/nissan-magnite/front.jpg",
+    "image_url": "/cars/nissan-magnite/DSC02405.jpg",
     "media": [
-      { "type": "image", "url": "/cars/nissan-magnite/front.jpg", "alt": "Nissan Magnite front view", "featured": true },
-      { "type": "image", "url": "/cars/nissan-magnite/side.jpg", "alt": "Nissan Magnite side view", "featured": false },
-      { "type": "image", "url": "/cars/nissan-magnite/interior.jpg", "alt": "Nissan Magnite interior dashboard", "featured": false },
-      { "type": "image", "url": "/cars/nissan-magnite/rear.jpg", "alt": "Nissan Magnite rear view", "featured": false }
+      { "type": "image", "url": "/cars/nissan-magnite/DSC02405.jpg", "alt": "Nissan Magnite front view in Patna", "featured": true },
+      { "type": "image", "url": "/cars/nissan-magnite/1774525175742-car-photo-8.webp", "alt": "Nissan Magnite exterior angle", "featured": false },
+      { "type": "image", "url": "/cars/nissan-magnite/preview-928x522.jpg", "alt": "Nissan Magnite side profile", "featured": false },
+      { "type": "image", "url": "/cars/nissan-magnite/WhatsApp-Image-2025-08-13-at-10.33.06-AM-1.jpeg", "alt": "Nissan Magnite real photo", "featured": false },
+      { "type": "image", "url": "/cars/nissan-magnite/images.jpeg", "alt": "Nissan Magnite compact SUV", "featured": false },
+      { "type": "image", "url": "/cars/nissan-magnite/magnite-interior-bootspace-rear-seat-folded.avif", "alt": "Nissan Magnite interior bootspace", "featured": false }
     ],
     "price_per_day": 2198,
     "price_per_week": 13999,
@@ -53,12 +55,15 @@
     "slug": "tata-tiago-on-rent-patna",
     "name": "Tata Tiago",
     "model": "2025",
-    "image_url": "/cars/tata-tiago/front.jpg",
+    "image_url": "/cars/tata-tiago/tatatiagopxtodaytonagrey_additional2.webp",
     "media": [
-      { "type": "image", "url": "/cars/tata-tiago/front.jpg", "alt": "Tata Tiago front view", "featured": true },
-      { "type": "image", "url": "/cars/tata-tiago/side.jpg", "alt": "Tata Tiago side profile", "featured": false },
-      { "type": "image", "url": "/cars/tata-tiago/interior.jpg", "alt": "Tata Tiago interior cabin", "featured": false },
-      { "type": "image", "url": "/cars/tata-tiago/rear.jpg", "alt": "Tata Tiago rear view", "featured": false }
+      { "type": "image", "url": "/cars/tata-tiago/tatatiagopxtodaytonagrey_additional2.webp", "alt": "Tata Tiago front view", "featured": true },
+      { "type": "image", "url": "/cars/tata-tiago/tatatiagoxmpetrol5speedmtdaytonagrey_additional7.webp", "alt": "Tata Tiago side profile", "featured": false },
+      { "type": "image", "url": "/cars/tata-tiago/tatatiagoxzpluscngdaytonagrey_additional2.webp", "alt": "Tata Tiago rear view", "featured": false },
+      { "type": "image", "url": "/cars/tata-tiago/_AAB7136.avif", "alt": "Tata Tiago exterior detail", "featured": false },
+      { "type": "image", "url": "/cars/tata-tiago/tiago-interior-dashboard-5.avif", "alt": "Tata Tiago interior dashboard", "featured": false },
+      { "type": "image", "url": "/cars/tata-tiago/seats-(aerial-view)-53.avif", "alt": "Tata Tiago rear seats aerial view", "featured": false },
+      { "type": "image", "url": "/cars/tata-tiago/2025_Tata_Tiago_Interior_Enhancements_and_Feature_Upgrades_7e9646c3d2.webp", "alt": "Tata Tiago 2025 interior features", "featured": false }
     ],
     "price_per_day": 1999,
     "price_per_week": 11999,
@@ -102,11 +107,14 @@
     "slug": "maruti-alto-on-rent-patna",
     "name": "Maruti Alto",
     "model": "2012",
-    "image_url": "/cars/maruti-alto-1/front.jpg",
+    "image_url": "/cars/maruti-alto-1/Maruti-Alto-K10-USed-Car-Front.jpg",
     "media": [
-      { "type": "image", "url": "/cars/maruti-alto-1/front.jpg", "alt": "Maruti Alto front view", "featured": true },
-      { "type": "image", "url": "/cars/maruti-alto-1/side.jpg", "alt": "Maruti Alto side view", "featured": false },
-      { "type": "image", "url": "/cars/maruti-alto-1/interior.jpg", "alt": "Maruti Alto interior", "featured": false }
+      { "type": "image", "url": "/cars/maruti-alto-1/Maruti-Alto-K10-USed-Car-Front.jpg", "alt": "Maruti Alto K10 front view", "featured": true },
+      { "type": "image", "url": "/cars/maruti-alto-1/Suzuki_Alto_800_GL_2011.jpg", "alt": "Maruti Alto 800 side view", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-1/1-11-4.jpeg", "alt": "Maruti Alto exterior", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-1/8-left-back-diagonal-ePGdrwj2w1nA8wYq.avif", "alt": "Maruti Alto rear diagonal view", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-1/2015-Maruti-Alto-K10-interior.jpg", "alt": "Maruti Alto K10 interior", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-1/2025_Suzuki_Alto_Interior_Japan_1750875584896.jpg", "alt": "Maruti Alto interior cabin", "featured": false }
     ],
     "price_per_day": 1399,
     "price_per_week": 8999,
@@ -141,7 +149,7 @@
       "rear_camera": "No",
       "keyless_entry": "No"
     },
-    "description": "The Maruti Alto is India's most trusted and fuel-efficient hatchback. Perfect for budget-conscious renters who need a reliable car for city driving in Patna. Extremely easy to drive, park, and maneuver in busy Patna traffic. The lowest rental price in our fleet - ideal for students and daily commuters.",
+    "description": "The Maruti Alto is India's most trusted and fuel-efficient hatchback. Perfect for budget-conscious renters who need a reliable car for city driving in Patna. Extremely easy to drive, park, and maneuver in busy Patna traffic. The lowest rental price in our fleet — ideal for students and daily commuters.",
     "ideal_for": ["Budget rentals", "City driving", "Students", "Daily commute", "Learning drivers"],
     "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"]
   },
@@ -150,11 +158,14 @@
     "slug": "maruti-alto-2-on-rent-patna",
     "name": "Maruti Alto",
     "model": "2012",
-    "image_url": "/cars/maruti-alto-2/front.jpg",
+    "image_url": "/cars/maruti-alto-2/Maruti-Alto-K10-USed-Car-Front.jpg",
     "media": [
-      { "type": "image", "url": "/cars/maruti-alto-2/front.jpg", "alt": "Maruti Alto unit 2 front view", "featured": true },
-      { "type": "image", "url": "/cars/maruti-alto-2/side.jpg", "alt": "Maruti Alto unit 2 side view", "featured": false },
-      { "type": "image", "url": "/cars/maruti-alto-2/interior.jpg", "alt": "Maruti Alto unit 2 interior", "featured": false }
+      { "type": "image", "url": "/cars/maruti-alto-2/Maruti-Alto-K10-USed-Car-Front.jpg", "alt": "Maruti Alto unit 2 front view", "featured": true },
+      { "type": "image", "url": "/cars/maruti-alto-2/Suzuki_Alto_800_GL_2011.jpg", "alt": "Maruti Alto unit 2 side view", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-2/1-11-4.jpeg", "alt": "Maruti Alto unit 2 exterior", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-2/8-left-back-diagonal-ePGdrwj2w1nA8wYq.avif", "alt": "Maruti Alto unit 2 rear view", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-2/2015-Maruti-Alto-K10-interior.jpg", "alt": "Maruti Alto unit 2 interior", "featured": false },
+      { "type": "image", "url": "/cars/maruti-alto-2/2025_Suzuki_Alto_Interior_Japan_1750875584896.jpg", "alt": "Maruti Alto unit 2 cabin", "featured": false }
     ],
     "price_per_day": 1399,
     "price_per_week": 8999,
@@ -189,7 +200,7 @@
       "rear_camera": "No",
       "keyless_entry": "No"
     },
-    "description": "Our second Maruti Alto - same reliable, fuel-efficient performance. A great backup option when our first Alto is booked. Perfect for budget-friendly self-drive rentals in Patna with the lowest daily rate in the city.",
+    "description": "Our second Maruti Alto — same reliable, fuel-efficient performance. A great backup option when our first Alto is booked. Perfect for budget-friendly self-drive rentals in Patna with the lowest daily rate in the city.",
     "ideal_for": ["Budget rentals", "City driving", "Students", "Daily commute", "Learning drivers"],
     "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"]
   },
@@ -198,12 +209,16 @@
     "slug": "ford-freestyle-on-rent-patna",
     "name": "Ford Freestyle",
     "model": "2018",
-    "image_url": "/cars/ford-freestyle/front.jpg",
+    "image_url": "/cars/ford-freestyle/ford-freestyle.avif",
     "media": [
-      { "type": "image", "url": "/cars/ford-freestyle/front.jpg", "alt": "Ford Freestyle front view", "featured": true },
-      { "type": "image", "url": "/cars/ford-freestyle/side.jpg", "alt": "Ford Freestyle side profile", "featured": false },
-      { "type": "image", "url": "/cars/ford-freestyle/interior.jpg", "alt": "Ford Freestyle interior dashboard", "featured": false },
-      { "type": "image", "url": "/cars/ford-freestyle/rear.jpg", "alt": "Ford Freestyle rear view", "featured": false }
+      { "type": "image", "url": "/cars/ford-freestyle/ford-freestyle.avif", "alt": "Ford Freestyle front view", "featured": true },
+      { "type": "image", "url": "/cars/ford-freestyle/left_side_view-20240802143027.webp", "alt": "Ford Freestyle left side view", "featured": false },
+      { "type": "image", "url": "/cars/ford-freestyle/nrf3b67_ford-freestyle-flair_625x300_13_September_20.webp", "alt": "Ford Freestyle on road", "featured": false },
+      { "type": "image", "url": "/cars/ford-freestyle/61xPsVcynKL.jpg", "alt": "Ford Freestyle exterior angle", "featured": false },
+      { "type": "image", "url": "/cars/ford-freestyle/freestyle 2.jpeg", "alt": "Ford Freestyle rear angle", "featured": false },
+      { "type": "image", "url": "/cars/ford-freestyle/freestyle-interior-steering-wheel.avif", "alt": "Ford Freestyle interior steering wheel", "featured": false },
+      { "type": "image", "url": "/cars/ford-freestyle/freestyle-interior-front-row-seats.avif", "alt": "Ford Freestyle front row seats", "featured": false },
+      { "type": "image", "url": "/cars/ford-freestyle/freestyle-interior-rear-seats.avif", "alt": "Ford Freestyle rear seats", "featured": false }
     ],
     "price_per_day": 2198,
     "price_per_week": 13999,
@@ -238,7 +253,7 @@
       "rear_camera": "No",
       "keyless_entry": "Yes"
     },
-    "description": "The Ford Freestyle is a rugged crossover with SUV-like ground clearance and hatchback agility. Built for Indian roads, it handles potholes and rough patches with ease. A great choice for outstation trips from Patna where road conditions can vary. Discontinued model - rare and well-maintained.",
+    "description": "The Ford Freestyle is a rugged crossover with SUV-like ground clearance and hatchback agility. Built for Indian roads, it handles potholes and rough patches with ease. A great choice for outstation trips from Patna where road conditions can vary. Discontinued model — rare and well-maintained.",
     "ideal_for": ["Outstation trips", "Rough roads", "Weekend getaways", "Small families"],
     "nearby_destinations": ["Rajgir (102 km)", "Bodh Gaya (115 km)", "Varanasi (250 km)", "Ranchi (325 km)", "Deoghar (280 km)"]
   }
