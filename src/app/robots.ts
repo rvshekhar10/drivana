@@ -6,8 +6,18 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/_next/"],
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: "/cars/",
       },
     ],
     sitemap: "https://drivana.in/sitemap.xml",
+    host: "https://drivana.in",
   };
 }

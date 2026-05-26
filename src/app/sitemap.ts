@@ -9,20 +9,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.9,
+    images: car.media
+      .filter((m) => m.type === "image")
+      .map((m) => `${baseUrl}${m.url}`),
   }));
 
   const staticPages = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      changeFrequency: "daily" as const,
       priority: 1,
+      images: [`${baseUrl}/drivana-hero-image.avif`],
     },
     {
       url: `${baseUrl}/fleet`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      changeFrequency: "daily" as const,
       priority: 0.95,
+      images: carsData.map((car) => `${baseUrl}${car.image_url}`),
     },
     {
       url: `${baseUrl}/about`,
@@ -34,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/how-it-works`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/contact`,
@@ -46,25 +51,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/safety`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.7,
+      priority: 0.75,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
-      priority: 0.5,
+      priority: 0.4,
     },
     {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
-      priority: 0.5,
+      priority: 0.4,
     },
     {
       url: `${baseUrl}/refund`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
-      priority: 0.5,
+      priority: 0.4,
     },
   ];
 
