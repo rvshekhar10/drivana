@@ -22,8 +22,8 @@
     "transmission": "Manual",
     "fuel_type": "Petrol",
     "deposit": 5000,
-    "rating": 4.4,
-    "review_count": 10,
+    "rating": 4.5,
+    "review_count": 8,
     "pickup_location": "Bhoothnath Road, Patna",
     "category": "SUV",
     "specs": {
@@ -37,6 +37,8 @@
       "seating_capacity": "5 Seater",
       "baggage_capacity": "2 Baggage",
       "mileage": "Under 9,000 Km",
+      "km_limit": "250 km/day, 1200 km/week, 3000 km/month",
+      "excess_km_charge": "₹8/km (fuel not included)",
       "air_conditioning": "Yes",
       "power_steering": "Yes",
       "power_windows": "Yes",
@@ -48,7 +50,13 @@
     },
     "description": "The Nissan Magnite is a feature-packed compact SUV perfect for city drives and weekend getaways from Patna. With its bold design, spacious cabin, and modern tech features, it offers a premium driving experience at an affordable rental price. Ideal for family trips to Rajgir, Nalanda, or Bodh Gaya.",
     "ideal_for": ["Family trips", "Weekend getaways", "Airport transfers", "Outstation travel"],
-    "nearby_destinations": ["Rajgir (102 km)", "Nalanda (95 km)", "Bodh Gaya (115 km)", "Varanasi (250 km)", "Ranchi (325 km)"]
+    "nearby_destinations": ["Rajgir (102 km)", "Nalanda (95 km)", "Bodh Gaya (115 km)", "Varanasi (250 km)", "Ranchi (325 km)"],
+    "terms": [
+      "Security deposit is refundable once the vehicle is returned in proper condition without any damages.",
+      "You need to submit an original ID proof and a photocopy of your driving license.",
+      "There is a km limit of 250 km/day, 1200 km/week and 3000 km/month. Exceeding charge: ₹8/km. Fuel not included.",
+      "Fuel is not included in the rental price."
+    ]
   },
   {
     "id": 2,
@@ -66,8 +74,8 @@
       { "type": "image", "url": "/cars/tata-tiago/2025_Tata_Tiago_Interior_Enhancements_and_Feature_Upgrades_7e9646c3d2.webp", "alt": "Tata Tiago 2025 interior features", "featured": false }
     ],
     "price_per_day": 1999,
-    "price_per_week": 11999,
-    "price_per_month": 34999,
+    "price_per_week": 13799,
+    "price_per_month": 41399,
     "original_price": 2599,
     "discount": 23,
     "features": ["5 Seater", "2 Luggage", "Apple CarPlay", "ABS"],
@@ -75,7 +83,7 @@
     "fuel_type": "Petrol",
     "deposit": 5000,
     "rating": 5.0,
-    "review_count": 8,
+    "review_count": 2,
     "pickup_location": "Bhoothnath Road, Patna",
     "category": "Hatchback",
     "specs": {
@@ -87,8 +95,10 @@
       "engine_capacity": "1199 CC",
       "transmission_type": "Manual",
       "seating_capacity": "5 Seater",
-      "baggage_capacity": "2 Baggage",
-      "mileage": "Under 5,000 Km",
+      "baggage_capacity": "2 Luggage",
+      "mileage": "Under 340 Km",
+      "km_limit": "250 km/day, 1500 km/week, 3000 km/month",
+      "excess_km_charge": "₹8/km",
       "air_conditioning": "Yes",
       "power_steering": "Yes",
       "power_windows": "Yes",
@@ -100,7 +110,13 @@
     },
     "description": "The Tata Tiago 2025 is a brand-new, feature-rich hatchback that combines safety, style, and fuel efficiency. With its 5-star safety rating and modern connectivity features, it's the perfect choice for city commutes and short trips around Patna. One of the safest cars in its segment.",
     "ideal_for": ["City commute", "Daily rentals", "College trips", "Short outstation trips"],
-    "nearby_destinations": ["Rajgir (102 km)", "Nalanda (95 km)", "Gaya (105 km)", "Sasaram (152 km)", "Muzaffarpur (80 km)"]
+    "nearby_destinations": ["Rajgir (102 km)", "Nalanda (95 km)", "Gaya (105 km)", "Sasaram (152 km)", "Muzaffarpur (80 km)"],
+    "terms": [
+      "Security deposit is refundable once the vehicle is returned in proper condition without any damages.",
+      "You need to submit an original ID proof and a photocopy of your driving license.",
+      "There is a km limit of 250 km/day, 1500 km/week, and 3000 km/month. Exceeding charge: ₹8/km.",
+      "Fuel is not included."
+    ]
   },
   {
     "id": 3,
@@ -118,15 +134,15 @@
     ],
     "price_per_day": 1399,
     "price_per_week": 8999,
-    "price_per_month": 25999,
+    "price_per_month": 24999,
     "original_price": 1799,
     "discount": 22,
     "features": ["5 Seater", "Fuel Efficient", "AC", "Power Steering"],
     "transmission": "Manual",
     "fuel_type": "Petrol",
-    "deposit": 5000,
+    "deposit": 3000,
     "rating": 5.0,
-    "review_count": 12,
+    "review_count": 0,
     "pickup_location": "Bhoothnath Road, Patna",
     "category": "Hatchback",
     "specs": {
@@ -139,7 +155,9 @@
       "transmission_type": "Manual",
       "seating_capacity": "5 Seater",
       "baggage_capacity": "1 Baggage",
-      "mileage": "22 km/l (approx)",
+      "mileage": "Under 0 Km (odometer)",
+      "km_limit": "200 km/day, 1200 km/week",
+      "excess_km_charge": "₹7/km",
       "air_conditioning": "Yes",
       "power_steering": "Yes",
       "power_windows": "No",
@@ -151,7 +169,12 @@
     },
     "description": "The Maruti Alto is India's most trusted and fuel-efficient hatchback. Perfect for budget-conscious renters who need a reliable car for city driving in Patna. Extremely easy to drive, park, and maneuver in busy Patna traffic. The lowest rental price in our fleet — ideal for students and daily commuters.",
     "ideal_for": ["Budget rentals", "City driving", "Students", "Daily commute", "Learning drivers"],
-    "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"]
+    "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"],
+    "terms": [
+      "Security Deposit is refundable once we receive the car in proper condition.",
+      "You need to submit an original ID proof and a photocopy of your driving license.",
+      "There is a km limit of 200 km/day, 1200 km/week. The exceeding charge would be Rs. 7/km."
+    ]
   },
   {
     "id": 4,
@@ -169,15 +192,15 @@
     ],
     "price_per_day": 1399,
     "price_per_week": 8999,
-    "price_per_month": 25999,
+    "price_per_month": 24999,
     "original_price": 1799,
     "discount": 22,
     "features": ["5 Seater", "Fuel Efficient", "AC", "Power Steering"],
     "transmission": "Manual",
     "fuel_type": "Petrol",
-    "deposit": 5000,
+    "deposit": 3000,
     "rating": 5.0,
-    "review_count": 12,
+    "review_count": 0,
     "pickup_location": "Bhoothnath Road, Patna",
     "category": "Hatchback",
     "specs": {
@@ -190,7 +213,9 @@
       "transmission_type": "Manual",
       "seating_capacity": "5 Seater",
       "baggage_capacity": "1 Baggage",
-      "mileage": "22 km/l (approx)",
+      "mileage": "Under 0 Km (odometer)",
+      "km_limit": "200 km/day, 1200 km/week",
+      "excess_km_charge": "₹7/km",
       "air_conditioning": "Yes",
       "power_steering": "Yes",
       "power_windows": "No",
@@ -202,7 +227,12 @@
     },
     "description": "Our second Maruti Alto — same reliable, fuel-efficient performance. A great backup option when our first Alto is booked. Perfect for budget-friendly self-drive rentals in Patna with the lowest daily rate in the city.",
     "ideal_for": ["Budget rentals", "City driving", "Students", "Daily commute", "Learning drivers"],
-    "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"]
+    "nearby_destinations": ["Patna city tour", "Danapur (10 km)", "Hajipur (25 km)", "Bihar Sharif (72 km)", "Bakhtiarpur (45 km)"],
+    "terms": [
+      "Security Deposit is refundable once we receive the car in proper condition.",
+      "You need to submit an original ID proof and a photocopy of your driving license.",
+      "There is a km limit of 200 km/day, 1200 km/week. The exceeding charge would be Rs. 7/km."
+    ]
   },
   {
     "id": 5,
@@ -230,7 +260,7 @@
     "fuel_type": "Petrol",
     "deposit": 5000,
     "rating": 5.0,
-    "review_count": 6,
+    "review_count": 0,
     "pickup_location": "Bhoothnath Road, Patna",
     "category": "Crossover",
     "specs": {
@@ -239,11 +269,13 @@
       "manufacturing_year": 2018,
       "body_type": "Crossover",
       "fuel": "Petrol",
-      "engine_capacity": "1194 CC",
+      "engine_capacity": "1498 CC",
       "transmission_type": "Manual",
       "seating_capacity": "5 Seater",
       "baggage_capacity": "2 Baggage",
-      "mileage": "19 km/l (approx)",
+      "mileage": "Under 0 Km (odometer)",
+      "km_limit": "200 km/day, 1200 km/week",
+      "excess_km_charge": "₹9/km",
       "air_conditioning": "Yes",
       "power_steering": "Yes",
       "power_windows": "Yes",
@@ -255,6 +287,11 @@
     },
     "description": "The Ford Freestyle is a rugged crossover with SUV-like ground clearance and hatchback agility. Built for Indian roads, it handles potholes and rough patches with ease. A great choice for outstation trips from Patna where road conditions can vary. Discontinued model — rare and well-maintained.",
     "ideal_for": ["Outstation trips", "Rough roads", "Weekend getaways", "Small families"],
-    "nearby_destinations": ["Rajgir (102 km)", "Bodh Gaya (115 km)", "Varanasi (250 km)", "Ranchi (325 km)", "Deoghar (280 km)"]
+    "nearby_destinations": ["Rajgir (102 km)", "Bodh Gaya (115 km)", "Varanasi (250 km)", "Ranchi (325 km)", "Deoghar (280 km)"],
+    "terms": [
+      "Security Deposit is refundable once we receive the car in proper condition.",
+      "You need to submit an original ID proof and a photocopy of your driving license.",
+      "There is a km limit of 200 km/day, 1200 km/week. The exceeding charge would be Rs. 9/km."
+    ]
   }
 ]

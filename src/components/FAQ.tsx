@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Is fuel included in the rental price?",
     answer:
-      "No, fuel is not included in the rental price. You receive the car with a certain fuel level and are expected to return it at the same level. This keeps our pricing transparent and fair.",
+      "No, fuel is not included in any of our rental plans. You receive the car with a certain fuel level and are expected to return it at the same level. This keeps our pricing transparent and fair.",
   },
   {
     question: "Do you provide doorstep delivery in Patna?",
@@ -38,12 +38,12 @@ const faqs = [
   {
     question: "What is the security deposit amount?",
     answer:
-      "The security deposit starts from ₹5,000 and varies depending on the vehicle type. It is refundable upon safe return of the vehicle in clean condition. Note: Any damage repairs or extra cleaning charges will be deducted from the deposit. We provide only clean, well-maintained vehicles - please return them in the same condition. Payment can be made via UPI, bank transfer, or cash.",
+      "The security deposit is ₹3,000 for Alto and ₹5,000 for Tiago, Magnite, and Freestyle. It is refundable once the vehicle is returned in proper condition without any damages. Damage repairs and cleaning charges (if any) will be deducted. You need to submit an original ID proof and a photocopy of your driving license. Payment can be made via UPI, bank transfer, or cash.",
   },
   {
     question: "Is there a km limit per day?",
     answer:
-      "Yes, most of our plans include a generous daily km limit (typically 200-300 km/day). Extra kilometers are charged at a nominal per-km rate. Unlimited km packages are also available for select vehicles.",
+      "Yes. Km limits vary by vehicle: Alto has 200 km/day (1200 km/week, ₹7/km extra), Tiago has 250 km/day (1500 km/week, 3000 km/month, ₹8/km extra), Magnite has 250 km/day (1200 km/week, 3000 km/month, ₹8/km extra), and Freestyle has 200 km/day (1200 km/week, ₹9/km extra). Fuel is not included in any plan.",
   },
   {
     question: "What is the cancellation policy?",

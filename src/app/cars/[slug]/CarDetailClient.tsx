@@ -35,6 +35,8 @@ interface CarSpecs {
   seating_capacity: string;
   baggage_capacity: string;
   mileage: string;
+  km_limit: string;
+  excess_km_charge: string;
   air_conditioning: string;
   power_steering: string;
   power_windows: string;
@@ -69,6 +71,7 @@ interface Car {
   description: string;
   ideal_for: string[];
   nearby_destinations: string[];
+  terms: string[];
 }
 
 interface Props {
@@ -282,6 +285,32 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                     <span className="text-sm text-white/70">{feature}</span>
                   </div>
                 ))}
+              </div>
+            </motion.section>
+
+            {/* Rental Terms & Conditions */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.38 }}
+              className="mt-8"
+            >
+              <h2 className="text-lg font-semibold text-white mb-4">
+                Rental Terms
+              </h2>
+              <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
+                <ul className="space-y-3">
+                  {car.terms.map((term, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="text-amber-400 font-bold text-sm mt-0.5 shrink-0">
+                        {index + 1}.
+                      </span>
+                      <span className="text-sm text-white/70 leading-relaxed">
+                        {term}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.section>
 
