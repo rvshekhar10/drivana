@@ -406,6 +406,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                       <div className="flex items-center gap-2">
                         <Clock size={14} className="text-white/40" />
                         <span className="text-sm text-white/60">Per Week</span>
+                        <span className="text-[10px] bg-green-500/20 text-green-400 font-bold px-1.5 py-0.5 rounded">15% OFF</span>
                       </div>
                       <span className="text-sm font-semibold text-white">
                         ₹{car.price_per_week.toLocaleString()}
@@ -415,6 +416,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                       <div className="flex items-center gap-2">
                         <Clock size={14} className="text-white/40" />
                         <span className="text-sm text-white/60">Per Month</span>
+                        <span className="text-[10px] bg-green-500/20 text-green-400 font-bold px-1.5 py-0.5 rounded">20% OFF</span>
                       </div>
                       <span className="text-sm font-semibold text-white">
                         ₹{car.price_per_month.toLocaleString()}
