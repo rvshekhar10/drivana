@@ -23,7 +23,7 @@ const features = [
   {
     icon: IndianRupee,
     title: "Transparent Pricing",
-    description: "No hidden charges. KM limits, fuel, deposit — all upfront.",
+    description: "No hidden charges. KM limits, fuel, deposit - all upfront.",
     color: "text-gold",
     bg: "bg-gold/10",
   },

@@ -75,7 +75,7 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
-        {/* Steps — Horizontal cards */}
+        {/* Steps - Horizontal cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {steps.map((step, index) => (
             <motion.div

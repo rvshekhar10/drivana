@@ -7,7 +7,7 @@ import CarCard from "./CarCard";
 import carsData from "@/data/cars.json";
 
 export default function Fleet() {
-  // Show only 3 cars on homepage (deduplicated — skip second Alto)
+  // Show only 3 cars on homepage (deduplicated - skip second Alto)
   const displayCars = carsData.filter((car) => car.id !== 4).slice(0, 3);
 
   return (
@@ -40,7 +40,7 @@ export default function Fleet() {
           </p>
         </motion.div>
 
-        {/* Car Grid — 3 featured cars */}
+        {/* Car Grid - 3 featured cars */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {displayCars.map((car, index) => (
             <CarCard key={car.id} car={car} index={index} />
