@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Self-Drive Cars on Rent in Patna | Fleet & Prices - DRIVANA",
     description:
       "Browse our fleet: Magnite, Tiago, Alto, Freestyle. Starting ₹1,399/day. Compare specs & book instantly.",
-    url: "https://drivana.in/fleet",
+    url: "https://www.drivana.co.in/fleet",
     type: "website",
     images: [
       {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/fleet",
+    canonical: "https://www.drivana.co.in/fleet",
   },
 };
 

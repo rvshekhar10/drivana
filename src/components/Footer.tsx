@@ -111,6 +111,14 @@ export default function Footer() {
                   Customer Reviews
                 </a>
               </li>
+              <li>
+                <a
+                  href="/partner"
+                  className="text-sm text-white/40 hover:text-gold transition-colors"
+                >
+                  List Your Car - Earn ₹25K+/mo
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${car.name} on Rent in Patna - ₹${car.price_per_day}/day | DRIVANA`,
       description,
-      url: `https://drivana.in/cars/${car.slug}`,
+      url: `https://www.drivana.co.in/cars/${car.slug}`,
       images: [{ url: car.image_url, width: 800, height: 500, alt: `${car.name} ${car.model} on rent in Patna` }],
       type: "website",
     },
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [car.image_url],
     },
     alternates: {
-      canonical: `https://drivana.in/cars/${car.slug}`,
+      canonical: `https://www.drivana.co.in/cars/${car.slug}`,
     },
   };
 }
@@ -72,7 +72,7 @@ export default async function CarDetailPage({ params }: Props) {
     "@type": "Product",
     name: `${car.name} ${car.model} - Self Drive Rental`,
     description: car.description,
-    image: `https://drivana.in${car.image_url}`,
+    image: `https://www.drivana.co.in${car.image_url}`,
     brand: {
       "@type": "Brand",
       name: car.specs.brand,

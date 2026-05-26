@@ -4,7 +4,7 @@ import ContactClient from "./ContactClient";
 export const metadata: Metadata = {
   title: "Contact Us | DRIVANA Self-Drive Car Rental Patna - WhatsApp & Call",
   description:
-    "Contact DRIVANA for self-drive car rental in Patna. WhatsApp +91 92055 48488, call +91 70791 38350, email drivanaofficial@gmail.com. Located at Bhootnath Road, Patna. Open 9 AM - 9 PM, 7 days a week.",
+    "Contact DRIVANA for self-drive car rental in Patna. WhatsApp +91 92055 48488, call +91 70791 38350, email drivanaofficial@gmail.com. Located at Bhootnath Road, Patna. Open 24 hours, 7 days a week.",
   keywords: [
     "drivana contact",
     "drivana phone number",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | DRIVANA Self-Drive Car Rental Patna",
     description:
-      "Reach DRIVANA on WhatsApp, call, or email. Bhootnath Road, Patna. Open 9 AM - 9 PM daily.",
-    url: "https://drivana.in/contact",
+      "Reach DRIVANA on WhatsApp, call, or email. Bhootnath Road, Patna. Open 24 hours daily.",
+    url: "https://www.drivana.co.in/contact",
     type: "website",
     images: [
       {
@@ -34,11 +34,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Us | DRIVANA Self-Drive Car Rental Patna",
     description:
-      "WhatsApp +91 92055 48488 | Bhootnath Road, Patna | Open 9 AM - 9 PM daily.",
+      "WhatsApp +91 92055 48488 | Bhootnath Road, Patna | Open 24 hours daily.",
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/contact",
+    canonical: "https://www.drivana.co.in/contact",
   },
 };
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact DRIVANA",
-    url: "https://drivana.in/contact",
+    url: "https://www.drivana.co.in/contact",
     mainEntity: {
       "@type": "AutoRental",
       name: "DRIVANA - Self Drive Car Rental",

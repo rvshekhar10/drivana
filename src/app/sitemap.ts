@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import carsData from "@/data/cars.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://drivana.in";
+  const baseUrl = "https://www.drivana.co.in";
 
   const carPages = carsData.map((car) => ({
     url: `${baseUrl}/cars/${car.slug}`,

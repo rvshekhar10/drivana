@@ -264,7 +264,7 @@ export default function AboutClient() {
               {
                 emoji: "✈️",
                 title: "Flying into Patna",
-                desc: "From Delhi, Mumbai, Bangalore - land and drive within an hour.",
+                desc: "From Delhi, Mumbai and all major cities - land and drive within an hour.",
               },
               {
                 emoji: "👨‍👩‍👧‍👦",
@@ -416,7 +416,7 @@ export default function AboutClient() {
                 <div className="flex items-center gap-3">
                   <Car size={16} className="text-gold" />
                   <span className="text-white/70 text-sm">
-                    Open 9 AM – 9 PM, 7 days a week
+                    Open 24 hours, 7 days a week
                   </span>
                 </div>
               </div>

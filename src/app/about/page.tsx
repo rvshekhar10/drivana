@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "About DRIVANA | Self-Drive Car Rental Platform in Patna, Bihar",
     description:
       "DRIVANA was founded to bring the self-drive car rental experience to Patna. Clean cars, transparent pricing, on-ground support for visitors from metro cities.",
-    url: "https://drivana.in/about",
+    url: "https://www.drivana.co.in/about",
     type: "website",
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/about",
+    canonical: "https://www.drivana.co.in/about",
   },
 };
 

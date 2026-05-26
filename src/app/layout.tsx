@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drivana.in"),
+  metadataBase: new URL("https://www.drivana.co.in"),
   title: {
     default:
       "Self-Drive Car Rental in Patna | ₹1,399/day | DRIVANA - Book on WhatsApp",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "car rental for wedding patna",
     "car rental for business trip patna",
   ],
-  authors: [{ name: "Drivana", url: "https://drivana.in" }],
+  authors: [{ name: "Drivana", url: "https://www.drivana.co.in" }],
   creator: "Drivana",
   publisher: "Drivana",
   robots: {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://drivana.in",
+    url: "https://www.drivana.co.in",
     siteName: "DRIVANA",
     title: "Self-Drive Car Rental in Patna | ₹1,399/day - DRIVANA",
     description:
@@ -93,9 +93,9 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in",
+    canonical: "https://www.drivana.co.in",
     languages: {
-      "en-IN": "https://drivana.in",
+      "en-IN": "https://www.drivana.co.in",
     },
   },
   category: "Car Rental",
@@ -116,19 +116,19 @@ export default function RootLayout({
       // Organization / AutoRental
       {
         "@type": ["AutoRental", "LocalBusiness"],
-        "@id": "https://drivana.in/#business",
+        "@id": "https://www.drivana.co.in/#business",
         name: "DRIVANA - Self Drive Car Rental Patna",
         alternateName: ["Drivana", "DRIVANA Patna", "Drivana Car Rental"],
-        url: "https://drivana.in",
+        url: "https://www.drivana.co.in",
         logo: {
           "@type": "ImageObject",
-          url: "https://drivana.in/drivana-logo-patna.png",
+          url: "https://www.drivana.co.in/drivana-logo-patna.png",
           width: 180,
           height: 50,
         },
         image: [
-          "https://drivana.in/drivana-og-image.jpg",
-          "https://drivana.in/drivana-logo-patna.png",
+          "https://www.drivana.co.in/drivana-og-image.jpg",
+          "https://www.drivana.co.in/drivana-logo-patna.png",
         ],
         description:
           "DRIVANA is Patna's premium self-drive car rental platform. Rent well-maintained Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle without a driver. Starting ₹1,399/day with doorstep delivery. Book via WhatsApp.",
@@ -293,17 +293,17 @@ export default function RootLayout({
       // WebSite with SearchAction
       {
         "@type": "WebSite",
-        "@id": "https://drivana.in/#website",
-        url: "https://drivana.in",
+        "@id": "https://www.drivana.co.in/#website",
+        url: "https://www.drivana.co.in",
         name: "DRIVANA",
         description: "Self-drive car rental platform in Patna, Bihar",
-        publisher: { "@id": "https://drivana.in/#business" },
+        publisher: { "@id": "https://www.drivana.co.in/#business" },
         inLanguage: "en-IN",
         potentialAction: {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://drivana.in/fleet?q={search_term_string}",
+            urlTemplate: "https://www.drivana.co.in/fleet?q={search_term_string}",
           },
           "query-input": "required name=search_term_string",
         },
@@ -311,26 +311,26 @@ export default function RootLayout({
       // BreadcrumbList
       {
         "@type": "BreadcrumbList",
-        "@id": "https://drivana.in/#breadcrumb",
+        "@id": "https://www.drivana.co.in/#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://drivana.in",
+            item: "https://www.drivana.co.in",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Self-Drive Cars",
-            item: "https://drivana.in/fleet",
+            item: "https://www.drivana.co.in/fleet",
           },
         ],
       },
       // FAQPage
       {
         "@type": "FAQPage",
-        "@id": "https://drivana.in/#faq",
+        "@id": "https://www.drivana.co.in/#faq",
         mainEntity: [
           {
             "@type": "Question",

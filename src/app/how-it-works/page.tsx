@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "How It Works | Rent a Self-Drive Car in Patna - DRIVANA",
     description:
       "4 simple steps to rent a self-drive car in Patna. WhatsApp booking, quick verification, pickup/delivery, and you're on the road.",
-    url: "https://drivana.in/how-it-works",
+    url: "https://www.drivana.co.in/how-it-works",
     type: "website",
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/how-it-works",
+    canonical: "https://www.drivana.co.in/how-it-works",
   },
 };
 

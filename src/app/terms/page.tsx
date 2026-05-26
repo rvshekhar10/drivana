@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Terms & Conditions | DRIVANA Self-Drive Car Rental Patna",
     description:
       "Eligibility, booking policy, security deposit, KM limits, cancellation, and vehicle return conditions for DRIVANA car rentals.",
-    url: "https://drivana.in/terms",
+    url: "https://www.drivana.co.in/terms",
     type: "website",
     images: [
       {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/terms",
+    canonical: "https://www.drivana.co.in/terms",
   },
 };
 

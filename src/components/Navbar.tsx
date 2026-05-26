@@ -417,7 +417,7 @@ export default function Navbar() {
               <div className="mt-8 flex items-center gap-2 px-4">
                 <MapPin size={14} className="text-gold/50" />
                 <span className="text-white/30 text-xs">
-                  Bhootnath Road, Patna • 9 AM – 9 PM
+                  Bhootnath Road, Patna • 24 hours
                 </span>
               </div>
             </motion.div>

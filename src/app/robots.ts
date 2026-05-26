@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/cars/",
       },
     ],
-    sitemap: "https://drivana.in/sitemap.xml",
-    host: "https://drivana.in",
+    sitemap: "https://www.drivana.co.in/sitemap.xml",
+    host: "https://www.drivana.co.in",
   };
 }

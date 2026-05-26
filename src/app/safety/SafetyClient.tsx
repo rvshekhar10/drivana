@@ -299,7 +299,7 @@ export default function SafetyClient() {
                     WhatsApp SOS
                   </a>
                   <p className="text-white/30 text-xs mt-3">
-                    9 AM – 9 PM daily
+                    24 hours daily
                     <br />
                     WhatsApp monitored after hours
                   </p>

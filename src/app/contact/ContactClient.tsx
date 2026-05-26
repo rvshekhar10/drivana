@@ -43,7 +43,7 @@ const contactMethods = [
     iconBg: "bg-gold/20",
     iconColor: "text-gold",
     ctaBg: "bg-gold hover:bg-gold-light",
-    badge: "9 AM – 9 PM",
+    badge: "24x7",
   },
   {
     icon: Mail,
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     q: "Can I visit your office?",
-    a: "Yes! We're at Bhootnath Road, Patna. Open 9 AM – 9 PM, 7 days a week.",
+    a: "Yes! We're at Bhootnath Road, Patna. Open 24 hours, 7 days a week.",
   },
   {
     q: "Do you offer doorstep delivery?",

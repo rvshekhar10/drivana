@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Refund Policy | DRIVANA Self-Drive Car Rental Patna",
     description:
       "Security deposit refunds, damage deductions, and cancellation refund timelines for DRIVANA car rentals in Patna.",
-    url: "https://drivana.in/refund",
+    url: "https://www.drivana.co.in/refund",
     type: "website",
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/refund",
+    canonical: "https://www.drivana.co.in/refund",
   },
 };
 

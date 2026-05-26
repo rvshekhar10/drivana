@@ -59,7 +59,7 @@ export default function CTABanner() {
         </div>
 
         <p className="mt-6 text-xs text-white/40">
-          Available 7 days a week • 9 AM to 9 PM • Instant response guaranteed
+          Available 7 days a week • 24 hours • Instant response guaranteed
         </p>
       </motion.div>
     </section>

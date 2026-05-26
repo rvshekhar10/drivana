@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Safety & Support | DRIVANA Self-Drive Car Rental Patna",
     description:
       "Regularly serviced cars, insurance coverage, on-ground breakdown support, and thorough inspections. Your safety is our priority.",
-    url: "https://drivana.in/safety",
+    url: "https://www.drivana.co.in/safety",
     type: "website",
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     images: ["/drivana-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://drivana.in/safety",
+    canonical: "https://www.drivana.co.in/safety",
   },
 };
 
@@ -49,7 +49,7 @@ export default function SafetyPage() {
     name: "Safety & Support - DRIVANA",
     description:
       "DRIVANA's safety measures including vehicle maintenance, insurance, breakdown support, and inspection protocols.",
-    url: "https://drivana.in/safety",
+    url: "https://www.drivana.co.in/safety",
     mainEntity: {
       "@type": "Service",
       name: "DRIVANA Roadside Assistance",
