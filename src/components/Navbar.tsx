@@ -20,8 +20,8 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Fleet", href: "#fleet" },
-    { label: "How It Works", href: "#how-it-works" },
+    { label: "Fleet", href: "/fleet" },
+    { label: "How It Works", href: "/how-it-works" },
     { label: "Why Us", href: "#why-us" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
