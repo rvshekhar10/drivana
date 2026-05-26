@@ -7,7 +7,7 @@ const WHATSAPP_NUMBER = "918252658488";
 
 export default function CTABanner() {
   return (
-    <section className="py-20 sm:py-28 px-4 sm:px-6 relative overflow-hidden">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent" />

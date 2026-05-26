@@ -26,9 +26,9 @@ export default function Footer() {
             <Image
               src="/drivana-logo-patna.png"
               alt="DRIVANA Logo"
-              width={140}
-              height={40}
-              className="h-10 w-auto object-contain mb-4"
+              width={160}
+              height={45}
+              className="h-12 w-auto object-contain mb-4"
             />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               Patna&apos;s trusted self-drive car rental service. Premium cars,

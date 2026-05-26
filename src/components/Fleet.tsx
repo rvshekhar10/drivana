@@ -8,7 +8,7 @@ export default function Fleet() {
   return (
     <section
       id="fleet"
-      className="py-20 sm:py-28 px-4 sm:px-6"
+      className="py-16 sm:py-20 px-4 sm:px-6"
       aria-labelledby="fleet-heading"
     >
       <div className="max-w-7xl mx-auto">

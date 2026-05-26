@@ -38,7 +38,7 @@ const features = [
 
 export default function WhyDrivana() {
   return (
-    <section id="why-us" className="py-20 sm:py-28 px-4 sm:px-6 relative">
+    <section id="why-us" className="py-16 sm:py-20 px-4 sm:px-6 relative">
       {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.02] to-transparent" />
 
@@ -71,7 +71,7 @@ export default function WhyDrivana() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group p-6 sm:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-gold/20 transition-all duration-500"
+              className="group p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.04] hover:border-gold/30 hover:bg-white/[0.06] transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors duration-300">
                 <feature.icon size={22} className="text-gold" />
@@ -79,7 +79,7 @@ export default function WhyDrivana() {
               <h3 className="text-lg font-semibold text-white mb-2">
                 {feature.title}
               </h3>
-              <p className="text-white/50 text-sm leading-relaxed">
+              <p className="text-white/60 text-sm leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>

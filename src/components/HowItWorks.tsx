@@ -38,7 +38,7 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="py-20 sm:py-28 px-4 sm:px-6 relative"
+      className="py-16 sm:py-20 px-4 sm:px-6 relative"
       aria-labelledby="how-it-works-heading"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent" />

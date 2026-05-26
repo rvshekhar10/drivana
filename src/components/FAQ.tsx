@@ -101,7 +101,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-20 sm:py-28 px-4 sm:px-6"
+      className="py-16 sm:py-20 px-4 sm:px-6"
       aria-labelledby="faq-heading"
     >
       <div className="max-w-3xl mx-auto">
