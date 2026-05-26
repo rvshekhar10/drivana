@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown, Star } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -9,23 +10,21 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
+      {/* Background Hero Image */}
+      <Image
+        src="/drivana-hero-image.avif"
+        alt="Self drive car rental in Patna - DRIVANA fleet"
+        fill
+        className="object-cover"
+        priority
+        quality={85}
+      />
 
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent" />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/70" />
 
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(212,175,55,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.3) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
+      {/* Bottom gradient fade to black */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
