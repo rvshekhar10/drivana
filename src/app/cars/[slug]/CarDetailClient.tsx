@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
 import CarGallery, { MediaItem } from "@/components/CarGallery";
+import CTABanner from "@/components/CTABanner";
+import Footer from "@/components/Footer";
 
 const WHATSAPP_NUMBER = "918252658488";
 
@@ -435,7 +437,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                       </span>
                     </div>
                     <span className="text-sm font-semibold text-white">
-                      ₹{car.deposit.toLocaleString()} onwards
+                      ₹{car.deposit.toLocaleString()}
                     </span>
                   </div>
                   <p className="text-xs text-white/30 mt-2 leading-relaxed">
@@ -460,7 +462,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                 </a>
 
                 <p className="text-xs text-white/30 text-center mt-4">
-                  Pay at pickup • Deposit starting ₹5,000 • Clean car guaranteed
+                  Pay at pickup • Deposit ₹{car.deposit.toLocaleString()} • Clean car guaranteed
                 </p>
               </motion.div>
 
@@ -526,7 +528,7 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                   <li className="flex items-center gap-3">
                     <CheckCircle2 size={14} className="text-gold shrink-0" />
                     <span className="text-sm text-white/60">
-                      Security deposit from ₹5,000
+                      Security deposit ₹{car.deposit.toLocaleString()}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -649,6 +651,12 @@ export default function CarDetailClient({ car, otherCars }: Props) {
 
       {/* Bottom padding for mobile CTA */}
       <div className="h-20 lg:hidden" />
+
+      {/* CTA Banner */}
+      <CTABanner />
+
+      {/* Footer */}
+      <Footer />
 
       {/* Booking Modal */}
       <BookingModal

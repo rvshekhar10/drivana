@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "What documents do I need to rent a self-drive car in Patna?",
     answer:
-      "You need a valid driving license, Aadhaar card (or any government-issued ID proof), and a security deposit starting from ₹5,000. The verification process is quick and can be done via WhatsApp itself.",
+      "You need a valid driving license, Aadhaar card (or any government-issued ID proof), and a security deposit (₹3,000 for Alto, ₹5,000 for other cars). The verification process is quick and can be done via WhatsApp itself.",
   },
   {
     question: "What is the minimum rental duration?",
