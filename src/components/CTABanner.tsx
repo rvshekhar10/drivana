@@ -2,15 +2,27 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
+import Image from "next/image";
 
 const WHATSAPP_NUMBER = "918252658488";
 
 export default function CTABanner() {
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-gold/5 to-gold/10" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent" />
+      {/* Hero image background */}
+      <Image
+        src="/drivana-hero-image.avif"
+        alt=""
+        fill
+        className="object-cover"
+        aria-hidden="true"
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+
+      {/* Gold gradient accent */}
+      <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-transparent to-gold/10" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -22,7 +34,7 @@ export default function CTABanner() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
           Ready to Hit the Road?
         </h2>
-        <p className="text-white/60 mt-4 text-sm sm:text-base max-w-xl mx-auto">
+        <p className="text-white/70 mt-4 text-sm sm:text-base max-w-xl mx-auto">
           Book your self-drive car in Patna in under 5 minutes. Message us on
           WhatsApp and get instant confirmation.
         </p>
@@ -46,7 +58,7 @@ export default function CTABanner() {
           </a>
         </div>
 
-        <p className="mt-6 text-xs text-white/30">
+        <p className="mt-6 text-xs text-white/40">
           Available 7 days a week • 9 AM to 9 PM • Instant response guaranteed
         </p>
       </motion.div>
