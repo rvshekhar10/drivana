@@ -275,7 +275,7 @@ export default function ContactClient() {
                         Doorstep Delivery
                       </p>
                       <p className="text-white/60 text-sm mt-0.5">
-                        Free within Patna city limits.
+                        Within Patna city limits.
                         <br />
                         Airport pickup available.
                       </p>

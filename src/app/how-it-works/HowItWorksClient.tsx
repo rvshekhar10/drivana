@@ -64,7 +64,7 @@ const steps = [
     title: "Get Your Car",
     subtitle: "Same day possible",
     description:
-      "Pick up from Bhootnath Road, Patna - or we deliver to your doorstep for free within city limits. We walk you through the car and hand over the keys.",
+      "Pick up from Bhootnath Road, Patna - or we deliver to you within city limits. We walk you through the car and hand over the keys.",
     details: [
       "Doorstep delivery within Patna city",
       "Car walkthrough & existing damage documentation",
