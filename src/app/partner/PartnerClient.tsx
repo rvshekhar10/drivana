@@ -228,7 +228,7 @@ export default function PartnerClient() {
             className="mt-16 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8"
           >
             {[
-              { value: "₹25K+", label: "Avg. Monthly Earning" },
+              { value: "₹45K", label: "Max. Monthly Earning" },
               { value: "Weekly", label: "Payouts" },
               { value: "100%", label: "Maintenance Covered" },
             ].map((stat) => (
@@ -440,19 +440,19 @@ export default function PartnerClient() {
               {
                 label: "Hatchback",
                 example: "Alto, Tiago, Swift",
-                earning: "₹15K – ₹25K",
+                earning: "₹27,000",
                 period: "/month",
               },
               {
                 label: "Sedan / Crossover",
                 example: "Dzire, Freestyle, Amaze",
-                earning: "₹20K – ₹35K",
+                earning: "₹40,000",
                 period: "/month",
               },
               {
                 label: "SUV / Premium",
                 example: "Magnite, Creta, Seltos",
-                earning: "₹30K – ₹50K",
+                earning: "₹45,000",
                 period: "/month",
               },
             ].map((tier, index) => (
@@ -467,17 +467,18 @@ export default function PartnerClient() {
                 <p className="text-white/40 text-xs uppercase tracking-wider mb-2">
                   {tier.label}
                 </p>
+                <p className="text-white/50 text-sm mb-3">Earn upto</p>
                 <p className="text-3xl sm:text-4xl font-bold text-gold mb-1">
                   {tier.earning}
                 </p>
-                <p className="text-white/30 text-sm mb-3">{tier.period}</p>
-                <p className="text-white/50 text-xs">{tier.example}</p>
+                <p className="text-white/30 text-sm">{tier.period}</p>
+                <p className="text-white/40 text-xs mt-3">{tier.example}</p>
               </motion.div>
             ))}
           </div>
 
           <p className="text-white/30 text-xs text-center mt-6">
-            * Estimates based on 15-20 rental days/month. Actual earnings may vary.
+            * Estimates based on full monthly bookings. Actual earnings depend on demand and availability.
           </p>
         </div>
       </section>

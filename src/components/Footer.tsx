@@ -116,7 +116,7 @@ export default function Footer() {
                   href="/partner"
                   className="text-sm text-white/40 hover:text-gold transition-colors"
                 >
-                  List Your Car - Earn ₹25K+/mo
+                  List Your Car — Earn upto ₹45K/mo
                 </a>
               </li>
             </ul>
