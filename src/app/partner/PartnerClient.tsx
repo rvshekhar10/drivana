@@ -50,7 +50,7 @@ const benefits = [
     icon: Sparkles,
     title: "Cleanliness & Hygiene",
     description:
-      "Professional cleaning after every rental. Interior sanitized, exterior washed — every time.",
+      "Professional cleaning after every rental. Interior sanitized, exterior washed - every time.",
     color: "text-purple-400",
     bg: "bg-purple-500/10",
     border: "border-purple-500/20",
@@ -68,7 +68,7 @@ const benefits = [
     icon: HandCoins,
     title: "Damage Protection",
     description:
-      "We take care of vehicle damage repairs. No surprise costs — we handle it all.",
+      "We take care of vehicle damage repairs. No surprise costs - we handle it all.",
     color: "text-rose-400",
     bg: "bg-rose-500/10",
     border: "border-rose-500/20",
@@ -262,7 +262,7 @@ export default function PartnerClient() {
               We Take Care of Everything
             </h2>
             <p className="text-white/50 text-base sm:text-lg max-w-xl mx-auto">
-              You provide the car. We handle the rest — from finding renters to maintaining your vehicle.
+              You provide the car. We handle the rest - from finding renters to maintaining your vehicle.
             </p>
           </motion.div>
 
@@ -368,7 +368,7 @@ export default function PartnerClient() {
                 What You Give
               </h2>
               <p className="text-white/50 text-base leading-relaxed mb-8">
-                We document your car&apos;s condition at onboarding with photos and video. When you want it back, it&apos;ll be in the same — or better — shape. That&apos;s our guarantee.
+                We document your car&apos;s condition at onboarding with photos and video. When you want it back, it&apos;ll be in the same - or better - shape. That&apos;s our guarantee.
               </p>
 
               <a
@@ -591,10 +591,21 @@ export default function PartnerClient() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 border-t border-white/[0.04] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gold/[0.04] rounded-full blur-[120px]" />
-        </div>
+      <section className="py-20 sm:py-24 px-4 relative overflow-hidden">
+        {/* Hero image background */}
+        <Image
+          src="/drivana-hero-image.avif"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden="true"
+        />
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/70" />
+
+        {/* Gold gradient accent */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-transparent to-gold/10" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
@@ -607,7 +618,7 @@ export default function PartnerClient() {
             <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Start Earning This Week
             </h3>
-            <p className="text-white/50 text-lg mb-8 max-w-lg mx-auto">
+            <p className="text-white/60 text-lg mb-8 max-w-lg mx-auto">
               Most partners start earning within 3-5 days of onboarding. Your idle car could be making money by next week.
             </p>
             <a
@@ -619,6 +630,9 @@ export default function PartnerClient() {
               <MessageCircle size={18} />
               Chat with Us Now
             </a>
+            <p className="mt-6 text-xs text-white/40">
+              Available 7 days a week • Respond within 1 hour
+            </p>
           </motion.div>
         </div>
       </section>

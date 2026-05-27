@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "List Your Car on Drivana | Earn Weekly from Your Idle Vehicle",
     description:
-      "Your car is sitting idle in Patna? Start earning upto ₹45,000/month. We handle everything — rentals, maintenance, cleaning, and repairs.",
+      "Your car is sitting idle in Patna? Start earning upto ₹45,000/month. We handle everything - rentals, maintenance, cleaning, and repairs.",
     url: "https://www.drivana.co.in/partner",
   },
   alternates: {
