@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.drivana.co.in"),
   title: {
     default:
-      "Self-Drive Car Rental in Patna | ₹1,399/day | DRIVANA - Book on WhatsApp",
+      "Self-Drive Car Rental in Patna | ₹1,499/day | DRIVANA - Book on WhatsApp",
     template: "%s | DRIVANA - Self Drive Car Rental Patna",
   },
   description:
-    "Rent self-drive cars in Patna starting ₹1,399/day. Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle. No driver needed. Doorstep delivery at Bhootnath Road. 15% off weekly, 20% off monthly. Book instantly on WhatsApp +91 70791 38350.",
+    "Rent self-drive cars in Patna starting ₹1,499/day. Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle. No driver needed. Doorstep delivery at Bhootnath Road. 15% off weekly, 20% off monthly. Book instantly on WhatsApp +91 70791 38350.",
   keywords: [
     "self drive car rental patna",
     "car rental patna",
@@ -73,9 +73,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://www.drivana.co.in",
     siteName: "DRIVANA",
-    title: "Self-Drive Car Rental in Patna | ₹1,399/day - DRIVANA",
+    title: "Self-Drive Car Rental in Patna | ₹1,499/day - DRIVANA",
     description:
-      "Rent self-drive cars in Patna from ₹1,399/day. Magnite, Tiago, Alto, Freestyle. No driver. Doorstep delivery. Book on WhatsApp.",
+      "Rent self-drive cars in Patna from ₹1,499/day. Magnite, Tiago, Alto, Freestyle. No driver. Doorstep delivery. Book on WhatsApp.",
     images: [
       {
         url: "/drivana-og-image.jpg",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Self-Drive Car Rental in Patna | ₹1,399/day - DRIVANA",
+    title: "Self-Drive Car Rental in Patna | ₹1,499/day - DRIVANA",
     description:
       "Rent self-drive cars in Patna. No driver needed. Book on WhatsApp +91 70791 38350.",
     images: ["/drivana-og-image.jpg"],
@@ -131,7 +131,7 @@ export default function RootLayout({
           "https://www.drivana.co.in/drivana-logo-patna.png",
         ],
         description:
-          "DRIVANA is Patna's premium self-drive car rental platform. Rent well-maintained Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle without a driver. Starting ₹1,399/day with doorstep delivery. Book via WhatsApp.",
+          "DRIVANA is Patna's premium self-drive car rental platform. Rent well-maintained Nissan Magnite, Tata Tiago, Maruti Alto & Ford Freestyle without a driver. Starting ₹1,499/day with doorstep delivery. Book via WhatsApp.",
         telephone: "+91-7079138350",
         email: "drivanaofficial@gmail.com",
         address: {
@@ -179,7 +179,7 @@ export default function RootLayout({
             closes: "21:00",
           },
         ],
-        priceRange: "₹1,399 - ₹2,198 per day",
+        priceRange: "₹1,499 - ₹2,499 per day",
         currenciesAccepted: "INR",
         paymentAccepted: ["Cash", "UPI", "Bank Transfer"],
         aggregateRating: {
@@ -226,11 +226,11 @@ export default function RootLayout({
                 name: "Nissan Magnite 2023",
                 vehicleConfiguration: "SUV",
               },
-              price: "2198",
+              price: "2499",
               priceCurrency: "INR",
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
-                price: "2198",
+                price: "2499",
                 priceCurrency: "INR",
                 unitText: "DAY",
               },
@@ -243,11 +243,11 @@ export default function RootLayout({
                 name: "Tata Tiago 2025",
                 vehicleConfiguration: "Hatchback",
               },
-              price: "1999",
+              price: "2198",
               priceCurrency: "INR",
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
-                price: "1999",
+                price: "2198",
                 priceCurrency: "INR",
                 unitText: "DAY",
               },
@@ -260,11 +260,11 @@ export default function RootLayout({
                 name: "Maruti Alto 2012",
                 vehicleConfiguration: "Hatchback",
               },
-              price: "1399",
+              price: "1499",
               priceCurrency: "INR",
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
-                price: "1399",
+                price: "1499",
                 priceCurrency: "INR",
                 unitText: "DAY",
               },
@@ -277,11 +277,11 @@ export default function RootLayout({
                 name: "Ford Freestyle 2018",
                 vehicleConfiguration: "Crossover",
               },
-              price: "2198",
+              price: "2499",
               priceCurrency: "INR",
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
-                price: "2198",
+                price: "2499",
                 priceCurrency: "INR",
                 unitText: "DAY",
               },

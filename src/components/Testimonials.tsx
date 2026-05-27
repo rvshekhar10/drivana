@@ -26,7 +26,7 @@ const testimonials = [
     name: "Vikram Jha",
     from: "Mumbai → Patna",
     rating: 5,
-    text: "Had a week of client meetings across Patna - Boring Road, Patliputra, Danapur. The Alto was perfect for city driving. Fuel efficient, easy to park, and at ₹1,399/day it was cheaper than taking autos everywhere. Will book again next quarter.",
+    text: "Had a week of client meetings across Patna - Boring Road, Patliputra, Danapur. The Alto was perfect for city driving. Fuel efficient, easy to park, and at ₹1,499/day it was cheaper than taking autos everywhere. Will book again next quarter.",
     car: "Maruti Alto",
     trip: "Business meetings",
     duration: "7 days",

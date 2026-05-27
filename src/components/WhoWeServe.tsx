@@ -59,7 +59,7 @@ const personas = [
   {
     icon: GraduationCap,
     title: "Students & Locals",
-    description: "Budget-friendly Alto starting ₹1,399/day for daily needs.",
+    description: "Budget-friendly Alto starting ₹1,499/day for daily needs.",
     gradient: "from-gold/20 to-gold-dark/20",
     iconColor: "text-gold",
     borderColor: "border-gold/20",

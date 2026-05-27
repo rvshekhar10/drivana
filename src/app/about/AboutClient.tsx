@@ -22,7 +22,7 @@ const stats = [
   { value: "5+", label: "Cars in Fleet" },
   { value: "4.4", label: "Customer Rating" },
   { value: "Patna", label: "Serving Since 2025" },
-  { value: "₹1,399", label: "Starting Price/Day" },
+  { value: "₹1,499", label: "Starting Price/Day" },
 ];
 
 const timeline = [
@@ -289,7 +289,7 @@ export default function AboutClient() {
               {
                 emoji: "🎓",
                 title: "Students & Locals",
-                desc: "Budget-friendly Alto starting ₹1,399/day for daily needs.",
+                desc: "Budget-friendly Alto starting ₹1,499/day for daily needs.",
               },
             ].map((item, index) => (
               <motion.div

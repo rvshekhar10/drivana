@@ -35,7 +35,7 @@ export default function Fleet() {
             Self-Drive Cars in Patna
           </h2>
           <p className="text-white/50 mt-4 max-w-lg mx-auto text-sm sm:text-base">
-            Well-maintained, sanitized cars from ₹1,399/day. Pickup from
+            Well-maintained, sanitized cars from ₹1,499/day. Pickup from
             Bhootnath Road or doorstep delivery.
           </p>
         </motion.div>

@@ -83,7 +83,7 @@ export default function FleetClient() {
             transition={{ delay: 0.5 }}
             className="mt-4 text-white/60 text-base sm:text-lg max-w-lg mx-auto"
           >
-            {carsData.length} cars available from ₹1,399/day. All pickup from
+            {carsData.length} cars available from ₹1,499/day. All pickup from
             Bhootnath Road, Patna.
           </motion.p>
         </div>

@@ -48,7 +48,7 @@ export default function Hero() {
         >
           Self-Drive Cars
           <br />
-          <span className="text-gold">Starting ₹1,399</span>/day
+          <span className="text-gold">Starting ₹1,499</span>/day
         </motion.h1>
 
         <motion.p
@@ -125,7 +125,7 @@ export default function Hero() {
           </div>
           <div className="w-px h-8 bg-white/10" />
           <div className="text-center">
-            <p className="text-xl sm:text-2xl font-bold text-white">₹1,399</p>
+            <p className="text-xl sm:text-2xl font-bold text-white">₹1,499</p>
             <p className="text-[10px] sm:text-xs text-white/50 mt-0.5">Starting Price</p>
           </div>
           <div className="w-px h-8 bg-white/10" />
