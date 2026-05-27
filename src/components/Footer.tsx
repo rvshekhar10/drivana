@@ -224,7 +224,7 @@ export default function Footer() {
               our Bhootnath Road pickup location. We serve all major areas in
               Patna including Boring Road, Kankarbagh, Bailey Road, Patliputra
               Colony, Danapur, Phulwari Sharif, and Rajendra Nagar. Prices start
-              at just ₹1,499/day with discounts up to 33% off. Book your
+              at just ₹1,499/day with discounts up to 25% off. Book your
               self-drive car rental in Patna today via WhatsApp for instant
               confirmation and doorstep delivery.
             </p>
