@@ -47,10 +47,10 @@ const safetyPillars = [
   },
   {
     icon: Shield,
-    title: "Full Insurance",
-    stat: "Comprehensive cover",
+    title: "Insurance",
+    stat: "Standard cover",
     description:
-      "All vehicles carry valid comprehensive insurance - third-party liability, theft, fire, and natural disaster coverage.",
+      "All vehicles carry valid comprehensive insurance as per their vehicle policy, including mandatory third-party liability coverage.",
     color: "from-gold/20 to-gold/5",
     borderColor: "border-gold/20",
     iconColor: "text-gold",
@@ -60,7 +60,7 @@ const safetyPillars = [
     title: "On-Ground Support",
     stat: "Within Patna city",
     description:
-      "Not a chatbot. Our team physically reaches you for breakdowns within Patna city limits. One call and we're there.",
+      "Not a chatbot. Our team physically reaches you for breakdowns within Patna city limits. Outside city, we'll try our best to help — charges will be on you.",
     color: "from-red-500/20 to-red-500/5",
     borderColor: "border-red-500/20",
     iconColor: "text-red-400",
@@ -262,9 +262,9 @@ export default function SafetyClient() {
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     "Physical team reaches you in Patna",
-                    "Mechanical failures covered at no cost",
-                    "Replacement vehicle if can't fix on-spot",
-                    "Remote guidance for outstation issues",
+                    "Mechanical failures covered within city",
+                    "Replacement vehicle subject to availability",
+                    "Outside city: we assist remotely, charges on you",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-2">
                       <CheckCircle2
@@ -436,10 +436,8 @@ export default function SafetyClient() {
                 <h3 className="text-white font-medium mb-2">What&apos;s Covered</h3>
                 <ul className="space-y-2">
                   {[
+                    "Standard comprehensive insurance as per vehicle policy",
                     "Third-party liability (mandatory by law)",
-                    "Comprehensive vehicle coverage",
-                    "Theft & fire protection",
-                    "Natural disaster damage",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <CheckCircle2

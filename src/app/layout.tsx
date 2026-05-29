@@ -337,7 +337,7 @@ export default function RootLayout({
             name: "What documents do I need to rent a self-drive car in Patna?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "You need a valid driving license, Aadhaar card (or any government ID), and a security deposit (₹3,000 for Alto, ₹5,000 for other cars). The process is quick - verify on WhatsApp and pick up the car.",
+              text: "You need a valid driving license, Aadhaar card (or any government ID), and a security deposit (₹3,000 for Alto, ₹5,000 for other cars). No deposit required if you submit your original passport. The process is quick - verify on WhatsApp and pick up the car.",
             },
           },
           {
@@ -369,7 +369,7 @@ export default function RootLayout({
             name: "What happens if the car breaks down?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "We provide on-ground breakdown support within Patna city limits. Our team physically reaches you for any mechanical issue. For outstation breakdowns, we coordinate remotely with local mechanics.",
+              text: "We provide on-ground breakdown support within Patna city limits at no extra cost. Our team physically reaches you for any mechanical issue. For breakdowns outside the city, we will try our best to help — charges (mechanic, towing) will be borne by the renter.",
             },
           },
           {
@@ -385,7 +385,7 @@ export default function RootLayout({
             name: "How much is the security deposit?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Security deposit is ₹3,000 for Maruti Alto and ₹5,000 for Nissan Magnite, Tata Tiago, and Ford Freestyle. Refundable within 24-48 hours after vehicle return.",
+              text: "Security deposit is ₹3,000 for Maruti Alto and ₹5,000 for Nissan Magnite, Tata Tiago, and Ford Freestyle. No deposit required if you submit your original passport. Refundable within 24-48 hours after vehicle return.",
             },
           },
           {

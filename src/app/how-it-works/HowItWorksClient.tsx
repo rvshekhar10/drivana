@@ -51,7 +51,7 @@ const steps = [
     details: [
       "Valid Indian Driving License (original at pickup)",
       "Aadhaar Card or Government Photo ID",
-      "Security deposit: ₹3,000 (Alto) or ₹5,000 (others)",
+      "Security deposit: ₹3,000 (Alto) or ₹5,000 (others). No deposit if original passport submitted.",
     ],
     color: "from-blue-500/20 to-blue-500/5",
     borderColor: "border-blue-500/30",
@@ -98,7 +98,7 @@ const pricingInfo = [
   {
     icon: CreditCard,
     title: "Security Deposit",
-    items: ["₹3,000 for Maruti Alto", "₹5,000 for all other cars", "Refundable within 24-48 hours"],
+    items: ["₹3,000 for Maruti Alto", "₹5,000 for all other cars", "No deposit if original passport submitted", "Refundable within 24-48 hours"],
   },
   {
     icon: Gauge,
@@ -346,7 +346,7 @@ export default function HowItWorksClient() {
                 "Traffic challans during rental are your responsibility",
                 "Inform us before taking the car outside Bihar",
                 "No sub-letting - only verified driver can operate the vehicle",
-                "On-ground breakdown support available within Patna city limits",
+                "On-ground breakdown support within Patna city limits. Outside city — we help remotely, charges on you.",
               ].map((note, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <span className="text-amber-400 font-bold text-sm mt-0.5">

@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "What documents do I need to rent a self-drive car in Patna?",
     answer:
-      "You need a valid driving license, Aadhaar card (or any government-issued ID proof), and a security deposit (₹3,000 for Alto, ₹5,000 for other cars). The verification process is quick and can be done via WhatsApp itself.",
+      "You need a valid driving license, Aadhaar card (or any government-issued ID proof), and a security deposit (₹3,000 for Alto, ₹5,000 for other cars). Alternatively, no deposit is required if you submit your original passport as security. The verification process is quick and can be done via WhatsApp itself.",
   },
   {
     question: "What is the minimum rental duration?",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "What happens if the car breaks down during my rental?",
     answer:
-      "We provide 24/7 roadside assistance. In case of any mechanical issue, call us immediately and we will arrange a replacement vehicle or on-spot repair at no extra cost to you.",
+      "Within Patna city limits, our team physically reaches you and handles the issue at no extra cost. For breakdowns outside the city, we will try our best to assist you remotely — any mechanic or towing charges will be on you. Replacement vehicle is subject to availability.",
   },
   {
     question: "Can I take the car for outstation trips from Patna?",
@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "What is the security deposit amount?",
     answer:
-      "The security deposit is ₹3,000 for Alto and ₹5,000 for Tiago, Magnite, and Freestyle. It is refundable once the vehicle is returned in proper condition without any damages. Damage repairs and cleaning charges (if any) will be deducted. You need to submit an original ID proof and a photocopy of your driving license. Payment can be made via UPI, bank transfer, or cash.",
+      "The security deposit is ₹3,000 for Alto and ₹5,000 for Tiago, Magnite, and Freestyle. No deposit is needed if you submit your original passport as security. It is refundable once the vehicle is returned in proper condition. Damage repairs and cleaning charges (if any) will be deducted. You need to submit an original ID proof and a photocopy of your driving license. Payment can be made via UPI, bank transfer, or cash.",
   },
   {
     question: "Is there a km limit per day?",

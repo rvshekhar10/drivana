@@ -48,7 +48,7 @@ const sections = [
       "Bookings are confirmed only after document verification and security deposit payment.",
       "Payment can be made via UPI, bank transfer, or cash at the time of pickup.",
       "Rental charges are calculated on a 24-hour basis from the time of pickup.",
-      "Late returns will be charged on a pro-rata basis (hourly rate applicable after a 30-minute grace period).",
+      "Late returns will be charged on a pro-rata basis (hourly rate applicable after a 1-hour grace period).",
       "Weekly rentals get 15% discount. Monthly rentals get 20% discount on the daily rate.",
     ],
   },
@@ -76,6 +76,7 @@ const sections = [
     items: [
       "Maruti Alto: ₹3,000 refundable deposit.",
       "All other vehicles (Magnite, Tiago, Freestyle): ₹5,000 refundable deposit.",
+      "No security deposit required if you submit your original passport as security (returned upon vehicle return).",
       "Deposit is refunded within 24–48 hours of vehicle return after inspection.",
       "Deductions may apply for damages, excessive dirt/stains, or missing fuel.",
       "If repair costs exceed the deposit, you are liable for the difference.",
@@ -117,7 +118,7 @@ const sections = [
     bgColor: "bg-teal-500/10",
     borderColor: "border-teal-500/20",
     items: [
-      "Return the vehicle at the agreed time and location. A 30-minute grace period is allowed.",
+      "Return the vehicle at the agreed time and location. A 1-hour grace period is allowed.",
       "The car must be returned in a reasonably clean condition (interior and exterior).",
       "Excessive dirt, stains, pet hair, or smoke smell may result in a cleaning fee of ₹300–₹500.",
       "Any new damage (scratches, dents, broken parts) will be assessed and repair costs deducted from the deposit.",
@@ -126,14 +127,16 @@ const sections = [
   {
     id: "breakdown",
     icon: Wrench,
-    title: "Breakdown & Support",
+    title: "Breakdown & Accident",
     color: "text-red-400",
     bgColor: "bg-red-500/10",
     borderColor: "border-red-500/20",
     items: [
-      "On-ground breakdown support is available within Patna city limits.",
-      "For breakdowns outside city limits, we will assist remotely and coordinate with local mechanics.",
-      "Mechanical failures due to normal use are covered by DRIVANA at no cost to you.",
+      "On-ground breakdown support is available within Patna city limits at no extra cost.",
+      "For breakdowns outside city limits, we will try our best to assist you remotely. Any charges (mechanic, towing, etc.) will be borne by the renter.",
+      "Mechanical failures due to normal use within city limits are covered by DRIVANA.",
+      "In case of an accident, the renter is liable for garage/repair charges plus daily rental charges (at the rate at the time of booking) for the entire duration the car is at the garage.",
+      "Replacement vehicle may be provided subject to availability.",
       "Damage caused by negligence, rash driving, or misuse is the renter's responsibility.",
     ],
   },
@@ -154,7 +157,7 @@ const sections = [
   {
     id: "liability",
     icon: AlertTriangle,
-    title: "Liability",
+    title: "Liability & Jurisdiction",
     color: "text-orange-400",
     bgColor: "bg-orange-500/10",
     borderColor: "border-orange-500/20",
@@ -163,6 +166,7 @@ const sections = [
       "In case of an accident, the renter must inform DRIVANA immediately and file a police report if required.",
       "The renter is responsible for all fines, tolls, and parking charges incurred during the rental period.",
       "DRIVANA reserves the right to terminate the rental immediately if terms are violated.",
+      "All disputes arising from this agreement shall be subject to the exclusive jurisdiction of courts in Patna, Bihar.",
     ],
   },
 ];
