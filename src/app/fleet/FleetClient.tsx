@@ -21,7 +21,7 @@ import BookingModal from "@/components/BookingModal";
 import carsData from "@/data/cars.json";
 
 type SortOption = "price-low" | "price-high" | "rating";
-type FilterCategory = "all" | "SUV" | "Hatchback" | "Crossover";
+type FilterCategory = "all" | "SUV" | "Hatchback" | "Crossover" | "Sedan";
 
 export default function FleetClient() {
   const [sortBy, setSortBy] = useState<SortOption>("price-low");
@@ -32,7 +32,7 @@ export default function FleetClient() {
     price: number;
   } | null>(null);
 
-  const categories: FilterCategory[] = ["all", "SUV", "Hatchback", "Crossover"];
+  const categories: FilterCategory[] = ["all", "SUV", "Hatchback", "Crossover", "Sedan"];
 
   const filteredCars = carsData
     .filter(
