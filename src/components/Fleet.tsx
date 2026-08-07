@@ -2,13 +2,20 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import CarCard from "./CarCard";
-import carsData from "@/data/cars.json";
+import { useListings } from "@/hooks/useListings";
 
 export default function Fleet() {
-  // Show only 3 cars on homepage (deduplicated - skip second Alto)
-  const displayCars = carsData.filter((car) => car.id !== 4).slice(0, 3);
+  const { listings, loading } = useListings();
+
+  // Show only 3 cars on homepage (deduplicated by name)
+  const seen = new Set<string>();
+  const displayCars = listings.filter((car) => {
+    if (seen.has(car.name)) return false;
+    seen.add(car.name);
+    return true;
+  }).slice(0, 3);
 
   return (
     <section
@@ -40,12 +47,21 @@ export default function Fleet() {
           </p>
         </motion.div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="flex items-center justify-center py-16">
+            <Loader2 size={28} className="animate-spin text-gold/60" />
+          </div>
+        )}
+
         {/* Car Grid - 3 featured cars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {displayCars.map((car, index) => (
-            <CarCard key={car.id} car={car} index={index} />
-          ))}
-        </div>
+        {!loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {displayCars.map((car, index) => (
+              <CarCard key={car.id} car={car} index={index} />
+            ))}
+          </div>
+        )}
 
         {/* View All CTA */}
         <motion.div
@@ -59,7 +75,7 @@ export default function Fleet() {
             href="/fleet"
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-gold/10 border border-white/10 hover:border-gold/30 text-white/80 hover:text-gold font-medium px-8 py-3.5 rounded-full text-sm transition-all duration-200 group"
           >
-            View All {carsData.length} Cars & Compare Prices
+            View All {listings.length} Cars & Compare Prices
             <ArrowRight
               size={16}
               className="group-hover:translate-x-1 transition-transform"

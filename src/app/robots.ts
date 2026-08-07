@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/", "/my-bookings"],
       },
       {
         userAgent: "Googlebot",
@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "Googlebot-Image",
-        allow: "/cars/",
+        allow: ["/cars/", "/blog/"],
       },
     ],
     sitemap: "https://www.drivana.co.in/sitemap.xml",

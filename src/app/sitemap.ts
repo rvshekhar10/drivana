@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 import carsData from "@/data/cars.json";
+import { getArticles } from "@/lib/xrmlite";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.drivana.co.in";
 
   const carPages = carsData.map((car) => ({
@@ -14,7 +15,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .map((m) => `${baseUrl}${m.url}`),
   }));
 
-  const staticPages = [
+  // Fetch blog articles for sitemap
+  let blogPages: MetadataRoute.Sitemap = [];
+  try {
+    const articlesRes = await getArticles({ limit: 100 });
+    if (articlesRes.success && articlesRes.data) {
+      blogPages = articlesRes.data.map((article) => ({
+        url: `${baseUrl}/blog/${article.slug}`,
+        lastModified: new Date(article.published_at),
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+        ...(article.featured_image
+          ? { images: [article.featured_image] }
+          : {}),
+      }));
+    }
+  } catch {
+    // CMS unavailable — skip blog pages in sitemap
+  }
+
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -28,6 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.95,
       images: carsData.map((car) => `${baseUrl}${car.image_url}`),
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/about`,
@@ -73,5 +99,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...staticPages, ...carPages];
+  return [...staticPages, ...carPages, ...blogPages];
 }

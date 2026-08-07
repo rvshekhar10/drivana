@@ -1,21 +1,43 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import carsData from "@/data/cars.json";
+import { getXRMListingBySlug } from "@/lib/xrmlite";
+import { adaptAssetToListing } from "@/lib/asset-adapter";
 import CarDetailClient from "./CarDetailClient";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// Static params from our known data (ensures SSG for existing cars)
 export async function generateStaticParams() {
   return carsData.map((car) => ({
     slug: car.slug,
   }));
 }
 
+/**
+ * Fetch car data — tries XRMlite API first, falls back to static JSON.
+ */
+async function getCarData(slug: string) {
+  // Try API first
+  try {
+    const result = await getXRMListingBySlug(slug);
+    if (result.success && result.data) {
+      return adaptAssetToListing(result.data);
+    }
+  } catch {
+    // API failed, fall through to static
+  }
+
+  // Fallback to static data
+  const staticCar = carsData.find((c) => c.slug === slug);
+  return staticCar || null;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const car = carsData.find((c) => c.slug === slug);
+  const car = await getCarData(slug);
 
   if (!car) {
     return { title: "Car Not Found" };
@@ -60,7 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CarDetailPage({ params }: Props) {
   const { slug } = await params;
-  const car = carsData.find((c) => c.slug === slug);
+  const car = await getCarData(slug);
 
   if (!car) {
     notFound();
@@ -82,7 +104,7 @@ export default async function CarDetailPage({ params }: Props) {
       "@type": "Offer",
       price: car.price_per_day,
       priceCurrency: "INR",
-      priceValidUntil: "2026-12-31",
+      priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "AutoRental",
@@ -112,17 +134,71 @@ export default async function CarDetailPage({ params }: Props) {
     ],
   };
 
-  // Get other cars for "You may also like"
+  // Get other cars for "You may also like" (static fallback is fine here)
   const otherCars = carsData.filter((c) => c.id !== car.id).slice(0, 3);
 
-  // Cast media type field from string to literal union (JSON imports infer string)
+  // Normalize media fields to match CarDetailClient's expected types
   const typedCar = {
     ...car,
-    media: car.media.map((m) => ({ ...m, type: m.type as "image" | "video" })),
+    specs: {
+      brand: car.specs.brand,
+      model_name: car.specs.model_name,
+      manufacturing_year: car.specs.manufacturing_year,
+      body_type: car.specs.body_type,
+      fuel: car.specs.fuel,
+      engine_capacity: car.specs.engine_capacity,
+      transmission_type: car.specs.transmission_type,
+      seating_capacity: car.specs.seating_capacity,
+      baggage_capacity: car.specs.baggage_capacity,
+      mileage: car.specs.mileage,
+      km_limit: car.specs.km_limit,
+      excess_km_charge: car.specs.excess_km_charge,
+      air_conditioning: car.specs.air_conditioning || "Yes",
+      power_steering: car.specs.power_steering || "Yes",
+      power_windows: car.specs.power_windows || "Yes",
+      abs: car.specs.abs || "Yes",
+      airbags: car.specs.airbags || "Dual Front Airbags",
+      infotainment: car.specs.infotainment || "Standard",
+      rear_camera: car.specs.rear_camera || "No",
+      keyless_entry: car.specs.keyless_entry || "No",
+    },
+    media: car.media.map((m) => ({
+      type: m.type as "image" | "video",
+      url: m.url,
+      alt: m.alt || `${car.name} ${car.model}`,
+      featured: m.featured ?? false,
+    })),
   };
   const typedOtherCars = otherCars.map((c) => ({
     ...c,
-    media: c.media.map((m) => ({ ...m, type: m.type as "image" | "video" })),
+    specs: {
+      brand: c.specs.brand,
+      model_name: c.specs.model_name,
+      manufacturing_year: c.specs.manufacturing_year,
+      body_type: c.specs.body_type,
+      fuel: c.specs.fuel,
+      engine_capacity: c.specs.engine_capacity,
+      transmission_type: c.specs.transmission_type,
+      seating_capacity: c.specs.seating_capacity,
+      baggage_capacity: c.specs.baggage_capacity,
+      mileage: c.specs.mileage,
+      km_limit: c.specs.km_limit,
+      excess_km_charge: c.specs.excess_km_charge,
+      air_conditioning: c.specs.air_conditioning || "Yes",
+      power_steering: c.specs.power_steering || "Yes",
+      power_windows: c.specs.power_windows || "Yes",
+      abs: c.specs.abs || "Yes",
+      airbags: c.specs.airbags || "Dual Front Airbags",
+      infotainment: c.specs.infotainment || "Standard",
+      rear_camera: c.specs.rear_camera || "No",
+      keyless_entry: c.specs.keyless_entry || "No",
+    },
+    media: c.media.map((m) => ({
+      type: m.type as "image" | "video",
+      url: m.url,
+      alt: m.alt || `${c.name} ${c.model}`,
+      featured: m.featured ?? false,
+    })),
   }));
 
   return (

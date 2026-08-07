@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Menu, X, Phone, ChevronDown, Car, Shield, HelpCircle, MapPin, Info } from "lucide-react";
+import { MessageCircle, Menu, X, Phone, ChevronDown, Car, Shield, HelpCircle, MapPin, Info, BookOpen, User, LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 
 const WHATSAPP_NUMBER = "919205548488";
 
@@ -26,6 +27,12 @@ const navLinks = [
     href: "/safety",
     description: "Insurance & breakdown support",
     icon: Shield,
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+    description: "Tips, guides & travel stories",
+    icon: BookOpen,
   },
   {
     label: "About",
@@ -52,6 +59,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { isLoggedIn, displayName, logout, openLoginModal } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,15 +71,17 @@ export default function Navbar() {
   }, []);
 
   // Close more dropdown when clicking outside
+  // Close more dropdown when clicking outside
   useEffect(() => {
     const handleClick = () => {
       setMoreOpen(false);
+      setUserMenuOpen(false);
     };
-    if (moreOpen) {
+    if (moreOpen || userMenuOpen) {
       document.addEventListener("click", handleClick);
       return () => document.removeEventListener("click", handleClick);
     }
-  }, [moreOpen]);
+  }, [moreOpen, userMenuOpen]);
 
   return (
     <motion.header
@@ -103,7 +114,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.slice(0, 4).map((link) => (
+            {navLinks.slice(0, 5).map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -174,15 +185,92 @@ export default function Navbar() {
               <Phone size={14} className="text-gold" />
               <span>70791 38350</span>
             </a>
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:scale-105 shadow-[0_2px_15px_rgba(206,150,61,0.25)]"
-            >
-              <MessageCircle size={15} />
-              Book Now
-            </a>
+
+            {isLoggedIn ? (
+              <div className="relative">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setUserMenuOpen(!userMenuOpen);
+                  }}
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 hover:border-gold/30 transition-all text-sm text-white/80"
+                >
+                  <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center">
+                    <User size={12} className="text-gold" />
+                  </div>
+                  <span className="max-w-[100px] truncate">
+                    {displayName || "Account"}
+                  </span>
+                  <ChevronDown
+                    size={12}
+                    className={`text-white/40 transition-transform ${
+                      userMenuOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {userMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full right-0 mt-2 w-48 bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                    >
+                      <div className="py-2">
+                        <Link
+                          href="/account"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-colors"
+                        >
+                          <User size={14} className="text-gold/60" />
+                          My Account
+                        </Link>
+                        <Link
+                          href="/my-bookings"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-colors"
+                        >
+                          <Car size={14} className="text-gold/60" />
+                          My Bookings
+                        </Link>
+                        <div className="border-t border-white/[0.06] my-1" />
+                        <button
+                          onClick={() => {
+                            setUserMenuOpen(false);
+                            logout();
+                          }}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-red-400/80 hover:text-red-400 hover:bg-white/5 transition-colors w-full text-left"
+                        >
+                          <LogOut size={14} />
+                          Logout
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={openLoginModal}
+                  className="inline-flex items-center gap-2 text-white/70 hover:text-gold text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
+                >
+                  <User size={14} />
+                  Login
+                </button>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:scale-105 shadow-[0_2px_15px_rgba(206,150,61,0.25)]"
+                >
+                  <MessageCircle size={15} />
+                  Book Now
+                </a>
+              </>
+            )}
           </div>
 
           {/* Mobile: CTA + Menu */}

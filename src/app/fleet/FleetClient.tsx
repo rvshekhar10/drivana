@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,37 +12,65 @@ import {
   MessageCircle,
   Filter,
   ArrowUpDown,
+  Loader2,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BookingModal from "@/components/BookingModal";
-import carsData from "@/data/cars.json";
+import { useListings } from "@/hooks/useListings";
+import { fetchCategories } from "@/lib/api-client";
 
 type SortOption = "price-low" | "price-high" | "rating";
-type FilterCategory = "all" | "SUV" | "Hatchback" | "Crossover" | "Sedan";
 
 export default function FleetClient() {
+  const { listings, loading } = useListings();
   const [sortBy, setSortBy] = useState<SortOption>("price-low");
-  const [filterCategory, setFilterCategory] = useState<FilterCategory>("all");
+  const [filterCategory, setFilterCategory] = useState<string>("all");
   const [modalCar, setModalCar] = useState<{
     name: string;
     model: string;
     price: number;
   } | null>(null);
+  const [categories, setCategories] = useState<string[]>([]);
 
-  const categories: FilterCategory[] = ["all", "SUV", "Hatchback", "Crossover", "Sedan"];
-
-  const filteredCars = carsData
-    .filter(
-      (car) => filterCategory === "all" || car.category === filterCategory
-    )
-    .sort((a, b) => {
-      if (sortBy === "price-low") return a.price_per_day - b.price_per_day;
-      if (sortBy === "price-high") return b.price_per_day - a.price_per_day;
-      return b.rating - a.rating;
+  // Fetch categories from API
+  useEffect(() => {
+    fetchCategories().then((res) => {
+      if (res.success && res.data && res.data.length > 0) {
+        setCategories(res.data.map((c) => c.name));
+      } else {
+        // Derive from listings data
+        const unique = [...new Set(listings.map((l) => l.category))].filter(Boolean);
+        setCategories(unique);
+      }
     });
+  }, [listings]);
+
+  const filteredCars = useMemo(
+    () =>
+      listings
+        .filter(
+          (car) => filterCategory === "all" || car.category === filterCategory
+        )
+        .sort((a, b) => {
+          if (sortBy === "price-low") return a.price_per_day - b.price_per_day;
+          if (sortBy === "price-high") return b.price_per_day - a.price_per_day;
+          return b.rating - a.rating;
+        }),
+    [listings, filterCategory, sortBy]
+  );
+
+  // Deduplicated list for comparison table
+  const uniqueCars = useMemo(() => {
+    const seen = new Set<string>();
+    return listings.filter((car) => {
+      if (seen.has(car.name)) return false;
+      seen.add(car.name);
+      return true;
+    });
+  }, [listings]);
 
   return (
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -83,7 +111,7 @@ export default function FleetClient() {
             transition={{ delay: 0.5 }}
             className="mt-4 text-white/60 text-base sm:text-lg max-w-lg mx-auto"
           >
-            {carsData.length} cars available from ₹1,499/day. All pickup from
+            {listings.length} cars available from ₹1,499/day. All pickup from
             Bhootnath Road, Patna.
           </motion.p>
         </div>
@@ -95,6 +123,16 @@ export default function FleetClient() {
           {/* Category Filter */}
           <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto">
             <Filter size={14} className="text-white/40 shrink-0" />
+            <button
+              onClick={() => setFilterCategory("all")}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                filterCategory === "all"
+                  ? "bg-gold text-black"
+                  : "bg-white/5 text-white/60 hover:bg-white/10 border border-white/10"
+              }`}
+            >
+              All Cars
+            </button>
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -105,7 +143,7 @@ export default function FleetClient() {
                     : "bg-white/5 text-white/60 hover:bg-white/10 border border-white/10"
                 }`}
               >
-                {cat === "all" ? "All Cars" : cat}
+                {cat}
               </button>
             ))}
           </div>
@@ -129,158 +167,169 @@ export default function FleetClient() {
       {/* Fleet Grid */}
       <section className="py-10 sm:py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Results count */}
-          <p className="text-white/40 text-sm mb-6">
-            Showing {filteredCars.length} car
-            {filteredCars.length !== 1 ? "s" : ""}
-            {filterCategory !== "all" && ` in ${filterCategory}`}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredCars.map((car, index) => (
-              <motion.article
-                key={car.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(206,150,61,0.08)]"
-              >
-                {/* Discount Badge */}
-                {car.discount > 0 && (
-                  <div className="absolute top-4 left-4 z-10 bg-green-500/90 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                    {car.discount}% OFF
-                  </div>
-                )}
-
-                {/* Image */}
-                <Link href={`/cars/${car.slug}`} className="block">
-                  <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-white/5 to-transparent">
-                    <Image
-                      src={car.image_url}
-                      alt={`${car.name} ${car.model} on rent in Patna`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1">
-                      <span className="text-white/80 text-xs font-medium">
-                        {car.category}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Content */}
-                <div className="p-5 sm:p-6">
-                  <div className="flex items-start justify-between mb-1">
-                    <div>
-                      <h2 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300">
-                        {car.name}
-                      </h2>
-                      <p className="text-white/40 text-sm mt-0.5">
-                        {car.model} Model
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1 bg-gold/10 border border-gold/20 px-2 py-1 rounded-lg">
-                      <Star size={12} className="text-gold fill-gold" />
-                      <span className="text-gold text-xs font-semibold">
-                        {car.rating}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mt-3 mb-4">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-bold text-gold">
-                        ₹{car.price_per_day.toLocaleString()}
-                      </span>
-                      <span className="text-white/40 text-sm">/day</span>
-                      {car.original_price > car.price_per_day && (
-                        <span className="text-white/30 text-sm line-through">
-                          ₹{car.original_price.toLocaleString()}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-3 mt-1">
-                      <span className="text-white/30 text-xs">
-                        ₹{car.price_per_week.toLocaleString()}/week
-                      </span>
-                      <span className="text-green-400/70 text-xs font-medium">
-                        15% off
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full">
-                      <Settings size={11} className="text-gold/70" />
-                      {car.transmission}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full">
-                      <Fuel size={11} className="text-gold/70" />
-                      {car.fuel_type}
-                    </span>
-                    {car.features.slice(0, 2).map((feature) => (
-                      <span
-                        key={feature}
-                        className="text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Location */}
-                  <div className="flex items-center gap-1.5 mb-5">
-                    <MapPin size={12} className="text-gold/60" />
-                    <span className="text-xs text-white/40">
-                      {car.pickup_location}
-                    </span>
-                  </div>
-
-                  {/* CTAs */}
-                  <div className="flex gap-3">
-                    <Link
-                      href={`/cars/${car.slug}`}
-                      className="flex-1 inline-flex items-center justify-center gap-2 border border-white/20 hover:border-gold/50 text-white/70 hover:text-white font-medium py-3 rounded-xl text-sm transition-all duration-300"
-                    >
-                      View Details
-                    </Link>
-                    <button
-                      onClick={() =>
-                        setModalCar({
-                          name: car.name,
-                          model: car.model,
-                          price: car.price_per_day,
-                        })
-                      }
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-gold/10 hover:bg-gold border border-gold/30 hover:border-gold text-gold hover:text-black font-semibold py-3 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
-                    >
-                      <MessageCircle size={16} />
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-
-          {/* Empty state */}
-          {filteredCars.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-white/40 text-lg">
-                No cars found in this category.
-              </p>
-              <button
-                onClick={() => setFilterCategory("all")}
-                className="mt-4 text-gold hover:text-gold-light text-sm font-medium"
-              >
-                Show all cars
-              </button>
+          {/* Loading */}
+          {loading && (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 size={32} className="animate-spin text-gold/60" />
             </div>
+          )}
+
+          {!loading && (
+            <>
+              {/* Results count */}
+              <p className="text-white/40 text-sm mb-6">
+                Showing {filteredCars.length} car
+                {filteredCars.length !== 1 ? "s" : ""}
+                {filterCategory !== "all" && ` in ${filterCategory}`}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {filteredCars.map((car, index) => (
+                  <motion.article
+                    key={car.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="group relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(206,150,61,0.08)]"
+                  >
+                    {/* Discount Badge */}
+                    {car.discount > 0 && (
+                      <div className="absolute top-4 left-4 z-10 bg-green-500/90 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                        {car.discount}% OFF
+                      </div>
+                    )}
+
+                    {/* Image */}
+                    <Link href={`/cars/${car.slug}`} className="block">
+                      <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-white/5 to-transparent">
+                        <Image
+                          src={car.image_url}
+                          alt={`${car.name} ${car.model} on rent in Patna`}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1">
+                          <span className="text-white/80 text-xs font-medium">
+                            {car.category}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Content */}
+                    <div className="p-5 sm:p-6">
+                      <div className="flex items-start justify-between mb-1">
+                        <div>
+                          <h2 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300">
+                            {car.name}
+                          </h2>
+                          <p className="text-white/40 text-sm mt-0.5">
+                            {car.model} Model
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1 bg-gold/10 border border-gold/20 px-2 py-1 rounded-lg">
+                          <Star size={12} className="text-gold fill-gold" />
+                          <span className="text-gold text-xs font-semibold">
+                            {car.rating}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Price */}
+                      <div className="mt-3 mb-4">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-bold text-gold">
+                            ₹{car.price_per_day.toLocaleString()}
+                          </span>
+                          <span className="text-white/40 text-sm">/day</span>
+                          {car.original_price > car.price_per_day && (
+                            <span className="text-white/30 text-sm line-through">
+                              ₹{car.original_price.toLocaleString()}
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-3 mt-1">
+                          <span className="text-white/30 text-xs">
+                            ₹{car.price_per_week.toLocaleString()}/week
+                          </span>
+                          <span className="text-green-400/70 text-xs font-medium">
+                            15% off
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Features */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full">
+                          <Settings size={11} className="text-gold/70" />
+                          {car.transmission}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full">
+                          <Fuel size={11} className="text-gold/70" />
+                          {car.fuel_type}
+                        </span>
+                        {car.features.slice(0, 2).map((feature) => (
+                          <span
+                            key={feature}
+                            className="text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Location */}
+                      <div className="flex items-center gap-1.5 mb-5">
+                        <MapPin size={12} className="text-gold/60" />
+                        <span className="text-xs text-white/40">
+                          {car.pickup_location}
+                        </span>
+                      </div>
+
+                      {/* CTAs */}
+                      <div className="flex gap-3">
+                        <Link
+                          href={`/cars/${car.slug}`}
+                          className="flex-1 inline-flex items-center justify-center gap-2 border border-white/20 hover:border-gold/50 text-white/70 hover:text-white font-medium py-3 rounded-xl text-sm transition-all duration-300"
+                        >
+                          View Details
+                        </Link>
+                        <button
+                          onClick={() =>
+                            setModalCar({
+                              name: car.name,
+                              model: car.model,
+                              price: car.price_per_day,
+                            })
+                          }
+                          className="flex-1 inline-flex items-center justify-center gap-2 bg-gold/10 hover:bg-gold border border-gold/30 hover:border-gold text-gold hover:text-black font-semibold py-3 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
+                        >
+                          <MessageCircle size={16} />
+                          Book Now
+                        </button>
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+
+              {/* Empty state */}
+              {filteredCars.length === 0 && (
+                <div className="text-center py-20">
+                  <p className="text-white/40 text-lg">
+                    No cars found in this category.
+                  </p>
+                  <button
+                    onClick={() => setFilterCategory("all")}
+                    className="mt-4 text-gold hover:text-gold-light text-sm font-medium"
+                  >
+                    Show all cars
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>
@@ -332,42 +381,37 @@ export default function FleetClient() {
                 </tr>
               </thead>
               <tbody>
-                {carsData
-                  .filter(
-                    (car, index, self) =>
-                      self.findIndex((c) => c.name === car.name) === index
-                  )
-                  .map((car) => (
-                    <tr
-                      key={car.id}
-                      className="border-b border-white/5 hover:bg-white/[0.02] transition-colors"
-                    >
-                      <td className="py-4 px-5">
-                        <Link
-                          href={`/cars/${car.slug}`}
-                          className="text-white font-medium text-sm hover:text-gold transition-colors"
-                        >
-                          {car.name}
-                        </Link>
-                        <p className="text-white/40 text-xs">{car.model}</p>
-                      </td>
-                      <td className="py-4 px-5 text-gold font-semibold text-sm">
-                        ₹{car.price_per_day.toLocaleString()}
-                      </td>
-                      <td className="py-4 px-5 text-white/60 text-sm">
-                        {car.category}
-                      </td>
-                      <td className="py-4 px-5 text-white/60 text-sm">
-                        {car.specs.engine_capacity}
-                      </td>
-                      <td className="py-4 px-5 text-white/60 text-sm">
-                        {car.specs.km_limit.split(",")[0]}
-                      </td>
-                      <td className="py-4 px-5 text-white/60 text-sm">
-                        ₹{car.deposit.toLocaleString()}
-                      </td>
-                    </tr>
-                  ))}
+                {uniqueCars.map((car) => (
+                  <tr
+                    key={car.id}
+                    className="border-b border-white/5 hover:bg-white/[0.02] transition-colors"
+                  >
+                    <td className="py-4 px-5">
+                      <Link
+                        href={`/cars/${car.slug}`}
+                        className="text-white font-medium text-sm hover:text-gold transition-colors"
+                      >
+                        {car.name}
+                      </Link>
+                      <p className="text-white/40 text-xs">{car.model}</p>
+                    </td>
+                    <td className="py-4 px-5 text-gold font-semibold text-sm">
+                      ₹{car.price_per_day.toLocaleString()}
+                    </td>
+                    <td className="py-4 px-5 text-white/60 text-sm">
+                      {car.category}
+                    </td>
+                    <td className="py-4 px-5 text-white/60 text-sm">
+                      {car.specs?.engine_capacity || "-"}
+                    </td>
+                    <td className="py-4 px-5 text-white/60 text-sm">
+                      {car.specs?.km_limit?.split(",")[0] || "-"}
+                    </td>
+                    <td className="py-4 px-5 text-white/60 text-sm">
+                      ₹{car.deposit.toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </motion.div>

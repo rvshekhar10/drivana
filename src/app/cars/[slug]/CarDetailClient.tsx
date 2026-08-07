@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
 import CarGallery, { MediaItem } from "@/components/CarGallery";
+import AssetReviews from "@/components/AssetReviews";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 
@@ -651,6 +652,11 @@ export default function CarDetailClient({ car, otherCars }: Props) {
 
       {/* Bottom padding for mobile CTA */}
       <div className="h-20 lg:hidden" />
+
+      {/* Customer Reviews */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AssetReviews assetId={car.id} assetName={car.name} />
+      </div>
 
       {/* CTA Banner */}
       <CTABanner />
