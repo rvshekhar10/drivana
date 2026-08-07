@@ -34,7 +34,7 @@ export default function BlogListClient({
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredArticles = useMemo(() => {
-    let filtered = initialArticles;
+    let filtered = initialArticles || [];
 
     if (activeCollection) {
       filtered = filtered.filter(
@@ -44,7 +44,7 @@ export default function BlogListClient({
 
     if (activeTag) {
       filtered = filtered.filter((a) =>
-        a.tags.some((t) => t.slug === activeTag)
+        (a.tags || []).some((t) => t.slug === activeTag)
       );
     }
 
@@ -256,9 +256,9 @@ export default function BlogListClient({
                       </p>
 
                       {/* Tags */}
-                      {article.tags.length > 0 && (
+                      {(article.tags || []).length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mb-4">
-                          {article.tags.slice(0, 3).map((t) => (
+                          {(article.tags || []).slice(0, 3).map((t) => (
                             <span
                               key={t.id}
                               className="text-[10px] text-white/40 bg-white/[0.04] px-2 py-0.5 rounded-full"
