@@ -19,15 +19,15 @@ import CTABanner from "@/components/CTABanner";
 import type { CMSArticleSummary, CMSCollection, CMSTag } from "@/types/xrmlite";
 
 interface BlogListClientProps {
-  initialArticles: CMSArticleSummary[];
-  collections: CMSCollection[];
-  tags: CMSTag[];
+  initialArticles?: CMSArticleSummary[];
+  collections?: CMSCollection[];
+  tags?: CMSTag[];
 }
 
 export default function BlogListClient({
-  initialArticles,
-  collections,
-  tags,
+  initialArticles = [],
+  collections = [],
+  tags = [],
 }: BlogListClientProps) {
   const [activeCollection, setActiveCollection] = useState<number | null>(null);
   const [activeTag, setActiveTag] = useState<string | null>(null);
