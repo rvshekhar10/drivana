@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle, Calendar, User, Phone } from "lucide-react";
+import { X, MessageCircle, Calendar, User, Phone, Loader2 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "919205548488";
 
@@ -29,10 +29,34 @@ export default function BookingModal({
     pickupTime: "09:00",
     message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
+    // Push lead to XRMlite (fire-and-forget — don't block WhatsApp redirect)
+    try {
+      fetch("/api/bookings/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          carName,
+          carModel,
+          pricePerDay,
+          name: formData.name,
+          phone: formData.phone,
+          pickupDate: formData.pickupDate,
+          dropoffDate: formData.dropoffDate,
+          pickupTime: formData.pickupTime,
+          message: formData.message,
+        }),
+      }).catch(() => {});
+    } catch {
+      // Silent — don't block the user
+    }
+
+    // Build WhatsApp message
     const text = [
       `Hi! I'd like to book a self-drive car.`,
       ``,
@@ -56,6 +80,7 @@ export default function BookingModal({
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`,
       "_blank"
     );
+    setSubmitting(false);
     onClose();
   };
 
@@ -272,10 +297,15 @@ export default function BookingModal({
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold py-4 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(206,150,61,0.3)]"
+                  disabled={submitting}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light disabled:opacity-70 text-black font-semibold py-4 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(206,150,61,0.3)]"
                 >
-                  <MessageCircle size={18} />
-                  Send Booking Request via WhatsApp
+                  {submitting ? (
+                    <Loader2 size={18} className="animate-spin" />
+                  ) : (
+                    <MessageCircle size={18} />
+                  )}
+                  {submitting ? "Processing..." : "Send Booking Request via WhatsApp"}
                 </button>
 
                 <p className="text-xs text-white/30 text-center">
