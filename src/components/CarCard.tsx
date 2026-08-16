@@ -14,6 +14,7 @@ interface Car {
   model: string;
   image_url: string;
   price_per_day: number;
+  price_per_week: number;
   original_price: number;
   discount: number;
   features: string[];
@@ -41,7 +42,7 @@ export default function CarCard({ car, index }: CarCardProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-        className="group relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(206,150,61,0.08)]"
+        className="group relative flex flex-col bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(206,150,61,0.08)] h-full"
       >
         {/* Discount Badge */}
         {car.discount > 0 && (
@@ -55,12 +56,11 @@ export default function CarCard({ car, index }: CarCardProps) {
           <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-white/5 to-transparent">
             <Image
               src={car.image_url}
-              alt={`${car.name} ${car.model} on rent in Patna - ₹${car.price_per_day}/day self drive`}
+              alt={`${car.name} ${car.model} on rent - ₹${car.price_per_day}/day self drive`}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-            {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
             {/* Category badge */}
@@ -72,21 +72,20 @@ export default function CarCard({ car, index }: CarCardProps) {
           </div>
         </Link>
 
-        {/* Content */}
-        <div className="p-5 sm:p-6">
-          {/* Car Name & Model */}
+        {/* Content — flex-1 pushes buttons to bottom */}
+        <div className="flex flex-col flex-1 p-5 sm:p-6">
+          {/* Car Name & Rating */}
           <div className="flex items-start justify-between mb-1">
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300">
+              <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300 line-clamp-1">
                 {car.name}
               </h3>
               <p className="text-white/40 text-sm mt-0.5">{car.model} Model</p>
             </div>
-            {/* Rating */}
-            <div className="flex items-center gap-1 bg-gold/10 border border-gold/20 px-2 py-1 rounded-lg">
+            <div className="flex items-center gap-1 bg-gold/10 border border-gold/20 px-2 py-1 rounded-lg shrink-0">
               <Star size={12} className="text-gold fill-gold" />
               <span className="text-gold text-xs font-semibold">
-                {car.rating}
+                {car.rating || "New"}
               </span>
             </div>
           </div>
@@ -104,13 +103,20 @@ export default function CarCard({ car, index }: CarCardProps) {
                 </span>
               )}
             </div>
-            <p className="text-white/30 text-xs mt-1">
-              Deposit: ₹{car.deposit.toLocaleString()}
-            </p>
+            <div className="flex items-center gap-3 mt-1">
+              <span className="text-white/30 text-xs">
+                ₹{car.price_per_week?.toLocaleString() || "—"}/week
+              </span>
+              {car.discount > 0 && (
+                <span className="text-green-400/70 text-xs font-medium">
+                  {car.discount}% off
+                </span>
+              )}
+            </div>
           </div>
 
-          {/* Features */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          {/* Features — fixed 2 lines max */}
+          <div className="flex flex-wrap gap-2 mb-4 min-h-[3.25rem]">
             <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full">
               <Settings size={11} className="text-gold/70" />
               {car.transmission}
@@ -122,20 +128,25 @@ export default function CarCard({ car, index }: CarCardProps) {
             {car.features.slice(0, 2).map((feature) => (
               <span
                 key={feature}
-                className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full"
+                className="text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full"
               >
                 {feature}
               </span>
             ))}
           </div>
 
-          {/* Pickup location */}
+          {/* Location */}
           <div className="flex items-center gap-1.5 mb-5">
             <MapPin size={12} className="text-gold/60" />
-            <span className="text-xs text-white/40">{car.pickup_location}</span>
+            <span className="text-xs text-white/40 line-clamp-1">
+              {car.pickup_location}
+            </span>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Spacer to push buttons to bottom */}
+          <div className="mt-auto" />
+
+          {/* CTA Buttons — always at bottom */}
           <div className="flex gap-3">
             <Link
               href={`/cars/${car.slug}`}

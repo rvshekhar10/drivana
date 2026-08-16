@@ -1,19 +1,28 @@
 import { MetadataRoute } from "next";
-import carsData from "@/data/cars.json";
-import { getArticles } from "@/lib/xrmlite";
+import { getArticles, getXRMListings } from "@/lib/xrmlite";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.drivana.co.in";
 
-  const carPages = carsData.map((car) => ({
-    url: `${baseUrl}/cars/${car.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-    images: car.media
-      .filter((m) => m.type === "image")
-      .map((m) => `${baseUrl}${m.url}`),
-  }));
+  // Fetch cars from API
+  let carPages: MetadataRoute.Sitemap = [];
+  try {
+    const carsRes = await getXRMListings();
+    if (carsRes.success && carsRes.data) {
+      carPages = carsRes.data.map((asset) => {
+        const featured = asset.media?.find((m) => m.is_featured);
+        return {
+          url: `${baseUrl}/cars/${asset.slug}`,
+          lastModified: new Date(asset.updated_at || asset.created_at || Date.now()),
+          changeFrequency: "weekly" as const,
+          priority: 0.9,
+          ...(featured ? { images: [`${baseUrl}${featured.url}`] } : {}),
+        };
+      });
+    }
+  } catch {
+    // API unavailable
+  }
 
   // Fetch blog articles for sitemap
   let blogPages: MetadataRoute.Sitemap = [];
@@ -31,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
     }
   } catch {
-    // CMS unavailable — skip blog pages in sitemap
+    // CMS unavailable
   }
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -40,14 +49,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 1,
-      images: [`${baseUrl}/drivana-hero-image.avif`],
     },
     {
       url: `${baseUrl}/fleet`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 0.95,
-      images: carsData.map((car) => `${baseUrl}${car.image_url}`),
     },
     {
       url: `${baseUrl}/blog`,

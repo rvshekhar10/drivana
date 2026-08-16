@@ -65,6 +65,7 @@ export interface XRMAsset {
   rating: number;
   review_count: number;
   // Optional fields
+  city_id?: number;
   category_id?: number;
   category_name?: string;
   brand_id?: number;
@@ -72,6 +73,8 @@ export interface XRMAsset {
   pickup_location?: string;
   nearby_destinations?: string[];
   status?: string;
+  created_at?: string;
+  updated_at?: string;
 }
 
 // --- Categories ---

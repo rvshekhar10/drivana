@@ -21,7 +21,16 @@ export default function AssetReviews({ assetId, assetName }: AssetReviewsProps) 
       const result = await fetchReviews(assetId);
       if (result.success && result.data) {
         setReviews(result.data.reviews || []);
-        setSummary(result.data.summary || null);
+        // Handle both API naming conventions (average vs average_rating, total vs total_reviews)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const raw = result.data.summary as any;
+        if (raw) {
+          setSummary({
+            average_rating: raw.average_rating ?? raw.average ?? 0,
+            total_reviews: raw.total_reviews ?? raw.total ?? 0,
+            rating_breakdown: raw.rating_breakdown || {},
+          });
+        }
       }
       setLoading(false);
     }

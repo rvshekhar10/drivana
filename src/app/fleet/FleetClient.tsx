@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,19 +14,43 @@ import {
   Filter,
   ArrowUpDown,
   Loader2,
+  Calendar,
+  CheckCircle,
+  Zap,
+  Search,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import BookingModal from "@/components/BookingModal";
+import QuickBookModal from "@/components/QuickBookModal";
 import { useListings } from "@/hooks/useListings";
 import { fetchCategories } from "@/lib/api-client";
+import { useCity } from "@/context/CityContext";
 
 type SortOption = "price-low" | "price-high" | "rating";
 
+interface AvailabilityInfo {
+  available: boolean;
+  bookingAmount?: number;
+  balanceAtPickup?: number;
+  days?: number;
+}
+
 export default function FleetClient() {
-  const { listings, loading } = useListings();
+  const { selectedCity, openCityPicker } = useCity();
+  const { listings, loading } = useListings({ cityId: selectedCity?.id });
+  const searchParams = useSearchParams();
+
+  // Read dates from URL (passed from hero search)
+  const urlStartDate = searchParams.get("startDate") || "";
+  const urlEndDate = searchParams.get("endDate") || "";
+  const hasDateFilter = !!(urlStartDate && urlEndDate);
+
+  // Availability state per asset
+  const [availability, setAvailability] = useState<Record<number, AvailabilityInfo>>({});
+  const [checkingAvailability, setCheckingAvailability] = useState(false);
   const [sortBy, setSortBy] = useState<SortOption>("price-low");
   const [filterCategory, setFilterCategory] = useState<string>("all");
   const [modalCar, setModalCar] = useState<{
@@ -33,7 +58,25 @@ export default function FleetClient() {
     model: string;
     price: number;
   } | null>(null);
+  const [quickBookCar, setQuickBookCar] = useState<{
+    id: number;
+    name: string;
+  } | null>(null);
   const [categories, setCategories] = useState<string[]>([]);
+
+  // Local date form state (for direct fleet page visitors)
+  const [localStartDate, setLocalStartDate] = useState(urlStartDate);
+  const [localEndDate, setLocalEndDate] = useState(urlEndDate);
+
+  const handleLocalSearch = () => {
+    if (!localStartDate || !localEndDate) return;
+    const params = new URLSearchParams({
+      startDate: localStartDate,
+      endDate: localEndDate,
+      ...(selectedCity ? { cityId: String(selectedCity.id) } : {}),
+    });
+    window.location.href = `/fleet?${params.toString()}`;
+  };
 
   // Fetch categories from API
   useEffect(() => {
@@ -47,6 +90,44 @@ export default function FleetClient() {
       }
     });
   }, [listings]);
+
+  // Check availability for each car when dates are in URL
+  useEffect(() => {
+    if (!hasDateFilter || listings.length === 0) return;
+
+    async function checkAll() {
+      setCheckingAvailability(true);
+      const results: Record<number, AvailabilityInfo> = {};
+
+      await Promise.all(
+        listings.map(async (car) => {
+          try {
+            const res = await fetch(
+              `/api/availability?assetId=${car.id}&startDate=${urlStartDate}&endDate=${urlEndDate}`
+            );
+            const data = await res.json();
+            if (data.success && data.data) {
+              results[car.id] = {
+                available: data.data.available,
+                bookingAmount: data.data.pricing?.bookingAmount,
+                balanceAtPickup: data.data.pricing?.balanceAtPickup,
+                days: data.data.pricing?.days,
+              };
+            } else {
+              results[car.id] = { available: true };
+            }
+          } catch {
+            results[car.id] = { available: true };
+          }
+        })
+      );
+
+      setAvailability(results);
+      setCheckingAvailability(false);
+    }
+
+    checkAll();
+  }, [hasDateFilter, urlStartDate, urlEndDate, listings]);
 
   const filteredCars = useMemo(
     () =>
@@ -111,9 +192,64 @@ export default function FleetClient() {
             transition={{ delay: 0.5 }}
             className="mt-4 text-white/60 text-base sm:text-lg max-w-lg mx-auto"
           >
-            {listings.length} cars available from ₹1,499/day. All pickup from
-            Bhootnath Road, Patna.
+            {listings.length} cars available
+            {selectedCity ? ` in ${selectedCity.name}` : ""}.
+            {hasDateFilter && (
+              <span className="block text-gold/80 text-sm mt-1">
+                Showing availability for {new Date(urlStartDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} → {new Date(urlEndDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
+              </span>
+            )}
           </motion.p>
+        </div>
+      </section>
+
+      {/* Date/City Search Form — inline on fleet page */}
+      <section className="px-4 sm:px-6 -mt-8 relative z-20 mb-4">
+        <div className="max-w-4xl mx-auto bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 items-end">
+            {/* City */}
+            <div>
+              <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1.5 pl-1">City</label>
+              <button
+                onClick={openCityPicker}
+                className="w-full flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm hover:border-gold/30 transition-all"
+              >
+                <MapPin size={14} className="text-gold shrink-0" />
+                <span className="text-white font-medium truncate">{selectedCity?.name || "Select"}</span>
+              </button>
+            </div>
+            {/* Pickup */}
+            <div>
+              <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1.5 pl-1">Pickup</label>
+              <input
+                type="date"
+                min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
+                value={localStartDate}
+                onChange={(e) => setLocalStartDate(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
+              />
+            </div>
+            {/* Drop-off */}
+            <div>
+              <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1.5 pl-1">Drop-off</label>
+              <input
+                type="date"
+                min={localStartDate || new Date(Date.now() + 86400000).toISOString().split("T")[0]}
+                value={localEndDate}
+                onChange={(e) => setLocalEndDate(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
+              />
+            </div>
+            {/* Search */}
+            <button
+              onClick={handleLocalSearch}
+              disabled={!localStartDate || !localEndDate}
+              className="w-full flex items-center justify-center gap-2 bg-gold hover:bg-gold-light disabled:opacity-40 text-black font-bold py-2.5 rounded-xl text-sm transition-all"
+            >
+              <Search size={14} />
+              Check Availability
+            </button>
+          </div>
         </div>
       </section>
 
@@ -190,7 +326,7 @@ export default function FleetClient() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="group relative bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(206,150,61,0.08)]"
+                    className="group relative flex flex-col bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(206,150,61,0.08)] h-full"
                   >
                     {/* Discount Badge */}
                     {car.discount > 0 && (
@@ -199,12 +335,34 @@ export default function FleetClient() {
                       </div>
                     )}
 
+                    {/* Availability Badge (when dates are selected) */}
+                    {hasDateFilter && availability[car.id] && (
+                      <div
+                        className={`absolute top-4 z-10 backdrop-blur-sm text-xs font-bold px-2.5 py-1 rounded-full ${
+                          car.discount > 0 ? "left-4 top-11" : "left-4"
+                        } ${
+                          availability[car.id].available
+                            ? "bg-green-500/90 text-white"
+                            : "bg-red-500/90 text-white"
+                        }`}
+                      >
+                        {availability[car.id].available ? (
+                          <span className="flex items-center gap-1">
+                            <CheckCircle size={10} />
+                            Available
+                          </span>
+                        ) : (
+                          "Unavailable"
+                        )}
+                      </div>
+                    )}
+
                     {/* Image */}
                     <Link href={`/cars/${car.slug}`} className="block">
                       <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-white/5 to-transparent">
                         <Image
                           src={car.image_url}
-                          alt={`${car.name} ${car.model} on rent in Patna`}
+                          alt={`${car.name} ${car.model} on rent`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -218,21 +376,21 @@ export default function FleetClient() {
                       </div>
                     </Link>
 
-                    {/* Content */}
-                    <div className="p-5 sm:p-6">
+                    {/* Content — flex-1 pushes buttons to bottom */}
+                    <div className="flex flex-col flex-1 p-5 sm:p-6">
                       <div className="flex items-start justify-between mb-1">
                         <div>
-                          <h2 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300">
+                          <h2 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300 line-clamp-1">
                             {car.name}
                           </h2>
                           <p className="text-white/40 text-sm mt-0.5">
                             {car.model} Model
                           </p>
                         </div>
-                        <div className="flex items-center gap-1 bg-gold/10 border border-gold/20 px-2 py-1 rounded-lg">
+                        <div className="flex items-center gap-1 bg-gold/10 border border-gold/20 px-2 py-1 rounded-lg shrink-0">
                           <Star size={12} className="text-gold fill-gold" />
                           <span className="text-gold text-xs font-semibold">
-                            {car.rating}
+                            {car.rating || "New"}
                           </span>
                         </div>
                       </div>
@@ -254,14 +412,28 @@ export default function FleetClient() {
                           <span className="text-white/30 text-xs">
                             ₹{car.price_per_week.toLocaleString()}/week
                           </span>
-                          <span className="text-green-400/70 text-xs font-medium">
-                            15% off
-                          </span>
+                          {car.discount > 0 && (
+                            <span className="text-green-400/70 text-xs font-medium">
+                              {car.discount}% off
+                            </span>
+                          )}
                         </div>
+                        {/* Booking amount when dates selected */}
+                        {hasDateFilter && availability[car.id]?.available && availability[car.id]?.bookingAmount && (
+                          <div className="flex items-center gap-2 mt-2 bg-gold/5 border border-gold/20 rounded-lg px-2.5 py-1.5">
+                            <Calendar size={11} className="text-gold" />
+                            <span className="text-xs text-gold font-medium">
+                              Book now: ₹{availability[car.id].bookingAmount!.toLocaleString()}
+                            </span>
+                            <span className="text-[10px] text-white/40">
+                              ({availability[car.id].days} days)
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Features */}
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <div className="flex flex-wrap gap-2 mb-4 min-h-[3.25rem]">
                         <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-2.5 py-1.5 rounded-full">
                           <Settings size={11} className="text-gold/70" />
                           {car.transmission}
@@ -283,32 +455,47 @@ export default function FleetClient() {
                       {/* Location */}
                       <div className="flex items-center gap-1.5 mb-5">
                         <MapPin size={12} className="text-gold/60" />
-                        <span className="text-xs text-white/40">
+                        <span className="text-xs text-white/40 line-clamp-1">
                           {car.pickup_location}
                         </span>
                       </div>
 
-                      {/* CTAs */}
+                      {/* Spacer — pushes CTAs to bottom */}
+                      <div className="mt-auto" />
+
+                      {/* CTAs — always at bottom */}
                       <div className="flex gap-3">
                         <Link
-                          href={`/cars/${car.slug}`}
+                          href={`/cars/${car.slug}${hasDateFilter ? `?startDate=${urlStartDate}&endDate=${urlEndDate}` : ""}`}
                           className="flex-1 inline-flex items-center justify-center gap-2 border border-white/20 hover:border-gold/50 text-white/70 hover:text-white font-medium py-3 rounded-xl text-sm transition-all duration-300"
                         >
                           View Details
                         </Link>
-                        <button
-                          onClick={() =>
-                            setModalCar({
-                              name: car.name,
-                              model: car.model,
-                              price: car.price_per_day,
-                            })
-                          }
-                          className="flex-1 inline-flex items-center justify-center gap-2 bg-gold/10 hover:bg-gold border border-gold/30 hover:border-gold text-gold hover:text-black font-semibold py-3 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
-                        >
-                          <MessageCircle size={16} />
-                          Book Now
-                        </button>
+                        {hasDateFilter && availability[car.id]?.available ? (
+                          <button
+                            onClick={() =>
+                              setQuickBookCar({ id: car.id, name: car.name })
+                            }
+                            className="flex-1 inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold py-3 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
+                          >
+                            <Zap size={14} />
+                            Quick Book
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() =>
+                              setModalCar({
+                                name: car.name,
+                                model: car.model,
+                                price: car.price_per_day,
+                              })
+                            }
+                            className="flex-1 inline-flex items-center justify-center gap-2 bg-gold/10 hover:bg-gold border border-gold/30 hover:border-gold text-gold hover:text-black font-semibold py-3 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
+                          >
+                            <MessageCircle size={16} />
+                            Book Now
+                          </button>
+                        )}
                       </div>
                     </div>
                   </motion.article>
@@ -439,7 +626,7 @@ export default function FleetClient() {
       <Footer />
       <WhatsAppFloat />
 
-      {/* Booking Modal */}
+      {/* Booking Modal (WhatsApp) */}
       {modalCar && (
         <BookingModal
           isOpen={!!modalCar}
@@ -447,6 +634,18 @@ export default function FleetClient() {
           carName={modalCar.name}
           carModel={modalCar.model}
           pricePerDay={modalCar.price}
+        />
+      )}
+
+      {/* Quick Book Modal (Two-Phase) */}
+      {quickBookCar && hasDateFilter && (
+        <QuickBookModal
+          isOpen={!!quickBookCar}
+          onClose={() => setQuickBookCar(null)}
+          assetId={quickBookCar.id}
+          carName={quickBookCar.name}
+          startDate={urlStartDate}
+          endDate={urlEndDate}
         />
       )}
     </main>

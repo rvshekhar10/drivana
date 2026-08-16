@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,8 +18,10 @@ import {
   Navigation,
   Clock,
   Gauge,
+  Zap,
 } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
+import QuickBookModal from "@/components/QuickBookModal";
 import CarGallery, { MediaItem } from "@/components/CarGallery";
 import AssetReviews from "@/components/AssetReviews";
 import CTABanner from "@/components/CTABanner";
@@ -84,7 +86,21 @@ interface Props {
 
 export default function CarDetailClient({ car, otherCars }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [quickBookOpen, setQuickBookOpen] = useState(false);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20the%20${encodeURIComponent(car.name)}%20(${car.model})%20at%20₹${car.price_per_day}/day.%20Please%20confirm%20availability.`;
+
+  // Read dates from URL if coming from fleet page
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const sd = params.get("startDate");
+    const ed = params.get("endDate");
+    if (sd) setStartDate(sd);
+    if (ed) setEndDate(ed);
+  }, []);
+
+  const minDate = new Date(Date.now() + 86400000).toISOString().split("T")[0];
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -446,21 +462,57 @@ export default function CarDetailClient({ car, otherCars }: Props) {
                   </p>
                 </div>
 
+                {/* Quick Book Section */}
+                <div className="space-y-3 mb-4">
+                  <h3 className="text-sm font-medium text-white/60 flex items-center gap-2">
+                    <Calendar size={14} className="text-gold" />
+                    Select Dates
+                  </h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="block text-[10px] text-white/40 mb-1">Pickup</label>
+                      <input
+                        type="date"
+                        min={minDate}
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] text-white/40 mb-1">Drop-off</label>
+                      <input
+                        type="date"
+                        min={startDate || minDate}
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
+                      />
+                    </div>
+                  </div>
+                  {startDate && endDate && new Date(endDate) > new Date(startDate) && (
+                    <p className="text-xs text-white/40 text-center">
+                      {Math.ceil((new Date(endDate).getTime() - new Date(startDate).getTime()) / 86400000)} days
+                    </p>
+                  )}
+                </div>
+
                 {/* CTA Buttons */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-black font-semibold py-4 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(206,150,61,0.3)]"
+                  onClick={() => setQuickBookOpen(true)}
+                  disabled={!startDate || !endDate}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light disabled:opacity-40 disabled:cursor-not-allowed text-black font-semibold py-4 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(206,150,61,0.3)]"
                 >
-                  <MessageCircle size={18} />
-                  Book on WhatsApp
+                  <Zap size={16} />
+                  {startDate && endDate ? "Quick Book — Check Availability" : "Select dates to book"}
                 </button>
-                <a
-                  href="tel:+917079138350"
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className="w-full inline-flex items-center justify-center gap-2 border border-white/20 hover:border-gold/50 text-white/80 hover:text-white font-medium py-3 rounded-xl text-sm transition-all duration-200 mt-3"
                 >
-                  <Phone size={16} />
-                  Call to Book
-                </a>
+                  <MessageCircle size={16} />
+                  Book via WhatsApp
+                </button>
 
                 <p className="text-xs text-white/30 text-center mt-4">
                   Pay at pickup • Deposit ₹{car.deposit.toLocaleString()} • Clean car guaranteed
@@ -672,6 +724,18 @@ export default function CarDetailClient({ car, otherCars }: Props) {
         carModel={car.model}
         pricePerDay={car.price_per_day}
       />
+
+      {/* Quick Book Modal */}
+      {startDate && endDate && (
+        <QuickBookModal
+          isOpen={quickBookOpen}
+          onClose={() => setQuickBookOpen(false)}
+          assetId={car.id}
+          carName={car.name}
+          startDate={startDate}
+          endDate={endDate}
+        />
+      )}
     </main>
   );
 }

@@ -56,11 +56,13 @@ async function post<T>(
 
 export async function fetchListings(options?: {
   city?: string;
+  cityId?: number;
   category?: number;
   brand?: number;
 }): Promise<XRMApiResponse<AssetListing[]> & { source?: string }> {
   const params = new URLSearchParams();
-  if (options?.city) params.set("city", options.city);
+  if (options?.cityId) params.set("cityId", String(options.cityId));
+  else if (options?.city) params.set("city", options.city);
   if (options?.category) params.set("category", String(options.category));
   if (options?.brand) params.set("brand", String(options.brand));
   const query = params.toString() ? `?${params.toString()}` : "";

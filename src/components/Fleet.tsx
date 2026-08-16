@@ -5,9 +5,11 @@ import Link from "next/link";
 import { ArrowRight, Loader2 } from "lucide-react";
 import CarCard from "./CarCard";
 import { useListings } from "@/hooks/useListings";
+import { useCity } from "@/context/CityContext";
 
 export default function Fleet() {
-  const { listings, loading } = useListings();
+  const { selectedCity } = useCity();
+  const { listings, loading } = useListings({ cityId: selectedCity?.id });
 
   // Show only 3 cars on homepage (deduplicated by name)
   const seen = new Set<string>();
@@ -39,7 +41,7 @@ export default function Fleet() {
             id="fleet-heading"
             className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 tracking-tight"
           >
-            Self-Drive Cars in Patna
+            Self-Drive Cars in {selectedCity?.name || "Your City"}
           </h2>
           <p className="text-white/50 mt-4 max-w-lg mx-auto text-sm sm:text-base">
             Well-maintained, sanitized cars from ₹1,499/day. Pickup from

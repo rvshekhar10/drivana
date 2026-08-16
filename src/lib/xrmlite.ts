@@ -522,16 +522,18 @@ import type { XRMAsset, XRMCategory, XRMBrand } from "@/types/xrm-assets";
 
 /**
  * Fetch asset listings with the real XRMlite format.
- * Supports filtering by city, category ID, brand ID.
+ * Supports filtering by city (name), cityId, category ID, brand ID.
  */
 export async function getXRMListings(options?: {
   city?: string;
+  cityId?: number;
   category?: number;
   brand?: number;
 }): Promise<XRMApiResponse<XRMAsset[]>> {
   const params = new URLSearchParams();
-  if (options?.city) params.set("city", options.city);
-  if (options?.category) params.set("category", String(options.category));
+  if (options?.cityId) params.set("cityId", String(options.cityId));
+  else if (options?.city) params.set("city", options.city);
+  if (options?.category) params.set("typeId", String(options.category));
   if (options?.brand) params.set("brand", String(options.brand));
   const query = params.toString() ? `?${params.toString()}` : "";
   return request<XRMAsset[]>(`/assets/public/listings${query}`);
@@ -558,4 +560,24 @@ export async function getAssetCategories(): Promise<XRMApiResponse<XRMCategory[]
  */
 export async function getAssetBrands(): Promise<XRMApiResponse<XRMBrand[]>> {
   return request<XRMBrand[]>("/assets/public/brands");
+}
+
+// ===========================
+// SERVICE CITIES
+// ===========================
+
+import type { ServiceCity, CityCollection } from "@/types/xrmlite";
+
+/**
+ * Get all active service cities.
+ */
+export async function getCities(): Promise<XRMApiResponse<ServiceCity[]>> {
+  return request<ServiceCity[]>("/assets/public/cities");
+}
+
+/**
+ * Get city collections (e.g. "Metro Cities", "South India").
+ */
+export async function getCityCollections(): Promise<XRMApiResponse<CityCollection[]>> {
+  return request<CityCollection[]>("/assets/public/city-collections");
 }

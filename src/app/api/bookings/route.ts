@@ -14,52 +14,40 @@ export async function GET(request: NextRequest) {
   const token = extractToken(request);
   if (!token) {
     return NextResponse.json(
-      {
-        success: false,
-        error: { code: "UNAUTHENTICATED", message: "Login required" },
-      },
+      { success: false, error: { code: "UNAUTHENTICATED", message: "Login required" } },
       { status: 401 }
     );
   }
 
   const result = await getMyBookings(token);
-
   if (!result.success) {
     const status = result.error?.code === "UNAUTHENTICATED" ? 401 : 500;
     return NextResponse.json(result, { status });
   }
-
   return NextResponse.json(result);
 }
 
 /**
- * POST /api/bookings — create a new booking
+ * POST /api/bookings — create a confirmed booking
+ * Flow: user has already checked availability (Phase 1) and optionally
+ * created a hold (Phase 2). This finalizes the booking.
  */
 export async function POST(request: NextRequest) {
   const token = extractToken(request);
   if (!token) {
     return NextResponse.json(
-      {
-        success: false,
-        error: { code: "UNAUTHENTICATED", message: "Login required" },
-      },
+      { success: false, error: { code: "UNAUTHENTICATED", message: "Login required" } },
       { status: 401 }
     );
   }
 
   try {
     const body = await request.json();
-    const { assetId, startDate, endDate, couponCode, notes } = body;
+    const { assetId, startDate, endDate, startTime, endTime, pickupLocation, couponCode, notes, source, holdId } = body;
 
     if (!assetId || !startDate || !endDate) {
       return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: "VALIDATION",
-            message: "assetId, startDate, and endDate are required",
-          },
-        },
+        { success: false, error: { code: "VALIDATION", message: "assetId, startDate, and endDate are required" } },
         { status: 400 }
       );
     }
@@ -68,8 +56,13 @@ export async function POST(request: NextRequest) {
       assetId: Number(assetId),
       startDate,
       endDate,
-      couponCode,
-      notes,
+      startTime: startTime || "09:00",
+      endTime: endTime || "09:00",
+      pickupLocation: pickupLocation || undefined,
+      couponCode: couponCode || undefined,
+      notes: notes || undefined,
+      source: source || "website",
+      holdId: holdId ? Number(holdId) : undefined,
     });
 
     if (!result.success) {
@@ -82,10 +75,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(result, { status: 201 });
   } catch {
     return NextResponse.json(
-      {
-        success: false,
-        error: { code: "INVALID_BODY", message: "Invalid request body" },
-      },
+      { success: false, error: { code: "INVALID_BODY", message: "Invalid request body" } },
       { status: 400 }
     );
   }

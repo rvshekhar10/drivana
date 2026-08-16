@@ -1,38 +1,39 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import carsData from "@/data/cars.json";
-import { getXRMListingBySlug } from "@/lib/xrmlite";
-import { adaptAssetToListing } from "@/lib/asset-adapter";
+import { getXRMListingBySlug, getXRMListings } from "@/lib/xrmlite";
+import { adaptAssetToListing, adaptAssetsToListings } from "@/lib/asset-adapter";
 import CarDetailClient from "./CarDetailClient";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// Static params from our known data (ensures SSG for existing cars)
+// Generate static params from API (or empty for fully dynamic)
 export async function generateStaticParams() {
-  return carsData.map((car) => ({
-    slug: car.slug,
-  }));
+  try {
+    const result = await getXRMListings();
+    if (result.success && result.data) {
+      return result.data.map((asset) => ({ slug: asset.slug }));
+    }
+  } catch {
+    // API unavailable at build time
+  }
+  return [];
 }
 
 /**
- * Fetch car data — tries XRMlite API first, falls back to static JSON.
+ * Fetch car data from XRMlite API only.
  */
 async function getCarData(slug: string) {
-  // Try API first
   try {
     const result = await getXRMListingBySlug(slug);
     if (result.success && result.data) {
       return adaptAssetToListing(result.data);
     }
   } catch {
-    // API failed, fall through to static
+    // API failed
   }
-
-  // Fallback to static data
-  const staticCar = carsData.find((c) => c.slug === slug);
-  return staticCar || null;
+  return null;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -134,8 +135,18 @@ export default async function CarDetailPage({ params }: Props) {
     ],
   };
 
-  // Get other cars for "You may also like" (static fallback is fine here)
-  const otherCars = carsData.filter((c) => c.id !== car.id).slice(0, 3);
+  // Get other cars for "You may also like" from API
+  let otherCars: typeof car[] = [];
+  try {
+    const othersResult = await getXRMListings();
+    if (othersResult.success && othersResult.data) {
+      otherCars = adaptAssetsToListings(
+        othersResult.data.filter((a) => a.id !== car.id).slice(0, 3)
+      );
+    }
+  } catch {
+    // No recommendations available
+  }
 
   // Normalize media fields to match CarDetailClient's expected types
   const typedCar = {

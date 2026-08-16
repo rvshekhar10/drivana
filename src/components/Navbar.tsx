@@ -6,6 +6,7 @@ import { MessageCircle, Menu, X, Phone, ChevronDown, Car, Shield, HelpCircle, Ma
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import { useCity } from "@/context/CityContext";
 
 const WHATSAPP_NUMBER = "919205548488";
 
@@ -61,6 +62,7 @@ export default function Navbar() {
   const [moreOpen, setMoreOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { isLoggedIn, displayName, logout, openLoginModal } = useAuth();
+  const { selectedCity, cities, openCityPicker } = useCity();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,6 +114,20 @@ export default function Navbar() {
             />
           </Link>
 
+          {/* City Selector */}
+          {cities.length > 1 && (
+            <button
+              onClick={openCityPicker}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-gold/30 transition-all text-sm ml-3"
+            >
+              <MapPin size={13} className="text-gold" />
+              <span className="text-white/80 font-medium">
+                {selectedCity?.name || "Select City"}
+              </span>
+              <ChevronDown size={12} className="text-white/40" />
+            </button>
+          )}
+
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.slice(0, 5).map((link) => (
@@ -120,7 +136,9 @@ export default function Navbar() {
                 href={link.href}
                 className="relative px-4 py-2 text-sm text-white/80 hover:text-gold font-medium transition-colors duration-200 rounded-lg hover:bg-white/5"
               >
-                {link.label}
+                {link.label === "Fleet" && selectedCity
+                  ? `Cars in ${selectedCity.name}`
+                  : link.label}
               </Link>
             ))}
 
@@ -336,7 +354,9 @@ export default function Navbar() {
                       </div>
                       <div>
                         <p className="text-white font-medium">
-                          {link.label}
+                          {link.label === "Fleet" && selectedCity
+                            ? `Cars in ${selectedCity.name}`
+                            : link.label}
                         </p>
                         <p className="text-white/40 text-xs mt-0.5">
                           {link.description}

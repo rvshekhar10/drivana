@@ -47,6 +47,12 @@ export const metadata: Metadata = {
   },
 };
 
+import { Suspense } from "react";
+
 export default function FleetPage() {
-  return <FleetClient />;
+  return (
+    <Suspense>
+      <FleetClient />
+    </Suspense>
+  );
 }

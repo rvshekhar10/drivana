@@ -159,9 +159,13 @@ export interface BookingRequest {
   assetId: number;
   startDate: string;
   endDate: string;
+  startTime?: string;
+  endTime?: string;
   couponCode?: string;
   pickupLocation?: string;
   notes?: string;
+  source?: string;
+  holdId?: number;
 }
 
 export type BookingStatus =
@@ -335,4 +339,28 @@ export interface CustomerSession {
   last_active_at: string;
   created_at: string;
   is_current: boolean;
+}
+
+// ===========================
+// Service Cities
+// ===========================
+
+export interface ServiceCity {
+  id: number;
+  name: string;
+  slug: string;
+  latitude?: number;
+  longitude?: number;
+  state?: string;
+  state_code?: string;
+  country?: string;
+  country_code?: string;
+}
+
+export interface CityCollection {
+  id: number;
+  name: string;
+  slug: string;
+  description?: string;
+  cities: ServiceCity[];
 }

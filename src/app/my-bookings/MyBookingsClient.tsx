@@ -210,7 +210,8 @@ export default function MyBookingsClient() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 sm:p-6 hover:border-white/10 transition-all"
+                    className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 sm:p-6 hover:border-white/10 transition-all cursor-pointer"
+                    onClick={() => window.location.href = `/my-bookings/${booking.id}`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                       {/* Left: Booking info */}

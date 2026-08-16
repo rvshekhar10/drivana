@@ -2,27 +2,25 @@
 
 import { useState, useEffect } from "react";
 import { fetchListings } from "@/lib/api-client";
-import carsData from "@/data/cars.json";
 import type { AssetListing } from "@/types/xrmlite";
 
 interface UseListingsOptions {
   city?: string;
+  cityId?: number;
   category?: number;
   brand?: number;
 }
 
 /**
- * Hook to fetch asset listings from the XRMlite API with automatic fallback
- * to the local static cars.json data.
+ * Hook to fetch asset listings from the XRMlite API.
+ * No static fallback — purely API-driven.
  */
 export function useListings(options?: UseListingsOptions) {
-  const { city, category, brand } = options || {};
+  const { city, cityId, category, brand } = options || {};
 
-  const [listings, setListings] = useState<AssetListing[]>(
-    carsData as unknown as AssetListing[]
-  );
+  const [listings, setListings] = useState<AssetListing[]>([]);
   const [loading, setLoading] = useState(true);
-  const [source, setSource] = useState<"api" | "static">("static");
+  const [source, setSource] = useState<"api" | "static">("api");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -33,23 +31,21 @@ export function useListings(options?: UseListingsOptions) {
       setError(null);
 
       try {
-        const result = await fetchListings({ city, category, brand });
+        const result = await fetchListings({ city, cityId, category, brand });
 
         if (cancelled) return;
 
-        if (result.success && result.data && result.data.length > 0) {
+        if (result.success && result.data) {
           setListings(result.data);
           setSource(result.source === "api" ? "api" : "static");
         } else {
-          // API returned empty or failed — use static data
-          setListings(carsData as unknown as AssetListing[]);
-          setSource("static");
+          setListings([]);
+          setSource("api");
         }
       } catch (err) {
         if (cancelled) return;
         setError(err instanceof Error ? err.message : "Failed to fetch");
-        setListings(carsData as unknown as AssetListing[]);
-        setSource("static");
+        setListings([]);
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -60,7 +56,7 @@ export function useListings(options?: UseListingsOptions) {
     return () => {
       cancelled = true;
     };
-  }, [city, category, brand]);
+  }, [city, cityId, category, brand]);
 
   return { listings, loading, source, error };
 }

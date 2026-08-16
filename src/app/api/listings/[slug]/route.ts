@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getXRMListingBySlug } from "@/lib/xrmlite";
 import { adaptAssetToListing } from "@/lib/asset-adapter";
-import carsData from "@/data/cars.json";
 
 export async function GET(
   request: NextRequest,
@@ -9,7 +8,7 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  // Try XRMlite API first
+  // Try XRMlite API
   const result = await getXRMListingBySlug(slug);
 
   if (result.success && result.data) {
@@ -18,16 +17,6 @@ export async function GET(
       success: true,
       data: adapted,
       source: "api",
-    });
-  }
-
-  // Fallback to static data
-  const staticCar = carsData.find((c) => c.slug === slug);
-  if (staticCar) {
-    return NextResponse.json({
-      success: true,
-      data: staticCar,
-      source: "static",
     });
   }
 

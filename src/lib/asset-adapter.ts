@@ -1,95 +1,177 @@
 /**
  * Adapter to transform XRMlite API asset format → our UI AssetListing format.
- * This keeps all existing components (CarCard, FleetClient, CarDetailClient) working
- * without modification while consuming the real API shape.
+ * Handles the REAL API response shape:
+ *   - attributes (not specs)
+ *   - pricing[].pricing_type = "daily" | "weekly" | "monthly"
+ *   - pricing[].amount (string like "2499.00")
+ *   - pricing[].original_amount (string or null)
+ *   - highlight_features (not features)
+ *   - deposit (string like "5000.00")
+ *   - excess_km_charge (string)
+ *   - location_name
+ *   - city_id for filtering
  */
 
-import type { XRMAsset } from "@/types/xrm-assets";
 import type { AssetListing } from "@/types/xrmlite";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type RawAsset = any;
+
 /**
- * Convert a single XRMAsset (API shape) → AssetListing (UI shape).
+ * Convert a single raw API asset → AssetListing (UI shape).
  */
-export function adaptAssetToListing(asset: XRMAsset): AssetListing {
-  // Extract pricing by period
-  const dailyPricing = asset.pricing.find((p) => p.period === "per_day");
-  const weeklyPricing = asset.pricing.find((p) => p.period === "per_week");
-  const monthlyPricing = asset.pricing.find((p) => p.period === "per_month");
+export function adaptAssetToListing(asset: RawAsset): AssetListing {
+  const pricing = asset.pricing || [];
+  const attrs = asset.attributes || asset.specs || {};
 
-  // Find featured image
-  const featuredMedia = asset.media.find((m) => m.is_featured);
-  const imageUrl = featuredMedia?.url || asset.media[0]?.url || "";
+  // Extract pricing by type — handle both naming conventions
+  const dailyPricing =
+    pricing.find((p: RawAsset) => p.pricing_type === "daily" || p.period === "per_day");
+  const weeklyPricing =
+    pricing.find((p: RawAsset) => p.pricing_type === "weekly" || p.period === "per_week");
+  const monthlyPricing =
+    pricing.find((p: RawAsset) => p.pricing_type === "monthly" || p.period === "per_month");
 
-  // Calculate discount
-  const pricePerDay = dailyPricing?.price || 0;
-  const originalPrice = dailyPricing?.original_price || pricePerDay;
+  // Parse price (handles both string "2499.00" and number 2499)
+  const parsePrice = (val: unknown): number => {
+    if (typeof val === "number") return val;
+    if (typeof val === "string") return parseFloat(val) || 0;
+    return 0;
+  };
+
+  const pricePerDay = parsePrice(dailyPricing?.amount || dailyPricing?.price);
+  const originalPrice = parsePrice(dailyPricing?.original_amount || dailyPricing?.original_price) || pricePerDay;
+  const pricePerWeek = parsePrice(weeklyPricing?.amount || weeklyPricing?.price) || Math.round(pricePerDay * 7 * 0.85);
+  const pricePerMonth = parsePrice(monthlyPricing?.amount || monthlyPricing?.price) || Math.round(pricePerDay * 30 * 0.8);
+  const deposit = parsePrice(asset.deposit || dailyPricing?.deposit) || 5000;
+
+  // Discount
   const discount =
     originalPrice > pricePerDay
       ? Math.round(((originalPrice - pricePerDay) / originalPrice) * 100)
       : 0;
 
-  // Map specs
-  const specs = asset.specs || {};
+  // Find featured image
+  const media = asset.media || [];
+  const featuredMedia = media.find((m: RawAsset) => m.is_featured === 1 || m.is_featured === true);
+  const imageUrl = featuredMedia?.url || media[0]?.url || "";
+
+  // Features — prefer highlight_features, fallback to features
+  const features: string[] = asset.highlight_features || asset.features || [];
+
+  // Category from attributes or asset fields
+  const bodyType = attrs.body_type || "";
+  const category = asset.category_name || formatBodyType(bodyType) || "Car";
+
+  // Transmission & fuel
+  const transmission = formatTransmission(attrs.transmission || attrs.transmission_type || "manual");
+  const fuelType = formatFuel(attrs.fuel_type || attrs.fuel || "petrol");
+
+  // KM limit from daily pricing or excess_km_charge
+  const kmLimit = dailyPricing?.km_limit
+    ? `${dailyPricing.km_limit} km/day`
+    : attrs.km_limit || "250 km/day";
+  const excessKmCharge = asset.excess_km_charge
+    ? `₹${parsePrice(asset.excess_km_charge)}/km`
+    : attrs.excess_km_charge || "₹8/km";
 
   return {
     id: asset.id,
     slug: asset.slug,
     name: asset.name,
-    model: String(asset.model_year),
+    model: String(attrs.manufacturing_year || asset.model_year || asset.model_name || ""),
     image_url: imageUrl,
-    media: asset.media.map((m) => ({
-      type: m.type,
+    media: media.map((m: RawAsset) => ({
+      type: m.type || "image",
       url: m.url,
       alt: m.alt,
-      featured: m.is_featured,
+      featured: m.is_featured === 1 || m.is_featured === true,
     })),
     price_per_day: pricePerDay,
-    price_per_week: weeklyPricing?.price || Math.round(pricePerDay * 7 * 0.85),
-    price_per_month: monthlyPricing?.price || Math.round(pricePerDay * 30 * 0.8),
+    price_per_week: pricePerWeek,
+    price_per_month: pricePerMonth,
     original_price: originalPrice,
     discount,
-    features: asset.features || [],
-    transmission: specs.transmission_type || "Manual",
-    fuel_type: specs.fuel || "Petrol",
-    deposit: dailyPricing?.deposit || 5000,
-    rating: asset.rating || 0,
+    features,
+    transmission,
+    fuel_type: fuelType,
+    deposit,
+    rating: parsePrice(asset.rating) || 0,
     review_count: asset.review_count || 0,
-    pickup_location: asset.pickup_location || `${asset.city}`,
-    category: asset.category_name || specs.body_type || "Car",
+    pickup_location: asset.location_name || asset.pickup_location || "",
+    category,
     specs: {
-      brand: specs.brand || asset.brand_name || asset.name.split(" ")[0],
-      model_name: specs.model_name || asset.model_name || asset.name,
-      manufacturing_year: specs.manufacturing_year || Number(asset.model_year) || 2024,
-      body_type: specs.body_type || asset.category_name || "Car",
-      fuel: specs.fuel || "Petrol",
-      engine_capacity: specs.engine_capacity || "",
-      transmission_type: specs.transmission_type || "Manual",
-      seating_capacity: specs.seating_capacity || "5 Seater",
-      baggage_capacity: specs.baggage_capacity || "2 Luggage",
-      mileage: specs.mileage || "",
-      km_limit: specs.km_limit || dailyPricing?.km_limit || "250 km/day",
-      excess_km_charge: specs.excess_km_charge || "₹8/km",
-      air_conditioning: specs.air_conditioning,
-      power_steering: specs.power_steering,
-      power_windows: specs.power_windows,
-      abs: specs.abs,
-      airbags: specs.airbags,
-      infotainment: specs.infotainment,
-      rear_camera: specs.rear_camera,
-      keyless_entry: specs.keyless_entry,
+      brand: attrs.brand || asset.brand_name || asset.name.split(" ")[0],
+      model_name: attrs.model_name || asset.model_name || asset.name,
+      manufacturing_year: attrs.manufacturing_year || Number(asset.model_year) || 2024,
+      body_type: bodyType || category,
+      fuel: fuelType,
+      engine_capacity: attrs.engine_capacity_cc ? `${attrs.engine_capacity_cc} CC` : (attrs.engine_capacity || ""),
+      transmission_type: transmission,
+      seating_capacity: attrs.seating_capacity ? `${attrs.seating_capacity} Seater` : "5 Seater",
+      baggage_capacity: attrs.luggage_capacity ? `${attrs.luggage_capacity} Luggage` : "2 Luggage",
+      mileage: attrs.mileage || "",
+      km_limit: kmLimit,
+      excess_km_charge: excessKmCharge,
+      air_conditioning: formatBool(attrs.air_conditioning),
+      power_steering: formatBool(attrs.power_steering),
+      power_windows: formatBool(attrs.power_windows),
+      abs: formatBool(attrs.abs),
+      airbags: typeof attrs.airbags === "string" ? attrs.airbags : (attrs.airbags ? "Yes" : undefined),
+      infotainment: attrs.infotainment_screen || attrs.infotainment,
+      rear_camera: formatBool(attrs.rear_parking_camera || attrs.rear_camera),
+      keyless_entry: formatBool(attrs.keyless_entry),
     },
     description: asset.description || "",
     ideal_for: asset.ideal_for || [],
     nearby_destinations: asset.nearby_destinations || [],
     terms: asset.terms || [],
-    city: asset.city,
+    city: asset.city_id ? String(asset.city_id) : undefined,
     status: asset.status,
   };
 }
 
 /**
- * Convert an array of XRMAssets → AssetListings.
+ * Convert an array of raw API assets → AssetListings.
  */
-export function adaptAssetsToListings(assets: XRMAsset[]): AssetListing[] {
-  return assets.map(adaptAssetToListing);
+export function adaptAssetsToListings(assets: RawAsset[]): AssetListing[] {
+  return (assets || []).map(adaptAssetToListing);
+}
+
+// --- Helpers ---
+
+function formatBodyType(raw: string): string {
+  const map: Record<string, string> = {
+    "compact-suv": "SUV",
+    suv: "SUV",
+    hatchback: "Hatchback",
+    sedan: "Sedan",
+    muv: "MUV",
+    mpv: "MPV",
+    crossover: "Crossover",
+  };
+  return map[raw.toLowerCase()] || raw.charAt(0).toUpperCase() + raw.slice(1);
+}
+
+function formatTransmission(raw: string): string {
+  if (!raw) return "Manual";
+  const lower = raw.toLowerCase();
+  if (lower === "automatic" || lower === "auto" || lower === "amt") return "Automatic";
+  return "Manual";
+}
+
+function formatFuel(raw: string): string {
+  if (!raw) return "Petrol";
+  const lower = raw.toLowerCase();
+  if (lower === "diesel") return "Diesel";
+  if (lower === "cng") return "CNG";
+  if (lower === "electric" || lower === "ev") return "Electric";
+  return "Petrol";
+}
+
+function formatBool(val: unknown): string | undefined {
+  if (val === true || val === "true" || val === "yes") return "Yes";
+  if (val === false || val === "false" || val === "no" || val === "none") return undefined;
+  if (typeof val === "string" && val.length > 0) return val;
+  return undefined;
 }
