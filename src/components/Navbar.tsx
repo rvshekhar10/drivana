@@ -185,13 +185,24 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
             <a
               href="tel:+917079138350"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
+              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors text-white/50 hover:text-white"
+              aria-label="Call us"
+              title="+91 70791 38350"
             >
-              <Phone size={14} className="text-gold" />
-              <span>70791 38350</span>
+              <Phone size={16} />
+            </a>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-green-500/10 transition-colors text-white/50 hover:text-green-400"
+              aria-label="WhatsApp"
+              title="Chat on WhatsApp"
+            >
+              <MessageCircle size={16} />
             </a>
 
             {isLoggedIn ? (
