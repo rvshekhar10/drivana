@@ -114,6 +114,7 @@ export default function QuickBookModal({
   // Phase 2: Create hold
   const handleConfirmBooking = useCallback(async () => {
     if (!isLoggedIn) {
+      onClose(); // Close QuickBook so login modal is visible
       openLoginModal();
       return;
     }
@@ -144,7 +145,7 @@ export default function QuickBookModal({
       setError("Connection error. Please try again.");
       setStep("error");
     }
-  }, [isLoggedIn, openLoginModal, assetId, startDate, endDate, pricing]);
+  }, [isLoggedIn, openLoginModal, onClose, assetId, startDate, endDate, pricing]);
 
   // Phase 3: Confirm payment (calls booking API)
   const [bookingNumber, setBookingNumber] = useState<string | null>(null);
@@ -157,8 +158,8 @@ export default function QuickBookModal({
     try {
       const token = localStorage.getItem("xrm_token");
       if (!token) {
+        onClose();
         openLoginModal();
-        setStep("ready");
         return;
       }
 
@@ -184,8 +185,8 @@ export default function QuickBookModal({
         setBookingNumber(data.data.booking_number || `#${data.data.id}`);
         setStep("success" as Step);
       } else if (data.error?.code === "UNAUTHENTICATED") {
+        onClose();
         openLoginModal();
-        setStep("ready");
       } else if (data.error?.code === "INTERNAL_ERROR") {
         setError("The booking service is temporarily unavailable. Please try again in a moment or book via WhatsApp.");
         setStep("error");
