@@ -157,105 +157,103 @@ export default function FleetClient() {
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative h-[45vh] sm:h-[55vh] flex items-center justify-center overflow-hidden">
+      {/* Hero — compact, integrated with search */}
+      <section className="relative pt-20 sm:pt-24 pb-4 sm:pb-6 overflow-hidden">
         <Image
           src="/drivana-hero-image.avif"
-          alt="DRIVANA self-drive car fleet in Patna"
+          alt="DRIVANA self-drive car fleet"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black" />
 
-        <div className="relative z-10 text-center px-4">
-          <motion.span
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+          {/* Title */}
+          <div className="text-center mb-6 sm:mb-8">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
+            >
+              Choose Your <span className="text-gold">Ride</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mt-2 text-white/50 text-sm sm:text-base"
+            >
+              {listings.length} cars available
+              {selectedCity ? ` in ${selectedCity.name}` : ""}
+              {hasDateFilter && (
+                <span className="text-gold/80 ml-1">
+                  • {new Date(urlStartDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} → {new Date(urlEndDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
+                </span>
+              )}
+            </motion.p>
+          </div>
+
+          {/* Search Form — inside hero */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block text-gold text-xs sm:text-sm font-medium tracking-[0.3em] uppercase mb-4"
+            transition={{ delay: 0.3 }}
+            className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-4"
           >
-            Our Fleet
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
-          >
-            Choose Your <span className="text-gold">Ride</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-4 text-white/60 text-base sm:text-lg max-w-lg mx-auto"
-          >
-            {listings.length} cars available
-            {selectedCity ? ` in ${selectedCity.name}` : ""}.
-            {hasDateFilter && (
-              <span className="block text-gold/80 text-sm mt-1">
-                Showing availability for {new Date(urlStartDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })} → {new Date(urlEndDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
-              </span>
-            )}
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Date/City Search Form — inline on fleet page */}
-      <section className="px-4 sm:px-6 -mt-8 relative z-20 mb-4">
-        <div className="max-w-4xl mx-auto bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-4">
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 items-end">
-            {/* City */}
-            <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1.5 pl-1">City</label>
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-3 items-end">
+              {/* City */}
+              <div>
+                <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1 pl-1">City</label>
+                <button
+                  onClick={openCityPicker}
+                  className="w-full flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm hover:border-gold/30 transition-all"
+                >
+                  <MapPin size={13} className="text-gold shrink-0" />
+                  <span className="text-white font-medium truncate">{selectedCity?.name || "Select"}</span>
+                </button>
+              </div>
+              {/* Pickup */}
+              <div>
+                <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1 pl-1">Pickup</label>
+                <input
+                  type="date"
+                  min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
+                  value={localStartDate}
+                  onChange={(e) => setLocalStartDate(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
+                />
+              </div>
+              {/* Drop-off */}
+              <div>
+                <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1 pl-1">Drop-off</label>
+                <input
+                  type="date"
+                  min={localStartDate || new Date(Date.now() + 86400000).toISOString().split("T")[0]}
+                  value={localEndDate}
+                  onChange={(e) => setLocalEndDate(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
+                />
+              </div>
+              {/* Search */}
               <button
-                onClick={openCityPicker}
-                className="w-full flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm hover:border-gold/30 transition-all"
+                onClick={handleLocalSearch}
+                disabled={!localStartDate || !localEndDate}
+                className="w-full flex items-center justify-center gap-2 bg-gold hover:bg-gold-light disabled:opacity-40 text-black font-bold py-2.5 rounded-lg text-sm transition-all"
               >
-                <MapPin size={14} className="text-gold shrink-0" />
-                <span className="text-white font-medium truncate">{selectedCity?.name || "Select"}</span>
+                <Search size={14} />
+                Check Availability
               </button>
             </div>
-            {/* Pickup */}
-            <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1.5 pl-1">Pickup</label>
-              <input
-                type="date"
-                min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
-                value={localStartDate}
-                onChange={(e) => setLocalStartDate(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
-              />
-            </div>
-            {/* Drop-off */}
-            <div>
-              <label className="block text-[10px] uppercase tracking-wider text-white/40 mb-1.5 pl-1">Drop-off</label>
-              <input
-                type="date"
-                min={localStartDate || new Date(Date.now() + 86400000).toISOString().split("T")[0]}
-                value={localEndDate}
-                onChange={(e) => setLocalEndDate(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold/40"
-              />
-            </div>
-            {/* Search */}
-            <button
-              onClick={handleLocalSearch}
-              disabled={!localStartDate || !localEndDate}
-              className="w-full flex items-center justify-center gap-2 bg-gold hover:bg-gold-light disabled:opacity-40 text-black font-bold py-2.5 rounded-xl text-sm transition-all"
-            >
-              <Search size={14} />
-              Check Availability
-            </button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Filters & Sort */}
-      <section className="sticky top-16 sm:top-20 z-40 bg-black/95 backdrop-blur-md border-b border-white/5 py-4 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* Filters & Sort — tight below hero */}
+      <section className="sticky top-16 sm:top-20 z-40 bg-black/95 backdrop-blur-md border-b border-white/5 py-3 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           {/* Category Filter */}
           <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto">
             <Filter size={14} className="text-white/40 shrink-0" />
