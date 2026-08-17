@@ -30,18 +30,6 @@ const navLinks = [
     icon: Shield,
   },
   {
-    label: "Blog",
-    href: "/blog",
-    description: "Tips, guides & travel stories",
-    icon: BookOpen,
-  },
-  {
-    label: "About",
-    href: "/about",
-    description: "Our story & mission",
-    icon: MapPin,
-  },
-  {
     label: "Contact",
     href: "/contact",
     description: "WhatsApp, call, or visit",
@@ -50,6 +38,8 @@ const navLinks = [
 ];
 
 const moreLinks = [
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
   { label: "FAQ", href: "/#faq" },
   { label: "Terms & Conditions", href: "/terms" },
   { label: "Privacy Policy", href: "/privacy" },
@@ -130,7 +120,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.slice(0, 5).map((link) => (
+            {navLinks.slice(0, 4).map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -270,38 +260,35 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
             ) : (
-              <>
-                <button
-                  onClick={openLoginModal}
-                  className="inline-flex items-center gap-2 text-white/70 hover:text-gold text-sm font-medium transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
-                >
-                  <User size={14} />
-                  Login
-                </button>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:scale-105 shadow-[0_2px_15px_rgba(206,150,61,0.25)]"
-                >
-                  <MessageCircle size={15} />
-                  Book Now
-                </a>
-              </>
+              <button
+                onClick={openLoginModal}
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-black font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:scale-105 shadow-[0_2px_15px_rgba(206,150,61,0.25)]"
+              >
+                <User size={15} />
+                Login / Register
+              </button>
             )}
           </div>
 
           {/* Mobile: CTA + Menu */}
           <div className="flex lg:hidden items-center gap-2">
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20book%20a%20self-drive%20car%20in%20Patna.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-gold text-black font-bold px-4 py-2 rounded-full text-xs"
-            >
-              <MessageCircle size={13} />
-              Book
-            </a>
+            {isLoggedIn ? (
+              <Link
+                href="/my-bookings"
+                className="inline-flex items-center gap-1.5 bg-gold text-black font-bold px-4 py-2 rounded-full text-xs"
+              >
+                <Car size={13} />
+                Bookings
+              </Link>
+            ) : (
+              <button
+                onClick={openLoginModal}
+                className="inline-flex items-center gap-1.5 bg-gold text-black font-bold px-4 py-2 rounded-full text-xs"
+              >
+                <User size={13} />
+                Login
+              </button>
+            )}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors"
