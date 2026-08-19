@@ -28,6 +28,7 @@ import QuickBookModal from "@/components/QuickBookModal";
 import { useListings } from "@/hooks/useListings";
 import { fetchCategories } from "@/lib/api-client";
 import { useCity } from "@/context/CityContext";
+import { useAuth } from "@/context/AuthContext";
 
 type SortOption = "price-low" | "price-high" | "rating";
 
@@ -40,6 +41,7 @@ interface AvailabilityInfo {
 
 export default function FleetClient() {
   const { selectedCity, openCityPicker } = useCity();
+  const { isLoggedIn } = useAuth();
   const { listings, loading } = useListings({ cityId: selectedCity?.id });
   const searchParams = useSearchParams();
 
@@ -62,6 +64,21 @@ export default function FleetClient() {
     id: number;
     name: string;
   } | null>(null);
+
+  // Track pending booking intent across login flow
+  const [pendingBookCar, setPendingBookCar] = useState<{
+    id: number;
+    name: string;
+  } | null>(null);
+
+  // Re-open QuickBook after login if there was a pending intent
+  useEffect(() => {
+    if (isLoggedIn && pendingBookCar && !quickBookCar) {
+      setQuickBookCar(pendingBookCar);
+      setPendingBookCar(null);
+    }
+  }, [isLoggedIn, pendingBookCar, quickBookCar]);
+
   const [categories, setCategories] = useState<string[]>([]);
 
   // Local date form state (for direct fleet page visitors)
@@ -639,7 +656,13 @@ export default function FleetClient() {
       {quickBookCar && hasDateFilter && (
         <QuickBookModal
           isOpen={!!quickBookCar}
-          onClose={() => setQuickBookCar(null)}
+          onClose={() => {
+            // Save intent if user isn't logged in (they'll be redirected to login)
+            if (!isLoggedIn) {
+              setPendingBookCar(quickBookCar);
+            }
+            setQuickBookCar(null);
+          }}
           assetId={quickBookCar.id}
           carName={quickBookCar.name}
           startDate={urlStartDate}
