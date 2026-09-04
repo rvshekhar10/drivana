@@ -8,11 +8,26 @@
  *   - highlight_features (not features)
  *   - deposit (string like "5000.00")
  *   - excess_km_charge (string)
- *   - location_name
- *   - city_id for filtering
  */
 
 import type { AssetListing } from "@/types/xrmlite";
+
+/** XRMlite base URL — used to prefix relative /uploads/ paths */
+const XRMLITE_BASE = "https://xrmlite.drivana.co.in";
+
+/**
+ * Resolve a media URL to an absolute URL that Next.js Image can load.
+ * - Already absolute (https://...): return as-is
+ * - /cars/... or /public/...: local Next.js public asset, return as-is
+ * - /uploads/...: stored on XRMlite server, prefix with XRMLITE_BASE
+ */
+function resolveMediaUrl(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  if (url.startsWith("/uploads/")) return `${XRMLITE_BASE}${url}`;
+  // Local public asset (/cars/..., etc.)
+  return url;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type RawAsset = any;
@@ -54,7 +69,7 @@ export function adaptAssetToListing(asset: RawAsset): AssetListing {
   // Find featured image
   const media = asset.media || [];
   const featuredMedia = media.find((m: RawAsset) => m.is_featured === 1 || m.is_featured === true);
-  const imageUrl = featuredMedia?.url || media[0]?.url || "";
+  const imageUrl = resolveMediaUrl(featuredMedia?.url || media[0]?.url || "");
 
   // Features — prefer highlight_features, fallback to features
   const features: string[] = asset.highlight_features || asset.features || [];
@@ -83,7 +98,7 @@ export function adaptAssetToListing(asset: RawAsset): AssetListing {
     image_url: imageUrl,
     media: media.map((m: RawAsset) => ({
       type: m.type || "image",
-      url: m.url,
+      url: resolveMediaUrl(m.url),
       alt: m.alt,
       featured: m.is_featured === 1 || m.is_featured === true,
     })),

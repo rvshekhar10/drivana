@@ -8,10 +8,26 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "xrmlite.drivana.co.in",
       },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+      },
+      {
+        protocol: "https",
+        hostname: "**.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.cloudinary.com",
+      },
+      // Allow any https image source for flexibility
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
   serverExternalPackages: ["@firebase/firestore"],
-  // Env vars available server-side (API routes) — NOT exposed to browser
   env: {
     XRMLITE_API_URL: process.env.XRMLITE_API_URL || "https://xrmlite.drivana.co.in/api/v1",
   },
